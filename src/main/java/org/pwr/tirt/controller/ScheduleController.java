@@ -9,11 +9,10 @@ import org.pwr.tirt.service.HtmlParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.google.gson.Gson;
 
 
 @RestController
@@ -26,11 +25,11 @@ public class ScheduleController {
     ScheduleRepository scheduleRepository;
 
     @RequestMapping(value = "/schedule/save", method = RequestMethod.POST)
-    public void saveSchedule(@ModelAttribute("schedule") Schedule schedule) {
+    public void saveSchedule(@RequestBody Schedule schedule) {
         scheduleRepository.save(htmlParser.convertHtmlToProcessedSchedule(schedule));
     }
 
-    @RequestMapping(value = "/schedule/{indexNo}", method = RequestMethod.GET, produces = "appliction/json")
+    @RequestMapping(value = "/schedule/{indexNo}", method = RequestMethod.GET)
     public String fetchSchedule(@PathVariable long indexNo) {
         List<ProcessedSchedule> schedule = scheduleRepository.findByIndexNo(indexNo);
         

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="scheduleModule">
+<head>
+<title>Strona główna</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+<script src="lib/angular.js"></script>
+<script src="mainModule.js"></script>
+</head>
+<body ng-controller="ScheduleCtrl">
+
+	<div class="container-fluid">
+		<h2>Podaj id planu</h2><input type="text" ng-model="scheduleId"></br></input>
+		<input type="button" class="btn btn-warning" value="pobierz plan" ng-click="fetchSchedule()">
+		</input>
+		<p>{{scheduleJson}}</p>
+	</div>
+
+	<div class="container-fluid">
+		<table>
+		<tr>
+			<td><h4>Semestr</h4></td>
+			<td><h4>Numer indexu</h4></td>
+			<td><h4></>Html z edukacji</h4></td>
+		</tr>
+		<tr>
+			<td><input type="text" ng-model="schedule.semester"></input></td>
+			<td><input type="text" ng-model="schedule.indexNo"></input></td>
+			<td><input type="text" ng-model="schedule.html"></input> </td>
+		</tr>
+		
+		</table>	
+			<input type="button" value="zapisz" class="btn btn-info" ng-click="saveHtml()"></input>
+		
+	</div>
+</body>
+</html>

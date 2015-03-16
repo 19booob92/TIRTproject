@@ -89,17 +89,4 @@ public class TirTprojectApplication {
         SpringApplication.run(TirTprojectApplication.class, args);
     }
 
-
-    @Bean
-    ViewResolver viewResolver() {
-        ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
-        templateResolver.setTemplateMode("HTML");
-        templateResolver.setPrefix("templates/");
-        templateResolver.setSuffix(".html");
-        SpringTemplateEngine engine = new SpringTemplateEngine();
-        engine.setTemplateResolver(templateResolver);
-        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-        viewResolver.setTemplateEngine(engine);
-        return viewResolver;
-    }
 }
