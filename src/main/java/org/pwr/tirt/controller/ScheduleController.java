@@ -7,7 +7,6 @@ import org.pwr.tirt.model.Schedule;
 import org.pwr.tirt.repository.ScheduleRepository;
 import org.pwr.tirt.service.HtmlParser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -60,4 +60,5 @@ public class HtmlParserTest {
         
         System.err.println(htmlParser.convertHtmlToProcessedSchedule(schedule));
     }
+    
 }
