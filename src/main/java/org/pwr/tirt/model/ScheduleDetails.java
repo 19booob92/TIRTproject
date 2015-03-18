@@ -1,8 +1,20 @@
 package org.pwr.tirt.model;
 
+import java.io.Serializable;
 
-public class ScheduleDetails {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
+public class ScheduleDetails implements Serializable{
+
+    private static final long serialVersionUID = 17895555L;
+    
+    @Id
+    @GeneratedValue
+    private Long id;
+    
     private String dayOfWeek;
     
     private String start;
@@ -63,6 +75,18 @@ public class ScheduleDetails {
     
     public void setEnd(String end) {
         this.end = end;
+    }
+
+
+    
+    public long getId() {
+        return id;
+    }
+
+
+    
+    public void setId(long id) {
+        this.id = id;
     }
     
 }

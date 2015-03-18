@@ -1,6 +1,5 @@
 package org.pwr.tirt.utils;
 
-import org.apache.activemq.filter.function.splitFunction;
 import org.pwr.tirt.model.ScheduleDetails;
 import org.springframework.stereotype.Component;
 

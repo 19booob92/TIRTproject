@@ -31,7 +31,6 @@ public class ScheduleController {
     @RequestMapping(value = "/schedule/{indexNo}", method = RequestMethod.GET)
     public String fetchSchedule(@PathVariable long indexNo) {
         List<ProcessedSchedule> schedule = scheduleRepository.findByIndexNo(indexNo);
-        
         return schedule.get(0).getSubjectsAsJson();
     }
 }

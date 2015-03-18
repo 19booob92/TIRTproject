@@ -10,8 +10,8 @@ import org.jsoup.select.Elements;
 import org.pwr.tirt.model.ProcessedSchedule;
 import org.pwr.tirt.model.Schedule;
 import org.pwr.tirt.model.Subject;
-import org.pwr.tirt.repository.ScheduleRepository;
 import org.pwr.tirt.repository.SubjectRepository;
+import org.pwr.tirt.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,6 +23,9 @@ public class HtmlParser {
 
     @Autowired
     SubjectRepository subjectRepo;
+    
+    @Autowired
+    StringUtils stringUtils;
     
     private static final String TABLE_TAG_NAME = "hrefZapisaneGrupySluchaczaTabela6764821";
     private static final int TABLE_NUMBER = 17;
@@ -68,7 +71,7 @@ public class HtmlParser {
             Element tableIntrOtherData = trOtherData.select("table").first();
             Element otherDataTd = tableIntrOtherData.select("td").first();
             
-            subject.setPlace(otherDataTd.text());
+            subject.setDetails(stringUtils.splitBuildingsAndTimeData(otherDataTd.text()));
             subjects.add(subject);
         }
         

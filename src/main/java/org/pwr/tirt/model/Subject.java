@@ -28,7 +28,7 @@ public class Subject implements Serializable {
 
     private int day;
 
-    private String place;
+    private ScheduleDetails details;
 
     public long getId() {
         return id;
@@ -100,13 +100,13 @@ public class Subject implements Serializable {
     }
 
 
-    public String getPlace() {
-        return place;
+    public ScheduleDetails getDetails() {
+        return details;
     }
 
 
-    public void setPlace(String place) {
-        this.place = place;
+    public void setDetails(ScheduleDetails details) {
+        this.details = details;
     }
 
 
