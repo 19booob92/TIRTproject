@@ -4,30 +4,10 @@
 <title>Strona główna</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="lib/css/subjectsTypes.css">
 <script src="lib/angular.js"></script>
 <script src="mainModule.js"></script>
 
-<style>
-	.Wy {
-		background-color: #FFECE4;
-	}
-	
-	.Cw {
-		background-color: #32FFE4;
-	}
-
-	.Za {
-		background-color: #12AA44;
-	}
-
-	.Pr {
-		background-color: #AA1FE4;
-	}
-
-	.Se {
-		background-color: #32F998;
-	}
-</style>
 
 </head>
 <body ng-controller="ScheduleCtrl">
@@ -38,7 +18,6 @@
 		</input>
 		<!-- <p>{{scheduleJson}}</p>  -->
 	</div>
-
 
 	<table  ng-show="isClicked" class="table table-striped table-bordered table-condensed">
 		<tr name="header">
