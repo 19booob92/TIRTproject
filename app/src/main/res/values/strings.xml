@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PlanGen</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="test">To jest testowy tekst</string>
+    <string name="add">Dodaj</string>
+    <string name="load">Wczytaj dane</string>
+</resources>
