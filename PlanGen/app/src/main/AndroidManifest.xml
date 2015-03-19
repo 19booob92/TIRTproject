@@ -16,6 +16,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".LogicActivity"
+            android:label="@string/title_activity_logic"
+            android:parentActivityName=".TestActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.pwr.tirt.plangen.TestActivity" />
+        </activity>
+        <activity
+            android:name=".LayoutActivity"
+            android:label="@string/title_activity_layout"
+            android:parentActivityName=".TestActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.pwr.tirt.plangen.TestActivity" />
+        </activity>
     </application>
 
 </manifest>

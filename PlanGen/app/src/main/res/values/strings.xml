@@ -6,4 +6,8 @@
     <string name="test">To jest testowy tekst</string>
     <string name="add">Dodaj</string>
     <string name="load">Wczytaj dane</string>
+    <string name="title_activity_logic">LogicActivity</string>
+    <string name="title_activity_layout">LayoutActivity</string>
+    <string name="layout_activity">Layout</string>
+    <string name="logic_activity">Logic</string>
 </resources>
