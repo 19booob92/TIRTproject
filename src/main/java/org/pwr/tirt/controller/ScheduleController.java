@@ -1,11 +1,9 @@
 package org.pwr.tirt.controller;
 
-import java.util.List;
-
+import org.pwr.tirt.mod.ScheduleComparator;
 import org.pwr.tirt.model.ProcessedSchedule;
 import org.pwr.tirt.model.Schedule;
-import org.pwr.tirt.repository.ScheduleRepository;
-import org.pwr.tirt.service.HtmlParser;
+import org.pwr.tirt.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,19 +16,25 @@ import org.springframework.web.bind.annotation.RestController;
 public class ScheduleController {
 
     @Autowired
-    HtmlParser htmlParser;
+    ScheduleComparator scheduleComparator;
 
     @Autowired
-    ScheduleRepository scheduleRepository;
-
+    ScheduleService scheduleService;
+    
     @RequestMapping(value = "/schedule/save", method = RequestMethod.POST)
     public void saveSchedule(@RequestBody Schedule schedule) {
-        scheduleRepository.save(htmlParser.convertHtmlToProcessedSchedule(schedule));
+    	scheduleService.saveSchedule(schedule);
     }
 
     @RequestMapping(value = "/schedule/{indexNo}", method = RequestMethod.GET)
     public String fetchSchedule(@PathVariable long indexNo) {
-        List<ProcessedSchedule> schedule = scheduleRepository.findByIndexNo(indexNo);
-        return schedule.get(0).getSubjectsAsJson();
+        ProcessedSchedule schedule = scheduleService.findByIndexNo(indexNo);  
+        return schedule.getSubjectsAsJson();
     }
+    
+    @RequestMapping(value = "/schedule/compare/{indexNo}/{indexNoToCompare}", method = RequestMethod.GET)
+    public String compareByHoures(@PathVariable long indexNo, @PathVariable long indexNoToCompare) {
+    	return scheduleComparator.compareTo(indexNo, indexNoToCompare);
+    }
+    
 }

@@ -1,4 +1,4 @@
-package org.pwr.tirt.service;
+package org.pwr.tirt.mod;
 
 
 import org.jsoup.Connection;

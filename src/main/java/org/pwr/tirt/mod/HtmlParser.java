@@ -1,4 +1,4 @@
-package org.pwr.tirt.service;
+package org.pwr.tirt.mod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,6 @@ import org.jsoup.select.Elements;
 import org.pwr.tirt.model.ProcessedSchedule;
 import org.pwr.tirt.model.Schedule;
 import org.pwr.tirt.model.Subject;
-import org.pwr.tirt.repository.SubjectRepository;
 import org.pwr.tirt.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,9 +20,6 @@ import com.google.gson.Gson;
 @Component
 public class HtmlParser {
 
-    @Autowired
-    SubjectRepository subjectRepo;
-    
     @Autowired
     StringUtils stringUtils;
     

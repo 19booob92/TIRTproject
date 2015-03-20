@@ -51,5 +51,4 @@ public class ProcessedSchedule implements Serializable{
         this.subjectsAsJson = subjectsAsJson;
     }
 
-
 }

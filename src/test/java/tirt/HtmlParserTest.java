@@ -11,8 +11,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.junit.Assert;
 import org.junit.Test;
+import org.pwr.tirt.mod.HtmlParser;
 import org.pwr.tirt.model.Schedule;
-import org.pwr.tirt.service.HtmlParser;
 
 
 public class HtmlParserTest {
