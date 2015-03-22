@@ -10,4 +10,7 @@
     <string name="title_activity_layout">LayoutActivity</string>
     <string name="layout_activity">Layout</string>
     <string name="logic_activity">Logic</string>
+    <string name="insert_success">Dodano wydarzenie</string>
+    <string name="insert_failure">Nie dodano wydarzenia</string>
+    <string name="download">Pobierz</string>
 </resources>

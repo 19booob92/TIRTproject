@@ -2,13 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.pwr.tirt.plangen" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".TestActivity"
+            android:name=".activities.TestActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,20 +20,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LogicActivity"
+            android:name=".activities.LogicActivity"
             android:label="@string/title_activity_logic"
-            android:parentActivityName=".TestActivity" >
+            android:parentActivityName=".activities.TestActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.pwr.tirt.plangen.TestActivity" />
+                android:value=".activities.TestActivity" />
         </activity>
         <activity
-            android:name=".LayoutActivity"
+            android:name=".activities.LayoutActivity"
             android:label="@string/title_activity_layout"
-            android:parentActivityName=".TestActivity" >
+            android:parentActivityName=".activities.TestActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.pwr.tirt.plangen.TestActivity" />
+                android:value=".activities.TestActivity" />
         </activity>
     </application>
 

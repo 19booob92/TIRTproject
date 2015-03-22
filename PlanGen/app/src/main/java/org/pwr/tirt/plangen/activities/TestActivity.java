@@ -1,4 +1,4 @@
-package org.pwr.tirt.plangen;
+package org.pwr.tirt.plangen.activities;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import org.pwr.tirt.plangen.R;
 
 public class TestActivity extends ActionBarActivity {
 
