@@ -64,8 +64,9 @@ scheduleModule.controller('ScheduleCtrl', function($scope, $http) {
 				$scope[day + hour + "class"] = type.substring(0, 2);
 				;
 			}
-		}
-		;
+		};
 	};
 
+	
+	
 });
