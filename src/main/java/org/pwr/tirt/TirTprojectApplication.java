@@ -19,8 +19,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
-
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
 @ComponentScan({ "org.pwr.tirt" })
@@ -28,62 +27,63 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableAspectJAutoProxy
 @PropertySource({ "classpath:application.properties" })
 @EnableJpaRepositories("org.pwr.tirt.repository")
-public class TirTprojectApplication {
+public class TirTprojectApplication extends WebMvcConfigurerAdapter {
 
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
-    }
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+		return new PropertySourcesPlaceholderConfigurer();
+	}
 
-    @Value("${db.driver}")
-    private String driverName;
-    @Value("${db.url}")
-    private String url;
-    @Value("${db.username}")
-    private String login;
-    @Value("${db.password}")
-    private String pass;
-    @Value("${hibernate.show_sql}")
-    private String showSql;
-    @Value("${hibernate.dialect}")
-    private String dialect;
+	@Value("${db.driver}")
+	private String driverName;
+	@Value("${db.url}")
+	private String url;
+	@Value("${db.username}")
+	private String login;
+	@Value("${db.password}")
+	private String pass;
+	@Value("${hibernate.show_sql}")
+	private String showSql;
+	@Value("${hibernate.dialect}")
+	private String dialect;
 
-    @Bean
-    public DataSource dataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName(driverName);
-        dataSource.setUrl(url);
-        dataSource.setUsername(login);
-        dataSource.setPassword(pass);
-        return dataSource;
-    }
+	@Bean
+	public DataSource dataSource() {
+		BasicDataSource dataSource = new BasicDataSource();
+		dataSource.setDriverClassName(driverName);
+		dataSource.setUrl(url);
+		dataSource.setUsername(login);
+		dataSource.setPassword(pass);
+		return dataSource;
+	}
 
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean lef = new LocalContainerEntityManagerFactoryBean();
-        lef.setDataSource(dataSource());
-        lef.setJpaVendorAdapter(jpaVendorAdapter());
-        lef.setPackagesToScan("org.pwr.tirt.model");
-        return lef;
-    }
+	@Bean
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+		LocalContainerEntityManagerFactoryBean lef = new LocalContainerEntityManagerFactoryBean();
+		lef.setDataSource(dataSource());
+		lef.setJpaVendorAdapter(jpaVendorAdapter());
+		lef.setPackagesToScan("org.pwr.tirt.model");
+		return lef;
+	}
 
-    @Bean
-    public JpaVendorAdapter jpaVendorAdapter() {
-        HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
-        hibernateJpaVendorAdapter.setShowSql(false);
-        hibernateJpaVendorAdapter.setGenerateDdl(true);
-        hibernateJpaVendorAdapter.setDatabase(Database.MYSQL);
-        hibernateJpaVendorAdapter.setDatabasePlatform("org.hibernate.dialect.MySQL5Dialect");
-        return hibernateJpaVendorAdapter;
-    }
+	@Bean
+	public JpaVendorAdapter jpaVendorAdapter() {
+		HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
+		hibernateJpaVendorAdapter.setShowSql(false);
+		hibernateJpaVendorAdapter.setGenerateDdl(true);
+		hibernateJpaVendorAdapter.setDatabase(Database.MYSQL);
+		hibernateJpaVendorAdapter
+				.setDatabasePlatform("org.hibernate.dialect.MySQL5Dialect");
+		return hibernateJpaVendorAdapter;
+	}
 
-    @Bean
-    public PlatformTransactionManager transactionManager() {
-        return new JpaTransactionManager();
-    }
+	@Bean
+	public PlatformTransactionManager transactionManager() {
+		return new JpaTransactionManager();
+	}
 
-    public static void main(String[] args) {
-        SpringApplication.run(TirTprojectApplication.class, args);
-    }
-    
+	public static void main(String[] args) throws Exception {
+		SpringApplication.run(TirTprojectApplication.class, args);
+	}
+
 }

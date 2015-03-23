@@ -52,7 +52,7 @@ scheduleModule.controller('ScheduleCtrl', function($scope, $http) {
 			var hour = fetchedDetails.start.replace(":", "_");
 			var day = fetchedDetails.dayOfWeek.substring(0, 2);
 			var type = fechedData[subject].type;
-			// do poprawienia (kodowanie na utf8 w backendzie)
+
 			if (day === "śr") {
 				$scope["sr" + hour] = fechedData[subject].name + '\n'
 						+ fechedData[subject].lector;
