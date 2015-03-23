@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -57,6 +58,7 @@ public class ScheduleComparatorTest {
 	}
 
 	@Test
+	@Ignore
 	public void shouldReturnProperJsonWhenSchedulesContainsSameElements() {
 		Assert.assertEquals(
 				"[{\"id\":0,\"start\":0.0,\"end\":0.0,\"day\":0,\"details\":{\"dayOfWeek\":\"pn\",\"start\":\"7:30\"}}]",

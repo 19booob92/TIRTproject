@@ -35,10 +35,11 @@ public class HtmlParser {
     
     private Gson gson = new Gson();
     
-    ProcessedSchedule processedSchedule = new ProcessedSchedule();
 
     public ProcessedSchedule convertHtmlToProcessedSchedule(Schedule schedule) {
-        List<Subject> subjects = new ArrayList<>();
+    	ProcessedSchedule processedSchedule = new ProcessedSchedule();
+
+    	List<Subject> subjects = new ArrayList<>();
 
         Document doc = Jsoup.parse(schedule.getHtml());
 

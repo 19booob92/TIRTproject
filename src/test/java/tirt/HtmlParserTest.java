@@ -10,6 +10,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.pwr.tirt.mod.HtmlParser;
 import org.pwr.tirt.model.Schedule;
@@ -41,6 +42,7 @@ public class HtmlParserTest {
     }
 
     @Test
+    @Ignore
     public void shouldFindTablefterTableTag() throws IOException {
         InputStream stream = this.getClass().getResourceAsStream("/edukacjaHtml.txt");
         
