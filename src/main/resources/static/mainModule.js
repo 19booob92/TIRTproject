@@ -1,5 +1,10 @@
 var scheduleModule = angular.module('scheduleModule', []);
 
+scheduleModule.config([ '$httpProvider', function($httpProvider) {
+	$httpProvider.defaults.useXDomain = true;
+	delete $httpProvider.defaults.headers.common['X-Requested-With'];
+} ]);
+
 scheduleModule.controller('ScheduleCtrl', function($scope, $http) {
 
 	$scope.scheduleId = '';
@@ -12,7 +17,7 @@ scheduleModule.controller('ScheduleCtrl', function($scope, $http) {
 	$scope.alertContent = "";
 
 	$scope.fetchSchedule = function() {
-		$http.get('http://localhost:8080/schedule/' + $scope.scheduleId)
+		$http.get('http://planpwr.unicloud.pl/schedule/' + $scope.scheduleId)
 				.success(function(fechedData) {
 					$scope.scheduleJson = fechedData;
 
@@ -24,7 +29,7 @@ scheduleModule.controller('ScheduleCtrl', function($scope, $http) {
 	$scope.saveHtml = function() {
 		$http({
 			method : 'POST',
-			url : 'http://localhost:8080/schedule/save',
+			url : 'http://planpwr.unicloud.pl/schedule/save',
 			data : $scope.schedule
 		}).success(function(data, status, headers, config) {
 			$scope.alert = true;
@@ -37,7 +42,7 @@ scheduleModule.controller('ScheduleCtrl', function($scope, $http) {
 
 	$scope.compareSchedules = function() {
 		$http.get(
-				'http://localhost:8080/schedule/compare/' + $scope.scheduleId
+				'http://planpwr.unicloud.pl/schedule/compare/' + $scope.scheduleId
 						+ '/' + $scope.secondScheduleId).success(
 				function(fechedData) {
 					$scope.scheduleJson = fechedData;
@@ -64,9 +69,7 @@ scheduleModule.controller('ScheduleCtrl', function($scope, $http) {
 				$scope[day + hour + "class"] = type.substring(0, 2);
 				;
 			}
-		};
+		}
+		;
 	};
-
-	
-	
 });
