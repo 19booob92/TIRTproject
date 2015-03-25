@@ -4,17 +4,31 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import org.pwr.tirt.plangen.R;
 
 
 public class LayoutActivity extends ActionBarActivity {
 
+    //boolean flag = false;
+    private LinearLayout linear;
+    //private Button dni;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_layout);
+        linear = (LinearLayout) findViewById(R.id.linear);
+       // dni = (Button) findViewById(R.id.btndni);
+
+
     }
+
+
 
 
     @Override
@@ -38,4 +52,5 @@ public class LayoutActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

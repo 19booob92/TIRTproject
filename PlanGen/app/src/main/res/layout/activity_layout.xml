@@ -6,7 +6,83 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="org.pwr.tirt.plangen.activities.LayoutActivity">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/linearLayout">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="253dp"
+        android:layout_marginStart="253dp"
+        android:clickable = "true"
+        android:id="@+id/linear">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:text="pn"
+            android:gravity="center"
+            android:id="@+id/btnpon" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:text="wt"
+            android:gravity="center"
+            android:id="@+id/btnwt" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:text="sr"
+            android:gravity="center"
+            android:id="@+id/btnsr" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:text="cz"
+            android:gravity="center"
+            android:id="@+id/btnczw" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:text="pt"
+            android:gravity="center"
+            android:id="@+id/btnpt" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:text="so"
+            android:gravity="center"
+            android:id="@+id/btnso" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:text="nd"
+            android:gravity="center"
+            android:id="@+id/btnnd" />
+    </LinearLayout>
 
 </RelativeLayout>
