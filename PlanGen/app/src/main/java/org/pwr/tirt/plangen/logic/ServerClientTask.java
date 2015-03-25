@@ -17,14 +17,14 @@ public class ServerClientTask extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPreExecute() {
-        if(!ServerClient.checkInternetConenction(context))
+        if(!ServerClient.checkInternetConnection(context))
             noInternet = true;
     }
 
     @Override
     protected String doInBackground(String... params) {
         if(!noInternet)
-            return ServerClient.getDataFromServer();
+            return ServerClient.getScheduleForIndex(params[0]);
         else
             return Constants.FAIL_MESSAGE;
     }

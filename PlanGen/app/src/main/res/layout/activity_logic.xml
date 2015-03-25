@@ -35,26 +35,20 @@
         </ScrollView>
     </HorizontalScrollView>
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/button"
+        <EditText
+            android:id="@+id/editText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/add"
-            android:onClick="onClickAddData"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:inputType="numberDecimal" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/download"

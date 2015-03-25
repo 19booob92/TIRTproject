@@ -1,7 +1,9 @@
 package org.pwr.tirt.plangen.activities;
 
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
 import org.pwr.tirt.plangen.logic.DBAdapter;
 import org.pwr.tirt.plangen.logic.Event;
 import org.pwr.tirt.plangen.R;
@@ -19,6 +22,8 @@ import org.pwr.tirt.plangen.logic.ServerClientTask;
 import java.util.ArrayList;
 
 public class LogicActivity extends ActionBarActivity implements ITaskListener {
+    private static final String LOG_TAG = "Logic Activity";
+
     private EditText editText;
     private TextView textView;
     private Button buttonDownload;
@@ -32,7 +37,7 @@ public class LogicActivity extends ActionBarActivity implements ITaskListener {
 
         editText = (EditText) findViewById(R.id.editText);
         textView = (TextView) findViewById(R.id.textView2);
-        buttonDownload = (Button) findViewById(R.id.button2);
+        buttonDownload = (Button) findViewById(R.id.button);
 
         initDatabase();
     }
@@ -70,7 +75,19 @@ public class LogicActivity extends ActionBarActivity implements ITaskListener {
 
     @Override
     public void dataDownloaded(String data) {
-        textView.setText(data);
+        ArrayList<Event> events = new ArrayList<>();
+        try {
+            events = Event.deserializeArray(data);
+            Toast.makeText(getApplicationContext(), R.string.download_success, Toast.LENGTH_SHORT).show();
+        } catch (JSONException e) {
+            Log.e(LOG_TAG, "Deserialization failed " + e.getMessage());
+            Toast.makeText(getApplicationContext(), R.string.download_failed, Toast.LENGTH_SHORT).show();
+        }
+        if(!events.isEmpty()) {
+            dbAdapter.deleteAllData();
+            for(Event event : events) dbAdapter.insertData(event);
+        }
+        textView.setText(getData());
         buttonDownload.setEnabled(true);
     }
 
@@ -86,7 +103,9 @@ public class LogicActivity extends ActionBarActivity implements ITaskListener {
         for(Event event : events) {
             allData += "title: " + event.title +
                     " type: " + event.type +
-                    " datetime: " + event.dateTime +
+                    " date: " + event.date +
+                    " start: " + event.timeStart +
+                    " end: " + event.timeEnd +
                     " location: " + event.location +
                     " tutor: " + event.tutor +
                     "\n";
@@ -94,29 +113,9 @@ public class LogicActivity extends ActionBarActivity implements ITaskListener {
         return allData;
     }
 
-    public void onClickAddData(View view) {
-        Event event = new Event();
-        if(editText.getText().length() > 0)
-            event.title = editText.getText().toString();
-        else
-            event.title = "Random";
-        event.type = "T";
-        event.dateTime = "0000-00-00 00:00";
-        event.location = "105, C3";
-        event.tutor = "dr Somebody";
-
-        if(dbAdapter.insertData(event))
-            Toast.makeText(getApplicationContext(), R.string.insert_success, Toast.LENGTH_SHORT).show();
-        else
-            Toast.makeText(getApplicationContext(), R.string.insert_failure, Toast.LENGTH_SHORT).show();
-
-        String data = getData();
-        textView.setText(data);
-    }
-
     public void onClickDownloadData(View view) {
         ServerClientTask serverClientTask = new ServerClientTask(getApplicationContext(), this);
-        serverClientTask.execute();
+        serverClientTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, editText.getText().toString());
         buttonDownload.setEnabled(false);
     }
 }

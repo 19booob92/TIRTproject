@@ -19,10 +19,9 @@ import java.net.URL;
 public class ServerClient {
     private static final String LOG_TAG = "Server Client";
 
-    private static final String SERVER_URL = "http://google.com/";
-    private static final String ACTION_NAME = "#q=something";
+    private static final String SERVER_URL = "http://planpwr.unicloud.pl/schedule/";
 
-    public static boolean checkInternetConenction(Context context){
+    public static boolean checkInternetConnection(Context context){
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
@@ -34,10 +33,10 @@ public class ServerClient {
         }
     }
 
-    public static String getDataFromServer(){
+    public static String getScheduleForIndex(String indexNumber){
         InputStream is = null;
         try {
-            URL url = new URL(SERVER_URL + ACTION_NAME);
+            URL url = new URL(SERVER_URL + indexNumber);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
@@ -47,7 +46,7 @@ public class ServerClient {
             String line, response = "";
             while ((line = reader.readLine()) != null)
                 response += line + "\n";
-            return response.substring(0, 50);
+            return response;
         } catch (IOException e) {
             Log.e(LOG_TAG, "Downloading new app error: " + e.getMessage());
         } finally {

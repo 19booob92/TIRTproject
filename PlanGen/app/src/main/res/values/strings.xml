@@ -13,4 +13,6 @@
     <string name="insert_success">Dodano wydarzenie</string>
     <string name="insert_failure">Nie dodano wydarzenia</string>
     <string name="download">Pobierz</string>
+    <string name="download_success">Pobrano</string>
+    <string name="download_failed">Coś poszło nie tak</string>
 </resources>
