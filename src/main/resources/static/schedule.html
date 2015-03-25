@@ -27,7 +27,7 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li ng-class="{ 'active': addSchedule}"><a href="#"
-						ng-click="addSchedule=true;generateSchedule=false;isClicked=false; compareSchedul=false">Dodaj
+						ng-click="addSchedule=true;generateSchedule=false;isClicked=false; compareSchedule=false">Dodaj
 							nowy</a></li>
 					<li ng-class="{ 'active': generateSchedule}"><a href="#"
 						ng-click="generateSchedule=true;addSchedule=false;compareSchedul=false">Generuj</a></li>
@@ -47,7 +47,7 @@
 		<h2>Podaj id planu</h2>
 		<input type="text" ng-model="scheduleId"></br>
 		</input> <input type="button" class="btn btn-warning" value="pobierz plan"
-			ng-click="fetchSchedule(); isClicked=true"> </input>
+			ng-click="fetchSchedule(); isClicked=true; compareSchedule=false"> </input>
 		<!-- <p>{{scheduleJson}}</p>  -->
 	</div>
 
