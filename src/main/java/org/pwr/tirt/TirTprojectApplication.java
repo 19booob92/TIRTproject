@@ -19,6 +19,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
@@ -80,6 +81,11 @@ public class TirTprojectApplication extends WebMvcConfigurerAdapter {
 	@Bean
 	public PlatformTransactionManager transactionManager() {
 		return new JpaTransactionManager();
+	}
+
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("/").setViewName("resources/static/schedule.html");
 	}
 
 	public static void main(String[] args) throws Exception {

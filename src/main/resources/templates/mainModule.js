@@ -1,4 +1,4 @@
-var scheduleModule = angular.module('scheduleModule', []);
+var scheduleModule = angular.module('scheduleModule', ['ui.bootstrap']);
 
 var urlBase = "http://localhost:8080/";
 

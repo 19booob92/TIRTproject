@@ -6,9 +6,12 @@
 <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="lib/css/subjectsTypes.css">
 <script src="lib/angular.js"></script>
+<script src="lib/bootstrap/js/ui-bootstrap.js"></script>
 <script src="mainModule.js"></script>
+
 </head>
 <body ng-controller="ScheduleCtrl">
+
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -27,10 +30,10 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li ng-class="{ 'active': addSchedule}"><a href="#"
-						ng-click="addSchedule=true;generateSchedule=false;isClicked=false; compareSchedule=false">Dodaj
+						ng-click="addSchedule=true;generateSchedule=false;isClicked=false; compareSchedule=false;">Dodaj
 							nowy</a></li>
 					<li ng-class="{ 'active': generateSchedule}"><a href="#"
-						ng-click="generateSchedule=true;addSchedule=false;compareSchedul=false">Generuj</a></li>
+						ng-click="generateSchedule=true;addSchedule=false;compareSchedule=false">Generuj</a></li>
 					<li ng-class="{ 'active': compareSchedule}"><a href="#"
 						ng-click="compareSchedule=true;addSchedule=false;generateSchedule=false">Porównaj</a></li>
 				</ul>
@@ -45,9 +48,10 @@
 
 	<div class="container-fluid" ng-show="generateSchedule">
 		<h2>Podaj id planu</h2>
-		<input type="text" ng-model="scheduleId"></br>
-		</input> <input type="button" class="btn btn-warning" value="pobierz plan"
-			ng-click="fetchSchedule(); isClicked=true; compareSchedule=false"> </input>
+		<input type="text" ng-model="scheduleId"></br> </input> <input
+			type="button" class="btn btn-warning" value="pobierz plan"
+			ng-click="fetchSchedule(); isClicked=true; compareSchedule=false">
+		</input>
 		<!-- <p>{{scheduleJson}}</p>  -->
 	</div>
 
@@ -63,64 +67,178 @@
 		</tr>
 		<tr name="7:30">
 			<td>7:30</td>
-			<td name="poniedziałek">
-			<i class="glyphicon glyphicon-lock pull-right"
-                                   popover="{{pn07_30}}" popover-trigger='mouseenter'></i>
-			<pre class={{pn07_30class}}>{{pn07_30 }}</pre></td>
-			<td name="wtorek"><i class="glyphicon glyphicon-lock pull-right"
-                                   popover="{{wt07_30}}" popover-trigger='mouseenter'></i>
-			<pre class={{wt07_30class}}>{{wt07_30 }}</pre></td>
-			<td name="środa"><pre class={{sr07_30class}}>{{sr07_30 }}</pre></td>
-			<td name="czwartek"><pre class={{cz07_30class}}>{{cz07_30 }}</pre></td>
-			<td name="piątek"><pre class={{pt07_30class}}>{{pt07_30 }}</pre></td>
+			<td name="poniedziałek"><pre ng-if="pn07_30"
+					popover="{{pn07_30.details.dayOfWeek}} {{pn07_30.details.building}} {{pn07_30.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{pn07_30class}}>{{pn07_30.name}} <br />{{pn07_30.lector}}
+					</pre></td>
+			<td name="wtorek"><pre ng-if="wt07_30"
+					popover="{{wt07_30.details.dayOfWeek}} {{wt07_30.details.building}} {{wt07_30.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{wt07_30class}}>{{wt07_30.name}} <br />{{wt07_30.lector}}
+					</pre></td>
+			<td name="środa"><pre ng-if="sr07_30"
+					popover="{{sr07_30.details.dayOfWeek}} {{sr07_30.details.building}} {{sr07_30.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{sr07_30class}}>{{sr07_30.name}} <br />{{sr07_30.lector}}
+					</pre></td>
+			<td name="czwartek"><pre ng-if="cz07_30"
+					popover="{{cz07_30.details.dayOfWeek}} {{cz07_30.details.building}} {{cz07_30.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{cz07_30class}}>{{cz07_30.name}} <br />{{cz07_30.lector}}
+					</pre></td>
+			<td name="piątek"><pre ng-if="pt07_30"
+					popover="{{pt07_30.details.dayOfWeek}} {{pt07_30.details.building}} {{pt07_30.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{pt07_30class}}>{{pt07_30.name}} <br />{{pt07_30.lector}}</pre></td>
 		</tr>
 		<tr name="9:15">
 			<td>9:15</td>
-			<td name="poniedziałek"><pre class="{{pn09_15class}}">{{pn09_15}}</pre></td>
-			<td name="wtorek"><pre class="{{wt09_15class}}">{{wt09_15 }}</pre></td>
-			<td name="środa"><pre class="{{sr09_15class}}">{{sr09_15 }}</pre></td>
-			<td name="czwartek"><pre class="{{cz09_15class}}">{{cz09_15 }}</pre></td>
-			<td name="piątek"><pre class="{{pt09_15class}}">{{pt09_15 }}</pre></td>
+			<td name="poniedziałek"><pre ng-if="pn09_15"
+					popover="{{pn09_15.details.dayOfWeek}} {{pn09_15.details.building}} {{pn09_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{pn09_15class}}>{{pn09_15.name}} <br />{{pn09_15.lector}}
+					</pre></td>
+			<td name="wtorek"><pre ng-if="wt09_15"
+					popover="{{wt09_15.details.dayOfWeek}} {{wt09_15.details.building}} {{wt09_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{wt09_15class}}>{{wt09_15.name}} <br />{{wt09_15.lector}}
+					</pre></td>
+			<td name="środa"><pre ng-if="sr09_15"
+					popover="{{sr09_15.details.dayOfWeek}} {{sr09_15.details.building}} {{sr09_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{sr09_15class}}>{{sr09_15.name}} <br />{{sr09_15.lector}}
+					</pre></td>
+			<td name="czwartek"><pre ng-if="cz09_15"
+					popover="{{cz09_15.details.dayOfWeek}} {{cz09_15.details.building}} {{cz09_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{cz09_15class}}>{{cz09_15.name}} <br />{{cz09_15.lector}}
+					</pre></td>
+			<td name="piątek"><pre ng-if="pt09_15"
+					popover="{{pt09_15.details.dayOfWeek}} {{pt09_15.details.building}} {{pt09_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{pt09_15class}}>{{pt09_15.name}} <br />{{pt09_15.lector}}
+					</pre></td>
 		</tr>
 		<tr name="11:15">
 			<td>11:15</td>
-			<td name="poniedziałek"><pre class="{{pn11_15class}}">{{pn11_15 }}</pre></td>
-			<td name="wtorek"><pre class="{{wt11_15class}}">{{wt11_15 }}</pre></td>
-			<td name="środa"><pre class="{{sr11_15class}}">{{sr11_15 }}</pre></td>
-			<td name="czwartek"><pre class="{{cz11_15class}}">{{cz11_15 }}</pre></td>
-			<td name="piątek"><pre class="{{pt11_15class}}">{{pt11_15 }}</pre></td>
+			<td name="poniedziałek"><pre ng-if="pn11_15"
+					popover="{{pn11_15.details.dayOfWeek}} {{pn11_15.details.building}} {{pn11_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{pn11_15class}}>{{pn11_15.name}} <br />{{pn11_15.lector}}
+					</pre></td>
+			<td name="wtorek"><pre ng-if="wt11_15"
+					popover="{{wt11_15.details.dayOfWeek}} {{wt11_15.details.building}} {{wt11_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{wt11_15class}}>{{wt11_15.name}} <br />{{wt11_15.lector}}</pre></td>
+			<td name="środa"><pre ng-if="sr11_15"
+					popover="{{sr11_15.details.dayOfWeek}} {{sr11_15.details.building}} {{sr11_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{sr11_15class}}>{{sr11_15.name}} <br />{{sr11_15.lector}}</pre></td>
+			<td name="czwartek"><pre ng-if="cz11_15"
+					popover="{{cz11_15.details.dayOfWeek}} {{cz11_15.details.building}} {{cz11_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{cz11_15class}}>{{cz11_15.name}} <br />{{cz11_15.lector}}</pre></td>
+			<td name="piątek"><pre ng-if="pt11_15"
+					popover="{{pt11_15.details.dayOfWeek}} {{pt11_15.details.building}} {{pt11_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{pt11_15class}}>{{pt11_15.name}} <br />{{pt11_15.lector}}</pre></td>
 		</tr>
 		<tr name="13:15">
 			<td>13:15</td>
-			<td name="poniedziałek"><pre class="{{pn13_15class}}">{{pn13_15 }}</pre></td>
-			<td name="wtorek"><pre class="{{wt13_15class}}">{{wt13_15 }}</pre></td>
-			<td name="środa"><pre class="{{sr13_15class}}">{{sr13_15 }}</pre></td>
-			<td name="czwartek"><pre class="{{cz13_15class}}">{{cz13_15 }}</pre></td>
-			<td name="piątek"><pre class="{{pt13_15class}}">{{pt13_15 }}</pre></td>
+			<td name="poniedziałek"><pre ng-if="pn13_15"
+					popover="{{pn13_15.details.dayOfWeek}} {{pn13_15.details.building}} {{pn13_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{pn13_15class}}>{{pn13_15.name}} <br />{{pn13_15.lector}}
+					</pre></td>
+			<td name="wtorek"><pre ng-if="wt13_15"
+					popover="{{wt13_15.details.dayOfWeek}} {{wt13_15.details.building}} {{wt13_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{wt13_15class}}>{{wt13_15.name}} <br />{{wt13_15.lector}}</pre></td>
+			<td name="środa"><pre ng-if="sr13_15"
+					popover="{{sr13_15.details.dayOfWeek}} {{sr13_15.details.building}} {{sr13_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{sr13_15class}}>{{sr13_15.name}} <br />{{sr13_15.lector}}</pre></td>
+			<td name="czwartek"><pre ng-if="cz13_15"
+					popover="{{cz13_15.details.dayOfWeek}} {{cz13_15.details.building}} {{cz13_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{cz13_15class}}>{{cz13_15.name}} <br />{{cz13_15.lector}}</pre></td>
+			<td name="piątek"><pre ng-if="pt13_15"
+					popover="{{pt13_15.details.dayOfWeek}} {{pt13_15.details.building}} {{pt13_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{pt13_15class}}>{{pt13_15.name}} <br />{{pt13_15.lector}}</pre></td>
 		</tr>
 		<tr name="15:15">
 			<td>15:15</td>
-			<td name="poniedziałek"><pre class="{{pn15_15class}}">{{pn15_15 }}</pre></td>
-			<td name="wtorek"><pre class="{{wt15_15class}}">{{wt15_15 }}</pre></td>
-			<td name="środa"><pre class="{{sr15_15class}}">{{sr15_15 }}</pre></td>
-			<td name="czwartek"><pre class="{{cz15_15class}}">{{cz15_15 }}</pre></td>
-			<td name="piątek"><pre class="{{pt15_15class}}">{{pt15_15 }}</pre></td>
+			<td name="poniedziałek"><pre ng-if="pn15_15"
+					popover="{{pn15_15.details.dayOfWeek}} {{pn15_15.details.building}} {{pn15_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{pn15_15class}}>{{pn15_15.name}} <br />{{pn15_15.lector}}
+					</pre></td>
+			<td name="wtorek"><pre ng-if="wt15_15"
+					popover="{{wt15_15.details.dayOfWeek}} {{wt15_15.details.building}} {{wt15_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{wt15_15class}}>{{wt15_15.name}} <br />{{wt15_15.lector}}</pre></td>
+			<td name="środa"><pre ng-if="sr15_15"
+					popover="{{sr15_15.details.dayOfWeek}} {{sr15_15.details.building}} {{sr15_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{sr15_15class}}>{{sr15_15.name}} <br />{{sr15_15.lector}}</pre></td>
+			<td name="czwartek"><pre ng-if="cz15_15"
+					popover="{{cz15_15.details.dayOfWeek}} {{cz15_15.details.building}} {{cz15_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{cz15_15class}}>{{cz15_15.name}} <br />{{cz15_15.lector}}</pre></td>
+			<td name="piątek"><pre ng-if="pt15_15"
+					popover="{{pt15_15.details.dayOfWeek}} {{pt15_15.details.building}} {{pt15_15.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{pt15_15class}}>{{pt15_15.name}} <br />{{pt15_15.lector}}</pre></td>
 		</tr>
 		<tr name="17:05">
 			<td>17:05</td>
-			<td name="poniedziałek"><pre class="{{pn17_05class}}">{{pn17_05 }}</pre></td>
-			<td name="wtorek"><pre class="{{wt17_05class}}">{{wt17_05 }}</pre></td>
-			<td name="środa"><pre class="{{sr17_05class}}">{{sr17_05 }}</pre></td>
-			<td name="czwartek"><pre class="{{cz17_05class}}">{{cz17_05 }}</pre></td>
-			<td name="piątek"><pre class="{{pt17_05class}}">{{pt17_05 }}</pre></td>
+			<td name="poniedziałek"><pre ng-if="pn17_05"
+					popover="{{pn17_05.details.dayOfWeek}} {{pn17_05.details.building}} {{pn17_05.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{pn17_05class}}>{{pn17_05.name}} <br />{{pn17_05.lector}}
+					</pre></td>
+			<td name="wtorek"><pre ng-if="wt17_05"
+					popover="{{wt17_05.details.dayOfWeek}} {{wt17_05.details.building}} {{wt17_05.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{wt17_05class}}>{{wt17_05.name}} <br />{{wt17_05.lector}}</pre></td>
+			<td name="środa"><pre ng-if="sr17_05"
+					popover="{{sr17_05.details.dayOfWeek}} {{sr17_05.details.building}} {{sr17_05.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{sr17_05class}}>{{sr17_05.name}} <br />{{sr17_05.lector}}</pre></td>
+			<td name="czwartek"><pre ng-if="cz17_05"
+					popover="{{cz17_05.details.dayOfWeek}} {{cz17_05.details.building}} {{cz17_05.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{cz17_05class}}>{{cz17_05.name}} <br />{{cz17_05.lector}}</pre></td>
+			<td name="piątek"><pre ng-if="pt17_05"
+					popover="{{pt17_05.details.dayOfWeek}} {{pt17_05.details.building}} {{pt17_05.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{pt17_05class}}>{{pt17_05.name}} <br />{{pt17_05.lector}}</pre></td>
 		</tr>
 		<tr name="18:55">
 			<td>18:55</td>
-			<td name="poniedziałek"><pre class="{{pn18_55class}}">{{pn18_55 }}</pre></td>
-			<td name="wtorek"><pre class="{{wt18_55class}}">{{wt18_55 }}</pre></td>
-			<td name="środa"><pre class="{{sr18_55class}}">{{sr18_55 }}</pre></td>
-			<td name="czwartek"><pre class="{{cz18_55class}}">{{cz18_55 }}</pre></td>
-			<td name="piątek"><pre class="{{pt18_55class}}">{{pt18_55 }}</pre></td>
+			<td name="poniedziałek"><pre ng-if="pn18_55"
+					popover="{{pn18_55.details.dayOfWeek}} {{pn18_55.details.building}} {{pn18_55.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{pn18_55class}}>{{pn18_55.name}} <br />{{pn18_55.lector}}
+					</pre></td>
+			<td name="wtorek"><pre ng-if="wt18_55"
+					popover="{{wt18_55.details.dayOfWeek}} {{wt18_55.details.building}} {{wt18_55.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{wt18_55class}}>{{wt18_55.name}} <br />{{wt18_55.lector}}</pre></td>
+			<td name="środa"><pre ng-if="sr18_55"
+					popover="{{sr18_55.details.dayOfWeek}} {{sr18_55.details.building}} {{sr18_55.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{sr18_55class}}>{{sr18_55.name}} <br />{{sr18_55.lector}}</pre></td>
+			<td name="czwartek"><pre ng-if="cz18_55"
+					popover="{{cz18_55.details.dayOfWeek}} {{cz18_55.details.building}} {{cz18_55.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{cz18_55class}}>{{cz18_55.name}} <br />{{cz18_55.lector}}</pre></td>
+			<td name="piątek"><pre ng-if="pt18_55"
+					popover="{{pt18_55.details.dayOfWeek}} {{pt18_55.details.building}} {{pt18_55.details.room}}"
+					popover-placement="top" popover-trigger="mouseenter"
+					class={{pt18_55class}}>{{pt18_55.name}} <br />{{pt18_55.lector}}</pre></td>
 		</tr>
 	</table>
 

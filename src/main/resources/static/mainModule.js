@@ -1,4 +1,4 @@
-var scheduleModule = angular.module('scheduleModule', []);
+var scheduleModule = angular.module('scheduleModule', ['ui.bootstrap']);
 
 scheduleModule.config([ '$httpProvider', function($httpProvider) {
 	$httpProvider.defaults.useXDomain = true;
@@ -15,8 +15,8 @@ scheduleModule.controller('ScheduleCtrl', function($scope, $http) {
 	$scope.alert = false;
 
 	$scope.alertContent = "";
-
 	$scope.fetchSchedule = function() {
+		//planpwr.unicloud.pl
 		$http.get('http://planpwr.unicloud.pl/schedule/' + $scope.scheduleId)
 				.success(function(fechedData) {
 					$scope.scheduleJson = fechedData;
@@ -59,17 +59,30 @@ scheduleModule.controller('ScheduleCtrl', function($scope, $http) {
 			var type = fechedData[subject].type;
 
 			if (day === "śr") {
-				$scope["sr" + hour] = fechedData[subject].name + '\n'
-						+ fechedData[subject].lector;
+				$scope["sr" + hour]  = {};
+				
+				$scope["sr" + hour].name = fechedData[subject].name;
+				$scope["sr" + hour].lector = fechedData[subject].lector;
+				$scope["sr" + hour].details = {};
+				
+				$scope["sr" + hour].details.dayOfWeek = fechedData[subject].details.dayOfWeek;
+				$scope["sr" + hour].details.building = fechedData[subject].details.building;
+				$scope["sr" + hour].details.room = fechedData[subject].details.room;
+
 				$scope["sr" + hour + "class"] = type.substring(0, 2);
-				;
 			} else {
-				$scope[day + hour] = fechedData[subject].name + '\n'
-						+ fechedData[subject].lector;
+				$scope[day + hour] = {};
+				
+				$scope[day + hour].name = fechedData[subject].name;
+				$scope[day + hour].lector = fechedData[subject].lector;
+				$scope[day + hour].details = {};
+				
+				$scope[day + hour].details.dayOfWeek = fechedData[subject].details.dayOfWeek;
+				$scope[day + hour].details.building = fechedData[subject].details.building;
+				$scope[day + hour].details.room = fechedData[subject].details.room;
+
 				$scope[day + hour + "class"] = type.substring(0, 2);
-				;
 			}
-		}
-		;
+		};
 	};
 });
