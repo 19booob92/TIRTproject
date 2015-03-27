@@ -36,7 +36,7 @@
                 android:value=".activities.TestActivity" />
         </activity>
         <activity
-            android:name=".AddEventActivity"
+            android:name=".activities.AddEventActivity"
             android:label="@string/title_activity_add_event"
             android:parentActivityName=".activities.TestActivity" >
             <meta-data

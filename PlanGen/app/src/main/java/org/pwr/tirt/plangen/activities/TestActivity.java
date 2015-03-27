@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import org.pwr.tirt.plangen.AddEventActivity;
 import org.pwr.tirt.plangen.R;
 
 public class TestActivity extends ActionBarActivity {
