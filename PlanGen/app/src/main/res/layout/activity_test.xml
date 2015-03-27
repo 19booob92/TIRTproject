@@ -20,7 +20,7 @@
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="30dp"
         android:text="@string/layout_activity"
         android:onClick="onClickLayout"/>
 
@@ -28,7 +28,15 @@
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:text="@string/logic_activity"
         android:onClick="onClickLogic"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_event_activity"
+        android:onClick="onClickAddEvent"/>
 
 </LinearLayout>

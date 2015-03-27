@@ -15,4 +15,6 @@
     <string name="download">Pobierz</string>
     <string name="download_success">Pobrano</string>
     <string name="download_failed">Coś poszło nie tak</string>
+    <string name="title_activity_add_event">AddEventActivity</string>
+    <string name="add_event_activity">Dodaj</string>
 </resources>

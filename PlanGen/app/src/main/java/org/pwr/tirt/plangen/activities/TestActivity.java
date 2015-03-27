@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import org.pwr.tirt.plangen.AddEventActivity;
 import org.pwr.tirt.plangen.R;
 
 public class TestActivity extends ActionBarActivity {
@@ -47,6 +48,11 @@ public class TestActivity extends ActionBarActivity {
 
     public void onClickLogic(View view) {
         Intent intent = new Intent(this, LogicActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickAddEvent(View view) {
+        Intent intent = new Intent(this, AddEventActivity.class);
         startActivity(intent);
     }
 }
