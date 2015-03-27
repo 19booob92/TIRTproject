@@ -31,57 +31,64 @@
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="fill_parent"
-            android:layout_height="50dp"
+            android:layout_height="0dp"
             android:text="pn"
             android:gravity="center"
+            android:layout_weight="1"
             android:id="@+id/btnpon" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="fill_parent"
-            android:layout_height="50dp"
+            android:layout_height="0dp"
             android:text="wt"
             android:gravity="center"
+            android:layout_weight="1"
             android:id="@+id/btnwt" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="fill_parent"
-            android:layout_height="50dp"
+            android:layout_height="0dp"
             android:text="sr"
             android:gravity="center"
+            android:layout_weight="1"
             android:id="@+id/btnsr" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="fill_parent"
-            android:layout_height="50dp"
+            android:layout_height="0dp"
             android:text="cz"
             android:gravity="center"
+            android:layout_weight="1"
             android:id="@+id/btnczw" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="fill_parent"
-            android:layout_height="50dp"
+            android:layout_height="0dp"
             android:text="pt"
             android:gravity="center"
+            android:layout_weight="1"
             android:id="@+id/btnpt" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="fill_parent"
-            android:layout_height="50dp"
+            android:layout_height="0dp"
             android:text="so"
             android:gravity="center"
+            android:layout_weight="1"
             android:id="@+id/btnso" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="fill_parent"
-            android:layout_height="50dp"
+            android:layout_height="0dp"
             android:text="nd"
             android:gravity="center"
+            android:layout_weight="1"
             android:id="@+id/btnnd" />
     </LinearLayout>
 
