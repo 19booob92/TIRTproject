@@ -1,5 +1,6 @@
 var scheduleModule = angular.module('scheduleModule', ['ui.bootstrap']);
 
+
 scheduleModule.config([ '$httpProvider', function($httpProvider) {
 	$httpProvider.defaults.useXDomain = true;
 	delete $httpProvider.defaults.headers.common['X-Requested-With'];
@@ -7,6 +8,9 @@ scheduleModule.config([ '$httpProvider', function($httpProvider) {
 
 scheduleModule.controller('ScheduleCtrl', function($scope, $http) {
 
+//	var url = 'http://planpwr.unicloud.pl/schedule/';
+	var url = 'http://localhost:8080/schedule/';
+	
 	$scope.scheduleId = '';
 	$scope.secondScheduleId = '';
 
@@ -16,8 +20,7 @@ scheduleModule.controller('ScheduleCtrl', function($scope, $http) {
 
 	$scope.alertContent = "";
 	$scope.fetchSchedule = function() {
-		//planpwr.unicloud.pl
-		$http.get('http://planpwr.unicloud.pl/schedule/' + $scope.scheduleId)
+		$http.get(url + $scope.scheduleId)
 				.success(function(fechedData) {
 					$scope.scheduleJson = fechedData;
 
@@ -29,7 +32,7 @@ scheduleModule.controller('ScheduleCtrl', function($scope, $http) {
 	$scope.saveHtml = function() {
 		$http({
 			method : 'POST',
-			url : 'http://planpwr.unicloud.pl/schedule/save',
+			url : url + '/save',
 			data : $scope.schedule
 		}).success(function(data, status, headers, config) {
 			$scope.alert = true;
@@ -39,10 +42,11 @@ scheduleModule.controller('ScheduleCtrl', function($scope, $http) {
 			$scope.alertContent = "Nie zapisano planu";
 		});
 	};
+	
 
 	$scope.compareSchedules = function() {
 		$http.get(
-				'http://planpwr.unicloud.pl/schedule/compare/' + $scope.scheduleId
+				url + '/compare/' + $scope.scheduleId
 						+ '/' + $scope.secondScheduleId).success(
 				function(fechedData) {
 					$scope.scheduleJson = fechedData;
@@ -52,6 +56,7 @@ scheduleModule.controller('ScheduleCtrl', function($scope, $http) {
 
 	var fillScheduleTable = function(fechedData) {
 		for (subject in fechedData) {
+			
 			var fetchedDetails = fechedData[subject].details;
 
 			var hour = fetchedDetails.start.replace(":", "_");

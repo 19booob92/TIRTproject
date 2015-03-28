@@ -30,12 +30,12 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li ng-class="{ 'active': addSchedule}"><a href="#"
-						ng-click="addSchedule=true;generateSchedule=false;isClicked=false; compareSchedule=false;">Dodaj
+						ng-click="addSchedule=true;generateSchedule=false;showTable=false; compareSchedule=false;">Dodaj
 							nowy</a></li>
 					<li ng-class="{ 'active': generateSchedule}"><a href="#"
-						ng-click="generateSchedule=true;addSchedule=false;compareSchedule=false">Generuj</a></li>
+						ng-click="generateSchedule=true;addSchedule=false;compareSchedule=false;showTable=false">Generuj</a></li>
 					<li ng-class="{ 'active': compareSchedule}"><a href="#"
-						ng-click="compareSchedule=true;addSchedule=false;generateSchedule=false">Porównaj</a></li>
+						ng-click="compareSchedule=true;addSchedule=false;generateSchedule=false;showTable=false">Porównaj</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -50,12 +50,12 @@
 		<h2>Podaj id planu</h2>
 		<input type="text" ng-model="scheduleId"></br> </input> <input
 			type="button" class="btn btn-warning" value="pobierz plan"
-			ng-click="fetchSchedule(); isClicked=true; compareSchedule=false">
+			ng-click="fetchSchedule(); showTable=true; compareSchedule=false">
 		</input>
 		<!-- <p>{{scheduleJson}}</p>  -->
 	</div>
 
-	<table ng-show="isClicked"
+	<table ng-show="showTable"
 		class="table table-striped table-bordered table-condensed">
 		<tr name="header">
 			<td>godz.</td>
@@ -273,7 +273,7 @@
 			</tr>
 		</table>
 		<input type="button" value="porównaj" class="btn btn-danger"
-			ng-click="compareSchedules();isClicked=true"></input>
+			ng-click="compareSchedules();showTable=true"></input>
 	</div>
 
 	<div class="alert alert-danger" role="alert" name="errorMessage"

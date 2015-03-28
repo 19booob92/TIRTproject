@@ -26,6 +26,8 @@ public class Subject implements Serializable {
 	private double end;
 
 	private int day;
+	
+	
 
 	private ScheduleDetails details;
 

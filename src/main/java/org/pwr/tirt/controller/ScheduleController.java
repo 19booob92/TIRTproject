@@ -36,5 +36,10 @@ public class ScheduleController {
     public String compareByHoures(@PathVariable long indexNo, @PathVariable long indexNoToCompare) {
     	return scheduleComparator.compareTo(indexNo, indexNoToCompare);
     }
+
+    @RequestMapping(value = "/schedule/pdf/{indexNo}", method = RequestMethod.GET)
+    public String generatePdfFile(@PathVariable long indexNo) {
+    	return scheduleComparator.compareTo(indexNo, indexNoToCompare);
+    }
     
 }
