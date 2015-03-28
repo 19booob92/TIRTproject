@@ -17,4 +17,11 @@
     <string name="download_failed">Coś poszło nie tak</string>
     <string name="title_activity_add_event">AddEventActivity</string>
     <string name="add_event_activity">Dodaj</string>
+    <string name="monday">Pn</string>
+    <string name="tuesday">Wt</string>
+    <string name="wednesday">Śr</string>
+    <string name="thursday">Cw</string>
+    <string name="Friday">Pt</string>
+    <string name="Saturday">Sb</string>
+    <string name="Sunday">Nd</string>
 </resources>

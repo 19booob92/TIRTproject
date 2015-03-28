@@ -1,95 +1,84 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="org.pwr.tirt.plangen.activities.LayoutActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".LayoutActivity"
+    android:orientation="horizontal" >
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/linearLayout">
-
-    </LinearLayout>
+    <ListView
+        android:id="@+id/listViewEvents"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.85" />
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="253dp"
-        android:layout_marginStart="253dp"
-        android:clickable = "true"
-        android:id="@+id/linear">
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.15">
+        <Button
+            android:id="@+id/buttonMonday"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            style="?android:attr/buttonStyleSmall"
+            android:text="@string/monday"
+            android:layout_weight="1" />
 
         <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="fill_parent"
+            android:id="@+id/buttonTuesday"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="pn"
             android:gravity="center"
-            android:layout_weight="1"
-            android:id="@+id/btnpon" />
+            style="?android:attr/buttonStyleSmall"
+            android:text="@string/tuesday"
+            android:layout_weight="1" />
 
         <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="fill_parent"
+            android:id="@+id/btnWednesday"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="wt"
             android:gravity="center"
-            android:layout_weight="1"
-            android:id="@+id/btnwt" />
+            style="?android:attr/buttonStyleSmall"
+            android:text="@string/wednesday"
+            android:layout_weight="1" />
 
         <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="fill_parent"
+            android:id="@+id/buttonThursday"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="sr"
             android:gravity="center"
-            android:layout_weight="1"
-            android:id="@+id/btnsr" />
+            style="?android:attr/buttonStyleSmall"
+            android:text="@string/thursday"
+            android:layout_weight="1" />
 
         <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="fill_parent"
+            android:id="@+id/buttonFriday"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="cz"
             android:gravity="center"
-            android:layout_weight="1"
-            android:id="@+id/btnczw" />
+            style="?android:attr/buttonStyleSmall"
+            android:text="@string/Friday"
+            android:layout_weight="1" />
 
         <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="fill_parent"
+            android:id="@+id/buttonSaturday"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="pt"
             android:gravity="center"
-            android:layout_weight="1"
-            android:id="@+id/btnpt" />
+            style="?android:attr/buttonStyleSmall"
+            android:text="@string/Saturday"
+            android:layout_weight="1" />
 
         <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="fill_parent"
+            android:id="@+id/buttonSunday"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="so"
             android:gravity="center"
-            android:layout_weight="1"
-            android:id="@+id/btnso" />
-
-        <Button
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:text="nd"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:id="@+id/btnnd" />
-    </LinearLayout>
+            android:text="@string/Sunday"
+            android:layout_weight="1" />
+        </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>
