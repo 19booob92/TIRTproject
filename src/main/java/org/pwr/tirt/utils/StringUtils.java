@@ -1,6 +1,6 @@
 package org.pwr.tirt.utils;
 
-import org.pwr.tirt.model.ScheduleDetails;
+import org.pwr.tirt.model.SubjectDetails;
 import org.springframework.stereotype.Component;
 
 
@@ -27,10 +27,10 @@ public class StringUtils {
         return url.substring(url.indexOf(keyStartMarker) + keyStartMarker.length(), url.indexOf(localeStartMarker));
     }
 
-    public ScheduleDetails splitBuildingsAndTimeData(String input) {
+    public SubjectDetails splitBuildingsAndTimeData(String input) {
         //example input "pt 13:15-15:00, bud. D-1, sala 312a"
 
-        ScheduleDetails details = new ScheduleDetails();
+        SubjectDetails details = new SubjectDetails();
         
         String [] splitedString = input.split(" ");
         String [] splitedTime = splitedString[1].split("-");

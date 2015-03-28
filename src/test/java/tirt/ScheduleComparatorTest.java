@@ -15,7 +15,7 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.pwr.tirt.mod.ScheduleComparator;
 import org.pwr.tirt.model.ProcessedSchedule;
-import org.pwr.tirt.model.Subject;
+import org.pwr.tirt.model.dto.Subject;
 import org.pwr.tirt.repository.ScheduleRepository;
 
 import testUtils.TestObjectFactory;
@@ -48,8 +48,8 @@ public class ScheduleComparatorTest {
 		subjectsToCompare.add(TestObjectFactory.prepareDefaultSchedule("pn",
 				"7:30"));
 
-		scheduleOne.setSubjectsAsJson(gson.toJson(subjects));
-		scheduleTwo.setSubjectsAsJson(gson.toJson(subjectsToCompare));
+//		scheduleOne.setSubjectsAsJson(gson.toJson(subjects));
+//		scheduleTwo.setSubjectsAsJson(gson.toJson(subjectsToCompare));
 
 		Mockito.when(scheduleRepository.findByIndexNo(12L)).thenReturn(
 				Arrays.asList(scheduleOne));

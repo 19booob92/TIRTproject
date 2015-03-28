@@ -2,7 +2,7 @@ package tirt.utils;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.pwr.tirt.model.ScheduleDetails;
+import org.pwr.tirt.model.SubjectDetails;
 import org.pwr.tirt.utils.StringUtils;
 
 
@@ -14,7 +14,7 @@ public class StringUtilsTest {
     public void shouldProperSplitGivenString() {
         String testString = "pt 13:15-15:00, bud. D-1, sala 312a";
 
-        ScheduleDetails details = classUnderTest.splitBuildingsAndTimeData(testString);
+        SubjectDetails details = classUnderTest.splitBuildingsAndTimeData(testString);
 
         Assert.assertEquals("pt", details.getDayOfWeek());
         Assert.assertEquals("13:15", details.getStart());

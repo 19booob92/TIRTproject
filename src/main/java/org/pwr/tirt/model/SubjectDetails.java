@@ -5,9 +5,12 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import org.pwr.tirt.model.dto.Subject;
 
 @Entity
-public class ScheduleDetails implements Serializable{
+public class SubjectDetails implements Serializable{
 
     private static final long serialVersionUID = 17895555L;
     
@@ -25,7 +28,25 @@ public class ScheduleDetails implements Serializable{
     
     private String room;
     
-    public String getDayOfWeek() {
+    @OneToOne
+    private Subject subject;
+    
+    public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public Subject getSubject() {
+		return subject;
+	}
+
+
+	public void setSubject(Subject subject) {
+		this.subject = subject;
+	}
+
+
+	public String getDayOfWeek() {
         return dayOfWeek;
     }
 

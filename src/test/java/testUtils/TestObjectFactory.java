@@ -1,7 +1,7 @@
 package testUtils;
 
-import org.pwr.tirt.model.ScheduleDetails;
-import org.pwr.tirt.model.Subject;
+import org.pwr.tirt.model.SubjectDetails;
+import org.pwr.tirt.model.dto.Subject;
 
 public class TestObjectFactory {
 
@@ -13,8 +13,8 @@ public class TestObjectFactory {
 		return subject;
 	}
 	
-	static public ScheduleDetails prepareScheduleDetails(String dayOfWeek, String startTime) {
-		ScheduleDetails scheduleDetails = new ScheduleDetails();
+	static public SubjectDetails prepareScheduleDetails(String dayOfWeek, String startTime) {
+		SubjectDetails scheduleDetails = new SubjectDetails();
 		
 		scheduleDetails.setDayOfWeek(dayOfWeek);
 		scheduleDetails.setStart(startTime);

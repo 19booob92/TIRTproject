@@ -3,7 +3,7 @@ package org.pwr.tirt.model;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Schedule {
+public class ScheduleDto {
 
     private long id;
     

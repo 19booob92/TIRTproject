@@ -3,7 +3,7 @@ package org.pwr.tirt.mod;
 import java.util.List;
 
 import org.pwr.tirt.model.ProcessedSchedule;
-import org.pwr.tirt.model.Subject;
+import org.pwr.tirt.model.dto.Subject;
 import org.pwr.tirt.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -35,9 +35,11 @@ public class ScheduleComparator {
 		ProcessedSchedule processedSchedule = scheduleService.findByIndexNo(
 				indexNo);
 		
-		String firstScheduleJson = processedSchedule.getSubjectsAsJson();
+//		String firstScheduleJson = processedSchedule.getSubjectsAsJson();
 
-		return gson.fromJson(firstScheduleJson, typeToken.getType());
+//		return gson.fromJson(firstScheduleJson, typeToken.getType());
+		
+		return null;
 	}
 
 	public String compareToOne2One(long indexNo, long indexNoToCompare) {

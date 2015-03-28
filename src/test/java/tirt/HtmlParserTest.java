@@ -13,7 +13,7 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.pwr.tirt.mod.HtmlParser;
-import org.pwr.tirt.model.Schedule;
+import org.pwr.tirt.model.ScheduleDto;
 
 
 public class HtmlParserTest {
@@ -31,7 +31,7 @@ public class HtmlParserTest {
         
         String content = IOUtils.toString(stream, "UTF-8");
         
-        Schedule schedule = new Schedule();
+        ScheduleDto schedule = new ScheduleDto();
         schedule.setHtml(content);
         
         Document doc = Jsoup.parse(schedule.getHtml());
@@ -48,7 +48,7 @@ public class HtmlParserTest {
         
         String content = IOUtils.toString(stream, "UTF-8");
         
-        Schedule schedule = new Schedule();
+        ScheduleDto schedule = new ScheduleDto();
         schedule.setHtml(content);
         
         Document doc = Jsoup.parse(schedule.getHtml());
@@ -60,7 +60,7 @@ public class HtmlParserTest {
         List<Element> properTrs = trsInProperTable.subList(FIRST_PROPER_TR, trsInProperTable.size()-1);
         
         
-        System.err.println(htmlParser.convertHtmlToProcessedSchedule(schedule));
+//        System.err.println(htmlParser.convertHtmlToProcessedSchedule(schedule));
     }
     
 }
