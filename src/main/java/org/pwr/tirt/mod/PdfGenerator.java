@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import com.lowagie.text.DocumentException;
-import com.lowagie.text.pdf.BaseFont;
 import com.sun.xml.messaging.saaj.util.ByteOutputStream;
 
 @Component
@@ -25,10 +24,6 @@ public class PdfGenerator {
 			ITextRenderer renderer = new ITextRenderer();
 
 			renderer.setDocumentFromString(htmlContent);
-			renderer.getFontResolver().addFont("/fonts/verdana.ttf",
-					BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
-			renderer.getFontResolver().addFont("/fonts/verdanab.ttf",
-					BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
 			renderer.layout();
 			renderer.createPDF(os);
 			pdfAsBytes = os.getBytes();

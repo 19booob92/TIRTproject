@@ -21,6 +21,9 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.thymeleaf.spring4.SpringTemplateEngine;
+import org.thymeleaf.spring4.view.ThymeleafViewResolver;
+import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 @Configuration
 @ComponentScan({ "org.pwr.tirt" })
@@ -82,6 +85,22 @@ public class TirTprojectApplication extends WebMvcConfigurerAdapter {
 	public PlatformTransactionManager transactionManager() {
 		return new JpaTransactionManager();
 	}
+	
+	@Bean
+    public SpringTemplateEngine templateEngine() {
+        ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
+        templateResolver.setPrefix("");
+        templateResolver.setSuffix(".html");
+        templateResolver.setTemplateMode("XHTML");
+        templateResolver.setCharacterEncoding("UTF-8");
+
+        SpringTemplateEngine engine = new SpringTemplateEngine();
+        engine.setTemplateResolver(templateResolver);
+
+        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+        viewResolver.setTemplateEngine(engine);
+        return engine;
+    }
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {

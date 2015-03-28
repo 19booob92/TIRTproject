@@ -20,6 +20,7 @@ import org.pwr.tirt.repository.ScheduleRepository;
 
 import testUtils.TestObjectFactory;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.Gson;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -59,7 +60,7 @@ public class ScheduleComparatorTest {
 
 	@Test
 	@Ignore
-	public void shouldReturnProperJsonWhenSchedulesContainsSameElements() {
+	public void shouldReturnProperJsonWhenSchedulesContainsSameElements() throws JsonProcessingException {
 		Assert.assertEquals(
 				"[{\"id\":0,\"start\":0.0,\"end\":0.0,\"day\":0,\"details\":{\"dayOfWeek\":\"pn\",\"start\":\"7:30\"}}]",
 				classUnderTest.compareTo(12, 11));
