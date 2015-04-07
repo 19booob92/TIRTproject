@@ -151,7 +151,7 @@ public class DBAdapter {
             } while(cursor.moveToNext());
             cursor.close();
         }
-        events = fillToFullDay(events);
+       // events = fillToFullDay(events);
         return events;
     }
 

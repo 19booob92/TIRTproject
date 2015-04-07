@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">PlanGen</string>
 
+
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="test">To jest testowy tekst</string>
@@ -35,4 +36,18 @@
     <string name="details_title">Nazwa:</string>
     <string name="details_time">Czas:</string>
     <string name="details_location">Miejsce:</string>
+    <string-array name="dnityg">
+        <item>poniedziałek</item>
+        <item>wtorek</item>
+        <item>środa</item>
+        <item>czwartek</item>
+        <item>piątek</item>
+        <item>sobota</item>
+        <item>niedziela</item>
+    </string-array>
+    <string-array name="jakitydz">
+        <item>co tydzień</item>
+        <item>tydzień parzysty</item>
+        <item>tydzień nieparzysty</item>
+    </string-array>
 </resources>
