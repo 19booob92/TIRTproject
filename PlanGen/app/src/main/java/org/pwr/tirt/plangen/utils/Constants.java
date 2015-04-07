@@ -4,6 +4,9 @@ import java.text.SimpleDateFormat;
 
 public class Constants {
     public static final String FAIL_MESSAGE = "FAILED";
+    public static final String FREE_TIME_TAG = "FREE_TIME";
+    public static final String NO_DATA = "No data";
+
     public static final String W = "Wykład";
     public static final String C = "Ćwiczenia";
     public static final String P = "Projekt";

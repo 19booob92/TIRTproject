@@ -43,6 +43,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.pwr.tirt.plangen.activities.TestActivity" />
         </activity>
+        <activity
+            android:name=".activities.DetailsActivity"
+            android:label="@string/title_activity_details"
+            android:parentActivityName=".activities.LayoutActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.pwr.tirt.plangen.activities.LayoutActivity" />
+        </activity>
     </application>
 
 </manifest>

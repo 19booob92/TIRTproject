@@ -1,36 +1,33 @@
 package org.pwr.tirt.plangen.logic;
 
-import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.pwr.tirt.plangen.utils.Constants;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class Event {
     private static final String LOG_TAG = "Event";
 
+    public int id;
     public String title;
     public String type;
-    public Calendar date;
-    public Calendar timeStart;
-    public Calendar timeEnd;
+    public String date;
+    public String timeStart;
+    public String timeEnd;
     public String location;
     public String tutor;
 
     public Event() {
-        this.title = "No data";
-        this.type = "No data";
-        this.date = Calendar.getInstance(); //TODO: test
-        this.timeStart = Calendar.getInstance(); //TODO: test
-        this.timeEnd = Calendar.getInstance(); //TODO: test
-        this.location = "No data";
-        this.tutor = "No data";
+        this.id = -1;
+        this.title = Constants.FREE_TIME_TAG;
+        this.type = Constants.NO_DATA;
+        this.date = "1970-01-01";
+        this.timeStart = "00:00";
+        this.timeEnd = "23:59";
+        this.location = Constants.NO_DATA;
+        this.tutor = Constants.NO_DATA;
     }
 
     public Event(JSONObject obj) throws JSONException {
@@ -42,27 +39,9 @@ public class Event {
         this.type = obj.getString("type");
         this.tutor = obj.getString("lector");
         JSONObject details = obj.getJSONObject("details");
-        Calendar cal;
-        try {
-            cal = Calendar.getInstance();
-            cal.setTime(Constants.dateFormat.parse(details.getString("dayOfWeek")));
-            this.date = cal;
-        } catch (ParseException e) {
-            Log.e(LOG_TAG, "Date parsing failed: " + e.getMessage());
-            this.date = null;
-        }
-        try {
-            cal = Calendar.getInstance();
-            cal.setTime(Constants.timeFormat.parse(details.getString("start")));
-            this.timeStart = cal;
-            cal = Calendar.getInstance();
-            cal.setTime(Constants.timeFormat.parse(details.getString("end")));
-            this.timeEnd = cal;
-        } catch (ParseException e) {
-            Log.e(LOG_TAG, "Time parsing failed: " + e.getMessage());
-            this.timeStart = null;
-            this.timeEnd = null;
-        }
+        this.date = details.getString("dayOfWeek");
+        this.timeStart = details.getString("start");
+        this.timeEnd = details.getString("end");
         this.location = details.getString("building") + " " + details.getString("room");
     }
 

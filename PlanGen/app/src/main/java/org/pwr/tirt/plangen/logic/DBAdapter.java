@@ -10,8 +10,6 @@ import android.util.Log;
 
 import org.pwr.tirt.plangen.utils.Constants;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -86,7 +84,7 @@ public class DBAdapter {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL(DROP_TABLE); //TODO: copy data instead of drop and recreate
+            db.execSQL(DROP_TABLE);
             onCreate(db);
             Log.d(LOG_TAG, "Table " + DB_TABLE_NAME + " updated from ver." + oldVersion + " to ver." + newVersion);
         }
@@ -116,12 +114,9 @@ public class DBAdapter {
         ContentValues newValues = new ContentValues();
         newValues.put(KEY_TITLE, event.title);
         newValues.put(KEY_TYPE, event.type);
-        String formattedValue = Constants.dateFormat.format(event.date.getTime());
-        newValues.put(KEY_DATE, formattedValue);
-        formattedValue = Constants.timeFormat.format(event.timeStart.getTime());
-        newValues.put(KEY_TIME_START, formattedValue);
-        formattedValue = Constants.timeFormat.format(event.timeEnd.getTime());
-        newValues.put(KEY_TIME_END, formattedValue);
+        newValues.put(KEY_DATE, event.date);
+        newValues.put(KEY_TIME_START, event.timeStart);
+        newValues.put(KEY_TIME_END, event.timeEnd);
         newValues.put(KEY_LOCATION, event.location);
         newValues.put(KEY_TUTOR, event.tutor);
 
@@ -143,7 +138,8 @@ public class DBAdapter {
         if(date != null) {
             String formattedDate = Constants.dateFormat.format(date.getTime());
             String where = "strftime('%Y-%m-%d', " + KEY_DATE + ") = '" + formattedDate + "'";
-            cursor = db.query(DB_TABLE_NAME, columns, where, null, null, null, null);
+            String orderBy = "time(" + KEY_TIME_START + ")";
+            cursor = db.query(DB_TABLE_NAME, columns, where, null, null, null, orderBy);
         } else {
             cursor = db.query(DB_TABLE_NAME, columns, null, null, null, null, null);
         }
@@ -155,37 +151,54 @@ public class DBAdapter {
             } while(cursor.moveToNext());
             cursor.close();
         }
+        events = fillToFullDay(events);
         return events;
     }
 
     private Event createEvent(Cursor cursor) {
         Event event = new Event();
+        event.id = cursor.getInt(ID_COLUMN);
         event.title = cursor.getString(TITLE_COLUMN);
         event.type = cursor.getString(TYPE_COLUMN);
-        Calendar cal;
-        try {
-            cal = Calendar.getInstance();
-            cal.setTime(Constants.dateFormat.parse(cursor.getString(DATE_COLUMN)));
-            event.date = cal;
-        } catch (ParseException e) {
-            Log.e(LOG_TAG, "Date parsing failed: " + e.getMessage());
-        }
-        try {
-            cal = Calendar.getInstance();
-            cal.setTime(Constants.timeFormat.parse(cursor.getString(TIME_START_COLUMN)));
-            event.timeStart = cal;
-            cal = Calendar.getInstance();
-            cal.setTime(Constants.timeFormat.parse(cursor.getString(TIME_END_COLUMN)));
-            event.timeEnd = cal;
-        } catch (ParseException e) {
-            Log.e(LOG_TAG, "Time parsing failed: " + e.getMessage());
-        }
+        event.date = cursor.getString(DATE_COLUMN);
+        event.timeStart = cursor.getString(TIME_START_COLUMN);
+        event.timeEnd = cursor.getString(TIME_END_COLUMN);
         event.location = cursor.getString(LOCATION_COLUMN);
         event.tutor = cursor.getString(TUTOR_COLUMN);
         return event;
     }
 
-    /*public Event getData(long id) {
+    private ArrayList<Event> fillToFullDay(ArrayList<Event> eventsList) {
+        ArrayList<Event> finalList = new ArrayList<>();
+
+        if (eventsList.isEmpty()) {
+            finalList.add(new Event());
+            return finalList;
+        }
+        if (!eventsList.get(0).timeStart.equals("00:00")) {
+            Event e = new Event();
+            e.timeEnd = eventsList.get(0).timeStart;
+            finalList.add(e);
+        }
+        if (eventsList.size() > 1) {
+            for (int i = 0; i < eventsList.size() - 1; i++) {
+                finalList.add(eventsList.get(i));
+                Event e = new Event();
+                e.timeStart = eventsList.get(i).timeEnd;
+                e.timeEnd = eventsList.get(i+1).timeStart;
+                finalList.add(e);
+            }
+            finalList.add(eventsList.get(eventsList.size()-1));
+        }
+        if (!eventsList.get(eventsList.size()-1).timeEnd.equals("23:59")) {
+            Event e = new Event();
+            e.timeStart = eventsList.get(eventsList.size()-1).timeEnd;
+            finalList.add(e);
+        }
+        return finalList;
+    }
+
+    public Event getData(long id) {
         String[] columns = {KEY_ID, KEY_TITLE, KEY_TYPE, KEY_DATE, KEY_TIME_START, KEY_TIME_END, KEY_LOCATION, KEY_TUTOR};
         String where = KEY_ID + "=" + id;
         Cursor cursor = db.query(DB_TABLE_NAME, columns, where, null, null, null, null);
@@ -197,7 +210,7 @@ public class DBAdapter {
         return event;
     }
 
-    public boolean deleteData(long id){
+    /*public boolean deleteData(long id){
         String where = KEY_ID + "=" + id;
         return db.delete(DB_TABLE_NAME, where, null) > 0;
     }*/

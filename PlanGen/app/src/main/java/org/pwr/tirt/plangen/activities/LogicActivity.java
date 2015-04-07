@@ -1,8 +1,7 @@
 package org.pwr.tirt.plangen.activities;
 
-import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,15 +11,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.pwr.tirt.plangen.R;
 import org.pwr.tirt.plangen.logic.DBAdapter;
 import org.pwr.tirt.plangen.logic.Event;
-import org.pwr.tirt.plangen.R;
+import org.pwr.tirt.plangen.logic.GVServerClient;
 import org.pwr.tirt.plangen.logic.ITaskListener;
-import org.pwr.tirt.plangen.logic.ServerClientTask;
 import org.pwr.tirt.plangen.utils.Constants;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class LogicActivity extends ActionBarActivity implements ITaskListener {
@@ -74,7 +73,6 @@ public class LogicActivity extends ActionBarActivity implements ITaskListener {
         super.onDestroy();
     }
 
-
     @Override
     public void dataDownloaded(String data) {
         ArrayList<Event> events = new ArrayList<>();
@@ -93,6 +91,11 @@ public class LogicActivity extends ActionBarActivity implements ITaskListener {
         buttonDownload.setEnabled(true);
     }
 
+    @Override
+    public void downloadingFailed() {
+        textView.setText(Constants.FAIL_MESSAGE);
+    }
+
     private void initDatabase() {
         dbAdapter = new DBAdapter(getApplicationContext());
         dbAdapter.openConnection();
@@ -105,9 +108,9 @@ public class LogicActivity extends ActionBarActivity implements ITaskListener {
         for(Event event : events) {
             allData += "title: " + event.title +
                     " type: " + event.type +
-                    " date: " + Constants.dateFormat.format(event.date.getTime()) +
-                    " start: " + Constants.timeFormat.format(event.timeStart.getTime()) +
-                    " end: " + Constants.timeFormat.format(event.timeEnd.getTime()) +
+                    " date: " + event.date +
+                    " start: " + event.timeStart +
+                    " end: " + event.timeEnd +
                     " location: " + event.location +
                     " tutor: " + event.tutor +
                     "\n";
@@ -116,12 +119,16 @@ public class LogicActivity extends ActionBarActivity implements ITaskListener {
     }
 
     public void onClickDownloadData(View view) {
-        //ServerClientTask serverClientTask = new ServerClientTask(getApplicationContext(), this);
-        //serverClientTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, editText.getText().toString());
-        String json = "[{\"id\":0,\"name\":\"Modelowanie i anal. biznesowa\",\"lector\":\"Prof. dr hab. inż. Zbigniew Huzar\",\"type\":\"Wykład\",\"start\":0.0,\"end\":0.0,\"day\":0,\"details\":{\"dayOfWeek\":\"2015-03-27\",\"start\":\"09:15\",\"end\":\"11:15\",\"building\":\"B-4\",\"room\":\"409\"}}," +
+        //GVServerClient.connectToServer(getApplicationContext(), this, editText.getText().toString());
+        String json = "[" +
+                "{\"id\":0,\"name\":\"Modelowanie i anal. biznesowa\",\"lector\":\"Dr inż. Anita Walkowiak\",\"type\":\"Zajęcia laboratoryjne\",\"start\":0.0,\"end\":0.0,\"day\":0,\"details\":{\"dayOfWeek\":\"2015-03-27\",\"start\":\"18:40\",\"end\":\"22:55\",\"building\":\"B-4\",\"room\":\"226\"}}," +
+                "{\"id\":0,\"name\":\"Modelowanie i anal. biznesowa\",\"lector\":\"Prof. dr hab. inż. Zbigniew Huzar\",\"type\":\"Wykład\",\"start\":0.0,\"end\":0.0,\"day\":0,\"details\":{\"dayOfWeek\":\"2015-03-27\",\"start\":\"09:15\",\"end\":\"11:15\",\"building\":\"B-4\",\"room\":\"409\"}}," +
                 "{\"id\":0,\"name\":\"Teoria i inż. ruchu teleinf.\",\"lector\":\"Prof. dr hab. inż. Adam Grzech\",\"type\":\"Ćwiczenia\",\"start\":0.0,\"end\":0.0,\"day\":0,\"details\":{\"dayOfWeek\":\"2015-03-27\",\"start\":\"15:00\",\"end\":\"16:00\",\"building\":\"A-1\",\"room\":\"329\"}}," +
                 "{\"id\":0,\"name\":\"TIRT\",\"lector\":\"Prof. dr hab. inż. Adam Grzech\",\"type\":\"Ćwiczenia\",\"start\":0.0,\"end\":0.0,\"day\":0,\"details\":{\"dayOfWeek\":\"2015-03-28\",\"start\":\"15:00\",\"end\":\"16:00\",\"building\":\"A-1\",\"room\":\"329\"}}," +
-                "{\"id\":0,\"name\":\"Modelowanie i anal. biznesowa\",\"lector\":\"Dr inż. Anita Walkowiak\",\"type\":\"Zajęcia laboratoryjne\",\"start\":0.0,\"end\":0.0,\"day\":0,\"details\":{\"dayOfWeek\":\"2015-03-27\",\"start\":\"17:05\",\"end\":\"20:35\",\"building\":\"B-4\",\"room\":\"226\"}}]";
+                "{\"id\":0,\"name\":\"TIRT\",\"lector\":\"Prof. dr hab. inż. Adam Grzech\",\"type\":\"Ćwiczenia\",\"start\":0.0,\"end\":0.0,\"day\":0,\"details\":{\"dayOfWeek\":\"2015-03-27\",\"start\":\"16:10\",\"end\":\"16:15\",\"building\":\"A-1\",\"room\":\"329\"}}," +
+                "{\"id\":0,\"name\":\"TIRT\",\"lector\":\"Prof. dr hab. inż. Adam Grzech\",\"type\":\"Ćwiczenia\",\"start\":0.0,\"end\":0.0,\"day\":0,\"details\":{\"dayOfWeek\":\"2015-03-27\",\"start\":\"16:30\",\"end\":\"17:00\",\"building\":\"A-1\",\"room\":\"329\"}}," +
+                "{\"id\":0,\"name\":\"TIRT\",\"lector\":\"Prof. dr hab. inż. Adam Grzech\",\"type\":\"Ćwiczenia\",\"start\":0.0,\"end\":0.0,\"day\":0,\"details\":{\"dayOfWeek\":\"2015-03-27\",\"start\":\"17:30\",\"end\":\"18:35\",\"building\":\"A-1\",\"room\":\"329\"}}" +
+                "]";
         dataDownloaded(json);
         buttonDownload.setEnabled(false);
     }

@@ -23,7 +23,8 @@
             android:layout_height="0dp"
             android:gravity="center"
             style="?android:attr/buttonStyleSmall"
-            android:text="@string/monday"
+            android:text="@string/monday_short"
+            android:onClick="onClickMonday"
             android:layout_weight="1" />
 
         <Button
@@ -32,16 +33,18 @@
             android:layout_height="0dp"
             android:gravity="center"
             style="?android:attr/buttonStyleSmall"
-            android:text="@string/tuesday"
+            android:text="@string/tuesday_short"
+            android:onClick="onClickTuesday"
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/btnWednesday"
+            android:id="@+id/buttonWednesday"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:gravity="center"
             style="?android:attr/buttonStyleSmall"
-            android:text="@string/wednesday"
+            android:text="@string/wednesday_short"
+            android:onClick="onClickWednesday"
             android:layout_weight="1" />
 
         <Button
@@ -50,7 +53,8 @@
             android:layout_height="0dp"
             android:gravity="center"
             style="?android:attr/buttonStyleSmall"
-            android:text="@string/thursday"
+            android:text="@string/thursday_short"
+            android:onClick="onClickThursday"
             android:layout_weight="1" />
 
         <Button
@@ -59,7 +63,8 @@
             android:layout_height="0dp"
             android:gravity="center"
             style="?android:attr/buttonStyleSmall"
-            android:text="@string/Friday"
+            android:text="@string/friday_short"
+            android:onClick="onClickFriday"
             android:layout_weight="1" />
 
         <Button
@@ -68,7 +73,8 @@
             android:layout_height="0dp"
             android:gravity="center"
             style="?android:attr/buttonStyleSmall"
-            android:text="@string/Saturday"
+            android:text="@string/saturday_short"
+            android:onClick="onClickSaturday"
             android:layout_weight="1" />
 
         <Button
@@ -77,7 +83,8 @@
             android:layout_height="0dp"
             android:gravity="center"
             style="?android:attr/buttonStyleSmall"
-            android:text="@string/Sunday"
+            android:text="@string/sunday_short"
+            android:onClick="onClickSunday"
             android:layout_weight="1" />
         </LinearLayout>
 
