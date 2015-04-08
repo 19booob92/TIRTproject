@@ -25,8 +25,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:text="Tytuł zajęć"
-                android:id="@+id/tVTitle"
+                android:text="@string/details_title"
+                android:id="@+id/textViewTitle"
                 android:layout_weight="0.5"
 
                 />
@@ -34,7 +34,7 @@
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:id="@+id/eTTitle"
+                android:id="@+id/editTextTitle"
                 android:layout_weight="0.5" />
 
 
@@ -48,8 +48,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:text="Dzień tygodnia"
-                android:id="@+id/tVdzientyg"
+                android:text="@string/detail_day"
+                android:id="@+id/textViewdzientyg"
                 android:layout_weight="0.5"
 
                 />
@@ -60,7 +60,7 @@
                 android:id="@+id/spinnerdni"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-               android:entries="@array/dnityg"
+                android:entries="@array/dnityg"
                 android:layout_weight="1">
 
             </Spinner>
@@ -77,8 +77,9 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:text="Jak często"
-                android:id="@+id/tVczycotydzień"
+                android:text="@string/detail_week"
+                android:id="@+id/textViewWeek"
+
                 android:layout_weight="0.5"
 
                 />
@@ -103,8 +104,8 @@
         <TextView
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:text="Początek zajęć"
-                android:id="@+id/tVtimeStart"
+                android:text="@string/details_timeStart"
+                android:id="@+id/textViewtimeStart"
                 android:layout_weight="0.5"
 
                 />
@@ -112,7 +113,7 @@
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:id="@+id/eTtimeStart"
+                android:id="@+id/editTexttimeStart"
                 android:inputType="time"
                 android:ems="10"
                 android:layout_weight="0.5" />
@@ -128,8 +129,8 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:text="Koniec zajęć"
-            android:id="@+id/tVTimeEnd"
+            android:text="@string/details_timeEnd"
+            android:id="@+id/textViewTimeEnd"
             android:layout_weight="0.5"
 
             />
@@ -137,7 +138,7 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:id="@+id/eTTimeEnd"
+            android:id="@+id/editTextTimeEnd"
             android:inputType="time"
             android:ems="10"
             android:layout_weight="0.5" />
@@ -153,8 +154,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:text="Miejsce"
-                android:id="@+id/tVlocation"
+                android:text="@string/details_location"
+                android:id="@+id/textViewlocation"
                 android:layout_weight="0.5"
 
                 />
@@ -162,7 +163,7 @@
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:id="@+id/eTlocation"
+                android:id="@+id/editTextlocation"
                 android:layout_weight="0.5" />
 
 
@@ -176,8 +177,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:text="Prowadzący"
-                android:id="@+id/tVTutor"
+                android:text="@string/detail_tutor"
+                android:id="@+id/textViewTutor"
                 android:layout_weight="0.5"
 
                 />
@@ -185,7 +186,7 @@
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:id="@+id/eTTutor"
+                android:id="@+id/editTextTutor"
                 android:layout_weight="0.5" />
 
 
@@ -199,8 +200,7 @@
             <Button
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
-              android:text="Dodaj"
-
+              android:text="@string/add"
               android:id="@+id/BtnAdd"
 
 

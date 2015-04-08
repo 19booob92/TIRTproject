@@ -35,7 +35,13 @@
     <string name="title_activity_details">DetailsActivity</string>
     <string name="details_title">Nazwa:</string>
     <string name="details_time">Czas:</string>
+    <string name="details_timeStart">Początek zajęć:</string>
+    <string name="details_timeEnd">Koniec zajęć:</string>
     <string name="details_location">Miejsce:</string>
+    <string name="detail_tutor">Prowadzący:</string>
+    <string name="detail_day">Dzień tygodnia:</string>
+    <string name="detail_week">Jak często:</string>
+
     <string-array name="dnityg">
         <item>poniedziałek</item>
         <item>wtorek</item>
