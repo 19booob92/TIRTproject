@@ -13,7 +13,7 @@
         android:layout_gravity="center"
         android:textSize="30sp"
         android:textColor="@color/orange"
-        android:text="@string/test" />
+        android:text="@string/test"/>
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"

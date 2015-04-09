@@ -36,6 +36,7 @@
     <string name="details_title">Nazwa:</string>
     <string name="details_time">Czas:</string>
     <string name="details_location">Miejsce:</string>
+    <string name="campus_map">Mapa kampusu</string>
     <string-array name="dnityg">
         <item>poniedziałek</item>
         <item>wtorek</item>

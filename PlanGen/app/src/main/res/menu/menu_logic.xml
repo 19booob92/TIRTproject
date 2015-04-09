@@ -4,4 +4,9 @@
     tools:context="org.pwr.tirt.plangen.activities.LogicActivity">
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/action_embiventory_stats"
+        android:icon="@drawable/abc_ic_menu_selectall_mtrl_alpha"
+        app:showAsAction="ifRoom"
+        android:title="@string/campus_map" />
 </menu>
