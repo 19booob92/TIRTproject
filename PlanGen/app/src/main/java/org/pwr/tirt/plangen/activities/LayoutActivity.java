@@ -1,5 +1,6 @@
 package org.pwr.tirt.plangen.activities;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -29,11 +30,14 @@ public class LayoutActivity extends ActionBarActivity {
     private TextView dayOfWeek;
     private ListView listView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_layout);
 
+        //ActionBar bar = getActionBar();
+        //bar.setBackgroundDrawable(new ColorDrawable(Color.BLUE));
         date = Calendar.getInstance();
         date.set(Calendar.YEAR, 2015); //TODO: delete
         date.set(Calendar.MONTH, 2);

@@ -5,7 +5,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="test">To jest testowy tekst</string>
-    <string name="add">Dodaj</string>
+    <string name="add">Gotowe</string>
     <string name="load">Wczytaj dane</string>
     <string name="title_activity_logic">LogicActivity</string>
     <string name="title_activity_layout">LayoutActivity</string>
@@ -33,17 +33,19 @@
     <string name="saturday_long">Sobota</string>
     <string name="sunday_long">Niedziela</string>
     <string name="title_activity_details">DetailsActivity</string>
-    <string name="details_title">Nazwa:</string>
+    <string name="details_title">Nazwa</string>
     <string name="details_time">Czas:</string>
-    <string name="details_timeStart">Początek zajęć:</string>
-    <string name="details_timeEnd">Koniec zajęć:</string>
-    <string name="details_location">Miejsce:</string>
-    <string name="detail_tutor">Prowadzący:</string>
-    <string name="detail_day">Dzień tygodnia:</string>
-    <string name="detail_week">Jak często:</string>
+    <string name="details_timeStart">Od</string>
+    <string name="details_timeEnd">Do</string>
+    <string name="details_location">Miejsce</string>
+    <string name="detail_tutor">Prowadzący</string>
+    <string name="detail_day">Dzień tygodnia</string>
+    <string name="detail_week">Typ tygodnia</string>
     <string name="campus_map">Mapa kampusu</string>
+    <string name="detail_type">Typ</string>
+    <string name="header_add">    Dodaj</string>
 
-    <string-array name="dnityg">
+    <string-array name="weekday">
         <item>poniedziałek</item>
         <item>wtorek</item>
         <item>środa</item>
@@ -52,9 +54,16 @@
         <item>sobota</item>
         <item>niedziela</item>
     </string-array>
-    <string-array name="jakitydz">
+    <string-array name="often">
         <item>co tydzień</item>
         <item>tydzień parzysty</item>
         <item>tydzień nieparzysty</item>
+        <item>jendorazowo</item>
+    </string-array>
+    <string-array name="type">
+        <item>seminarium</item>
+        <item>ćwiczenia</item>
+        <item>wykład</item>
+        <item>inne</item>
     </string-array>
 </resources>
