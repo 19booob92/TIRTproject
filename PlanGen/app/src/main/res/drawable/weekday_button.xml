@@ -3,8 +3,8 @@
     <item android:state_pressed="true" >
         <shape>
             <corners
-                android:bottomLeftRadius="45dp"
-                android:topLeftRadius="45dp" />
+                android:bottomLeftRadius="20dp"
+                android:topLeftRadius="20dp" />
             <solid
                 android:color="#ffffffff" />
             <padding
@@ -19,10 +19,10 @@
     <item>
         <shape>
             <corners
-                android:bottomLeftRadius="45dp"
-                android:topLeftRadius="45dp" />
+                android:bottomLeftRadius="20dp"
+                android:topLeftRadius="20dp" />
             <solid
-                android:color="@color/orange" />
+                android:color="@color/white" />
             <padding
                 android:left="10dp"
                 android:top="5dp"
