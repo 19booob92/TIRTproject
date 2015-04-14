@@ -14,6 +14,9 @@ public class Constants {
     public static final String L = "Zajęcia laboratoryjne";
     public static final String I = "Inne";
 
+    public static final String SEMESTER_START_DATE = "2015-02-25";
+    public static final String SEMESTER_END_DATE = "2015-06-17";
+
     public static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     public static final SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 }

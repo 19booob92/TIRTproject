@@ -51,6 +51,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.pwr.tirt.plangen.activities.LayoutActivity" />
         </activity>
+        <activity
+            android:name=".activities.AddEventCorrectDatesActivity"
+            android:label="@string/title_activity_add_event_correct_dates"
+            android:parentActivityName=".activities.AddEventActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.pwr.tirt.plangen.activities.AddEventActivity" />
+        </activity>
     </application>
 
 </manifest>

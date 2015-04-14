@@ -23,10 +23,10 @@ public class EventListAdapter extends ArrayAdapter<Event> {
     private static final String LOG_TAG = "Event List Adapter";
     private static class EventHolder
     {
-        TextView textViewTime;
-        TextView textViewTitle;
-        TextView textViewLocation;
-        RelativeLayout layout;
+        private TextView textViewTime;
+        private TextView textViewTitle;
+        private TextView textViewLocation;
+        private RelativeLayout layout;
     }
 
     private Context context;

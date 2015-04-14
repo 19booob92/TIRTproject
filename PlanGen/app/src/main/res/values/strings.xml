@@ -66,4 +66,8 @@
         <item>wykład</item>
         <item>inne</item>
     </string-array>
+    <string name="title_activity_add_event_correct_dates">AddEventCorrectDatesActivity</string>
+    <string name="add_new_date_change">Dodaj nową</string>
+    <string name="from_date">W dniu</string>
+    <string name="to_date">Jak w</string>
 </resources>
