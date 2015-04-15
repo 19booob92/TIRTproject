@@ -62,6 +62,7 @@
     </string-array>
     <string-array name="type">
         <item>seminarium</item>
+        <item>laboratoria</item>
         <item>ćwiczenia</item>
         <item>wykład</item>
         <item>inne</item>

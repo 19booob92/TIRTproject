@@ -16,12 +16,24 @@
                     android:top="5dp"
                     android:right="10dp"
                     android:bottom="5dp" />
-
+                <stroke
+                    android:width="1px"
+                    android:color="@color/gray" />
+                <gradient
+                    android:startColor="@color/gray"
+                    android:endColor="@color/day_name"
+                    android:angle="90">
+                </gradient>
             </shape>
         </item>
 
         <item>
             <shape>
+                <gradient
+                    android:startColor="@color/gray"
+                    android:endColor="@color/day_name"
+                    android:angle="90">
+                </gradient>
                 <corners
                     android:bottomLeftRadius="10dp"
                     android:bottomRightRadius="10dp"
@@ -34,6 +46,9 @@
                     android:top="5dp"
                     android:right="10dp"
                     android:bottom="5dp" />
+                <stroke
+                    android:width="1px"
+                    android:color="@color/gray" />
             </shape>
         </item>
     </selector>

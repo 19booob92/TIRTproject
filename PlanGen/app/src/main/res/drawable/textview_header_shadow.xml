@@ -1,0 +1,10 @@
+
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/shadow_straigt"/>
+    <item
+        android:drawable="@drawable/textview_header"
+        android:bottom="4px" />
+
+</layer-list>

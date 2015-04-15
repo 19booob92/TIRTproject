@@ -6,4 +6,7 @@
     <color name="day_name">#f4541d</color>
     <color name="black">#000000</color>
     <color name="green_add_activity">#92f688</color>
+    <color name="gray">#CCFFCC   </color>
+    <color name="shadow">#888888</color>
+    <color name="name">#a7bafa</color>
 </resources>

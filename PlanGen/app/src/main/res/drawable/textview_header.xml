@@ -4,6 +4,14 @@
         <shape>
             <corners
                 />
+            <gradient
+                android:startColor="@color/gray"
+                android:endColor="@color/green_add_activity"
+                android:angle="90">
+            </gradient>
+            <stroke
+                android:width="1px"
+                android:color="@color/gray" />
             <solid
                 android:color="@color/day_name" />
             <padding

@@ -1,0 +1,9 @@
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/shadows"/>
+    <item
+        android:drawable="@drawable/add_event_headings"
+        android:bottom="4px" />
+
+</layer-list>
