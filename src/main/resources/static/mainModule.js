@@ -12,7 +12,8 @@ scheduleModule
 
 					// var url = 'http://planpwr.unicloud.pl/schedule/';
 					var url = 'http://localhost:8080/schedule/';
-
+					$scope.uri = url + "/pdf/";
+					
 					$scope.scheduleId = '';
 					$scope.secondScheduleId = '';
 
@@ -52,12 +53,6 @@ scheduleModule
 								function(fechedData) {
 									$scope.scheduleJson = fechedData;
 									fillScheduleTable(fechedData);
-								});
-					};
-
-					$scope.generatePdf = function() {
-						$http.get(url + 'pdf/' + $scope.scheduleId).success(
-								function() {
 								});
 					};
 

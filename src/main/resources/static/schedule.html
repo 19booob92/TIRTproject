@@ -52,10 +52,7 @@
 			type="button" class="btn btn-warning" value="pobierz plan"
 			ng-click="fetchSchedule(); showTable=true; compareSchedule=false">
 		</input><br />
-		<input type="text" ng-model="scheduleId"></br> </input> <input
-			type="button" class="btn btn-normal" value="pobierz pdf"
-			ng-click="generatePdf(); compareSchedule=false">
-		</input>
+		<a target="_self" href="{{uri + scheduleId}}" download="plan.pdf">Pobierz</a>
 		<!-- <p>{{scheduleJson}}</p>  -->
 	</div>
 
