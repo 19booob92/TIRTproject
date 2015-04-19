@@ -181,6 +181,9 @@ public class DBAdapter {
             e.timeEnd = eventsList.get(0).timeStart;
             finalList.add(e);
         }
+        if (eventsList.size() == 1) {
+            finalList.add(eventsList.get(0));
+        }
         if (eventsList.size() > 1) {
             for (int i = 0; i < eventsList.size() - 1; i++) {
                 finalList.add(eventsList.get(i));

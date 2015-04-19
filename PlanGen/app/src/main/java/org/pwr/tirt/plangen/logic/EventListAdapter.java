@@ -125,17 +125,17 @@ public class EventListAdapter extends ArrayAdapter<Event> {
 
     private int getColor(String type) {
         switch (type) {
-            case Constants.W:
+            case Constants.LECTURE:
                 return context.getResources().getColor(R.color.orange);
-            case Constants.C:
+            case Constants.EXECRISES:
                 return Color.CYAN;
-            case Constants.L:
+            case Constants.LABORATORY:
                 return Color.RED;
-            case Constants.P:
+            case Constants.PROJECT:
                 return Color.GRAY;
-            case Constants.S:
+            case Constants.SEMINAR:
                 return Color.GREEN;
-            case Constants.I:
+            case Constants.OTHER:
                 return Color.YELLOW;
             default:
                 return -1;

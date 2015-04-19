@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">PlanGen</string>
-
-
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="test">To jest testowy tekst</string>
@@ -44,31 +42,44 @@
     <string name="campus_map">Mapa kampusu</string>
     <string name="detail_type">Typ</string>
     <string name="header_add">    Dodaj</string>
+    <string name="lecture">Wykład</string>
+    <string name="exercises">Ćwiczenia</string>
+    <string name="project">Projekt</string>
+    <string name="seminar">Seminarium</string>
+    <string name="laboratory">Zajęcia laboratoryjne</string>
+    <string name="other">Inne</string>
+    <string name="every_week">Co tydzień</string>
+    <string name="even_week">Tydzień parzysty</string>
+    <string name="odd_week">Tydzień nieparzysty</string>
+    <string name="one_time">Jednorazowo</string>
 
     <string-array name="weekday">
-        <item>poniedziałek</item>
-        <item>wtorek</item>
-        <item>środa</item>
-        <item>czwartek</item>
-        <item>piątek</item>
-        <item>sobota</item>
-        <item>niedziela</item>
+        <item>@string/monday_long</item>
+        <item>@string/tuesday_long</item>
+        <item>@string/wednesday_long</item>
+        <item>@string/thursday_long</item>
+        <item>@string/friday_long</item>
+        <item>@string/saturday_long</item>
+        <item>@string/sunday_long</item>
     </string-array>
-    <string-array name="often">
-        <item>co tydzień</item>
-        <item>tydzień parzysty</item>
-        <item>tydzień nieparzysty</item>
-        <item>jendorazowo</item>
+    <string-array name="repetition">
+        <item>@string/every_week</item>
+        <item>@string/even_week</item>
+        <item>@string/odd_week</item>
+        <item>@string/one_time</item>
     </string-array>
-    <string-array name="type">
-        <item>seminarium</item>
-        <item>laboratoria</item>
-        <item>ćwiczenia</item>
-        <item>wykład</item>
-        <item>inne</item>
+    <string-array name="event_type">
+        <item>@string/lecture</item>
+        <item>@string/exercises</item>
+        <item>@string/project</item>
+        <item>@string/seminar</item>
+        <item>@string/laboratory</item>
+        <item>@string/other</item>
     </string-array>
     <string name="title_activity_add_event_correct_dates">AddEventCorrectDatesActivity</string>
     <string name="add_new_date_change">Dodaj nową</string>
     <string name="from_date">W dniu</string>
     <string name="to_date">Jak w</string>
+    <string name="event_added">Dodano</string>
+    <string name="error">Wystąpił błąd</string>
 </resources>

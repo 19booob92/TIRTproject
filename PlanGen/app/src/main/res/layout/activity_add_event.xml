@@ -219,7 +219,7 @@
                 android:id="@+id/spinnertype"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:entries="@array/type"
+                android:entries="@array/event_type"
                 android:layout_weight="0.5"
                 android:gravity="center"
                 android:background="@drawable/text_adding"
@@ -289,7 +289,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:entries="@array/often"
+                android:entries="@array/repetition"
                 android:layout_weight="0.5"
                 android:background="@drawable/text_adding"
                 android:layout_marginTop="5dp">

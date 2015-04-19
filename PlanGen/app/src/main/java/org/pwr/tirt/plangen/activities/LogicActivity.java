@@ -11,12 +11,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.pwr.tirt.plangen.R;
 import org.pwr.tirt.plangen.logic.DBAdapter;
 import org.pwr.tirt.plangen.logic.Event;
-import org.pwr.tirt.plangen.logic.GVServerClient;
 import org.pwr.tirt.plangen.logic.ITaskListener;
 import org.pwr.tirt.plangen.utils.Constants;
 
