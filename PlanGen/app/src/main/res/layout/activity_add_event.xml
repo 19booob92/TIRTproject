@@ -80,7 +80,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:text="@string/detail_tutor"
+                android:text="@string/details_tutor"
                 android:id="@+id/textViewTutor"
                 android:layout_weight="0.3"
                 android:background="@drawable/add_event_headingsshadow"
@@ -205,7 +205,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:text="@string/detail_type"
+                android:text="@string/details_type"
                 android:id="@+id/textViewType"
                 android:layout_weight="0.3"
                 android:background="@drawable/add_event_headingsshadow"
@@ -239,7 +239,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:text="@string/detail_day"
+                android:text="@string/details_day"
                 android:id="@+id/textViewdzientyg"
                 android:layout_weight="0.3"
                 android:background="@drawable/add_event_headingsshadow"
@@ -274,7 +274,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:text="@string/detail_week"
+                android:text="@string/details_week_type"
                 android:id="@+id/textViewWeek"
                 android:layout_weight="0.3"
                 android:background="@drawable/add_event_headingsshadow"
@@ -289,7 +289,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:entries="@array/repetition"
+                android:entries="@array/week_repetition"
                 android:layout_weight="0.5"
                 android:background="@drawable/text_adding"
                 android:layout_marginTop="5dp">

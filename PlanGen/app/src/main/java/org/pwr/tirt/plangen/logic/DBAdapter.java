@@ -130,14 +130,13 @@ public class DBAdapter {
         db.execSQL(DB_CREATE_TABLE);
     }
 
-    public ArrayList<Event> getDailyEvents (Calendar date) {
+    public ArrayList<Event> getDailyEvents (String date) {
         ArrayList<Event> events = new ArrayList<>();
         String[] columns = {KEY_ID, KEY_TITLE, KEY_TYPE, KEY_DATE, KEY_TIME_START, KEY_TIME_END, KEY_LOCATION, KEY_TUTOR};
 
         Cursor cursor;
         if(date != null) {
-            String formattedDate = Constants.dateFormat.format(date.getTime());
-            String where = "strftime('%Y-%m-%d', " + KEY_DATE + ") = '" + formattedDate + "'";
+            String where = "strftime('%Y-%m-%d', " + KEY_DATE + ") = '" + date + "'";
             String orderBy = "time(" + KEY_TIME_START + ")";
             cursor = db.query(DB_TABLE_NAME, columns, where, null, null, null, orderBy);
         } else {

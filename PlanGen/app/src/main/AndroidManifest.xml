@@ -59,6 +59,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.pwr.tirt.plangen.activities.AddEventActivity" />
         </activity>
+        <activity
+            android:name=".activities.EditEventActivity"
+            android:label="@string/title_activity_edit_event"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
     </application>
 
 </manifest>

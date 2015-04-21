@@ -101,7 +101,8 @@ public class LogicActivity extends ActionBarActivity implements ITaskListener {
         String allData = "";
         ArrayList<Event> events = dbAdapter.getDailyEvents(null);
         for(Event event : events) {
-            allData += "title: " + event.title +
+            allData += "id: " + event.id +
+                    "title: " + event.title +
                     " type: " + event.type +
                     " date: " + event.date +
                     " start: " + event.timeStart +

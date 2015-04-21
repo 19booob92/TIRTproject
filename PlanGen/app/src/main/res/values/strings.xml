@@ -36,11 +36,11 @@
     <string name="details_timeStart">Od</string>
     <string name="details_timeEnd">Do</string>
     <string name="details_location">Miejsce</string>
-    <string name="detail_tutor">Prowadzący</string>
-    <string name="detail_day">Dzień tygodnia</string>
-    <string name="detail_week">Typ tygodnia</string>
+    <string name="details_tutor">Prowadzący</string>
+    <string name="details_day">Dzień tygodnia</string>
+    <string name="details_week_type">Typ tygodnia</string>
     <string name="campus_map">Mapa kampusu</string>
-    <string name="detail_type">Typ</string>
+    <string name="details_type">Typ</string>
     <string name="header_add">    Dodaj</string>
     <string name="lecture">Wykład</string>
     <string name="exercises">Ćwiczenia</string>
@@ -62,7 +62,7 @@
         <item>@string/saturday_long</item>
         <item>@string/sunday_long</item>
     </string-array>
-    <string-array name="repetition">
+    <string-array name="week_repetition">
         <item>@string/every_week</item>
         <item>@string/even_week</item>
         <item>@string/odd_week</item>
@@ -82,4 +82,8 @@
     <string name="to_date">Jak w</string>
     <string name="event_added">Dodano</string>
     <string name="error">Wystąpił błąd</string>
+    <string name="title_activity_edit_event">EditEventActivity</string>
+    <string name="action_edit_event">Edytuj</string>
+    <string name="details_date">Data</string>
+    <string name="save">Zapisz</string>
 </resources>

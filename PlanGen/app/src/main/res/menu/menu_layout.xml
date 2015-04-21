@@ -11,5 +11,7 @@
         app:showAsAction="ifRoom"
         android:title="@string/campus_map" />
 
+    <item android:id="@+id/action_edit_event" android:title="@string/action_edit_event"
+        android:orderInCategory="100" app:showAsAction="never" />
 
 </menu>

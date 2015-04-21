@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,16 +18,18 @@ import org.pwr.tirt.plangen.logic.Event;
 import org.pwr.tirt.plangen.logic.EventListAdapter;
 import org.pwr.tirt.plangen.utils.Constants;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 public class LayoutActivity extends ActionBarActivity {
+    private static final String LOG_TAG = "Layout Activity";
+
     private DBAdapter dbAdapter;
     private Event[] eventsArray;
-    private Calendar date;
+    private String date;
     private TextView dayOfWeek;
     private ListView listView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +38,11 @@ public class LayoutActivity extends ActionBarActivity {
 
         //ActionBar bar = getActionBar();
         //bar.setBackgroundDrawable(new ColorDrawable(Color.BLUE));
-        date = Calendar.getInstance();
-        date.set(Calendar.YEAR, 2015); //TODO: delete
-        date.set(Calendar.MONTH, 2);
-        date.set(Calendar.DAY_OF_MONTH, 27);
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.YEAR, 2015); //TODO: delete
+        c.set(Calendar.MONTH, 2);
+        c.set(Calendar.DAY_OF_MONTH, 27);
+        date = Constants.dateFormat.format(c.getTime());
 
         initDatabase();
         getData();
@@ -73,9 +77,13 @@ public class LayoutActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                return true;
+            case R.id.action_edit_event:
+                Intent intent = new Intent(this, EditEventActivity.class);
+                startActivity(intent);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -99,7 +107,15 @@ public class LayoutActivity extends ActionBarActivity {
     }
 
     private String getDayOfWeek() {
-        switch (date.get(Calendar.DAY_OF_WEEK)) {
+        Calendar c = Calendar.getInstance();
+        if(date != null) {
+            try {
+                c.setTime(Constants.dateFormat.parse(date));
+            } catch (ParseException e) {
+                Log.e(LOG_TAG, "Parsing time failed. " + e.getMessage());
+            }
+        }
+        switch (c.get(Calendar.DAY_OF_WEEK)) {
             case Calendar.MONDAY:
                 return getString(R.string.monday_long);
             case Calendar.TUESDAY:
@@ -125,12 +141,13 @@ public class LayoutActivity extends ActionBarActivity {
         if (!(diff > 0))
             diff += 7;
         calendar.add(Calendar.DAY_OF_MONTH, diff);
-        date = calendar;
+        date = Constants.dateFormat.format(calendar.getTime());
         if (dayNumber == Calendar.FRIDAY) { //TODO: delete
-            date.set(Calendar.YEAR, 2015);
-            date.set(Calendar.MONTH, 2);
-            date.set(Calendar.DAY_OF_MONTH, 27);
+            calendar.set(Calendar.YEAR, 2015);
+            calendar.set(Calendar.MONTH, 2);
+            calendar.set(Calendar.DAY_OF_MONTH, 27);
         }
+        date = Constants.dateFormat.format(calendar.getTime());
         dayOfWeek.setText(getDayOfWeek());
         getData();
         listView.setAdapter(new EventListAdapter(this, R.layout.listview_event_item, eventsArray));
