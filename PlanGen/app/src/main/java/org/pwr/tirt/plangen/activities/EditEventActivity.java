@@ -2,18 +2,23 @@ package org.pwr.tirt.plangen.activities;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import org.pwr.tirt.plangen.R;
 import org.pwr.tirt.plangen.logic.DBAdapter;
@@ -27,13 +32,17 @@ import java.util.Calendar;
 public class EditEventActivity extends ActionBarActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     private static final String LOG_TAG = "Edit Event Activity";
 
-    private EditText editTextDate, editTextTitle, editTextTutor, editTextLocation, editTextTimeStart, editTextTimeEnd;
+    private EditText editTextDate, editTextTitle, editTextTutor, editTextLocation, editTextTimeStart, editTextTimeEnd, editTextNewDate;
     private Spinner spinnerEvents, spinnerType, spinnerDay, spinnerWeekType;
+    private Button buttonSave;
+    private RadioButton radioButtonEditSingle, radioButtonEditMany;
 
     private DBAdapter dbAdapter;
     private ArrayList<Event> eventsList = new ArrayList<>();
 
     private int editedTime = 0;
+    private int editedDate = 0;
+    private int selectedEventPosition = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +53,26 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
         editTextDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editedDate = 1;
                 changeDate(String.valueOf(editTextDate.getText()));
             }
         });
+        editTextNewDate = (EditText) findViewById(R.id.editTextNewDate);
+        editTextNewDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editedDate = 2;
+                changeDate(String.valueOf(editTextNewDate.getText()));
+            }
+        });
         editTextTitle = (EditText) findViewById(R.id.editTextTitle);
+        editTextTitle.addTextChangedListener(new TextWatcher(){
+            public void afterTextChanged(Editable s) {
+                isSavePossible();
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+            public void onTextChanged(CharSequence s, int start, int before, int count){}
+        });
         editTextTutor = (EditText) findViewById(R.id.editTextTutor);
         editTextLocation = (EditText) findViewById(R.id.editTextLocation);
         editTextTimeStart = (EditText) findViewById(R.id.editTextTimeStart);
@@ -72,15 +97,22 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 loadSingleEvent(eventsList.get(position));
+                selectedEventPosition = position;
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
             }
         });
         spinnerType = (Spinner) findViewById(R.id.spinnerType);
         spinnerDay = (Spinner) findViewById(R.id.spinnerDay);
+        spinnerDay.setEnabled(false);
         spinnerWeekType = (Spinner) findViewById(R.id.spinnerWeekType);
+        spinnerWeekType.setEnabled(false);
+
+        radioButtonEditSingle = (RadioButton) findViewById(R.id.radioButtonEditSingle);
+        radioButtonEditMany = (RadioButton) findViewById(R.id.radioButtonEditMany);
+
+        buttonSave = (Button) findViewById(R.id.buttonSaveEvent);
 
         initDatabase();
     }
@@ -111,14 +143,20 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
 
     @Override
     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.YEAR, year);
-        c.set(Calendar.MONTH, monthOfYear);
-        c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        clear();
-        loadEvents(Constants.dateFormat.format(c.getTime()));
-        monthOfYear++;
-        editTextDate.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+        if(editedDate == 1) {
+            Calendar c = Calendar.getInstance();
+            c.set(Calendar.YEAR, year);
+            c.set(Calendar.MONTH, monthOfYear);
+            c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            clear();
+            loadEvents(Constants.dateFormat.format(c.getTime()));
+            monthOfYear++;
+            editTextDate.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+        } else {
+            monthOfYear++;
+            editTextNewDate.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+        }
+        isSavePossible();
     }
 
     @Override
@@ -131,6 +169,7 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
                 editTextTimeEnd.setText(String.format("%02d", hourOfDay) + ":" + String.format("%02d", minute));
                 break;
         }
+        isSavePossible();
     }
 
     private void initDatabase() {
@@ -184,7 +223,9 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
 
         spinnerType.setSelection(getSpinnerIndex(spinnerType, event.type));
         spinnerDay.setSelection(getSpinnerIndex(spinnerDay, getWeekdayName(event.date)));
-        spinnerWeekType.setSelection(getSpinnerIndex(spinnerWeekType, "Co tydzień"));
+        spinnerWeekType.setSelection(getSpinnerIndex(spinnerWeekType, "Co tydzień")); //TODO: co tutaj
+
+        isSavePossible();
     }
 
     private int getSpinnerIndex(Spinner spinner, String value){
@@ -228,6 +269,7 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
         editTextLocation.setText("");
         editTextTimeStart.setText("");
         editTextTimeEnd.setText("");
+        editTextNewDate.setText(null);
 
         ArrayList<String> eventsTitlesList = new ArrayList<>();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, eventsTitlesList);
@@ -239,6 +281,94 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
         spinnerWeekType.setSelection(getSpinnerIndex(spinnerWeekType, getString(R.string.every_week)));
     }
 
+    private void isSavePossible(){
+        buttonSave.setEnabled(true);
+        if(editTextDate.getText().length() <= 0)
+            buttonSave.setEnabled(false);
+        if(eventsList.isEmpty())
+            buttonSave.setEnabled(false);
+        if(editTextTitle.getText().toString().trim().length() <= 0)
+            buttonSave.setEnabled(false);
+        if(editTextTimeStart.getText().length() <= 0)
+            buttonSave.setEnabled(false);
+        if(editTextTimeEnd.getText().length() <= 0)
+            buttonSave.setEnabled(false);
+
+        Calendar timeStart = Calendar.getInstance();
+        Calendar timeEnd = Calendar.getInstance();
+        try {
+            timeStart.setTime(Constants.timeFormat.parse(editTextTimeStart.getText().toString()));
+            timeEnd.setTime(Constants.timeFormat.parse(editTextTimeEnd.getText().toString()));
+        } catch (ParseException e) {
+            Log.e(LOG_TAG, "Parsing time failed. " + e.getMessage());
+        }
+
+        if(timeEnd.before(timeStart)){
+            buttonSave.setEnabled(false);
+            Toast.makeText(getApplication(), R.string.end_before_start_warning, Toast.LENGTH_SHORT).show();
+        }
+
+        if(radioButtonEditSingle.isChecked() && editTextNewDate.getText().length() <= 0)
+            buttonSave.setEnabled(false);
+    }
+
     public void onClickSaveEvent(View view) {
+        if(radioButtonEditSingle.isChecked())
+            changeSingleOneEvent();
+        else if(radioButtonEditMany.isChecked())
+            changeEveryMatchingEvent();
+    }
+
+    private void changeSingleOneEvent() {
+        Event updatedEvent = new Event();
+        updatedEvent.title = editTextTitle.getText().toString();
+        updatedEvent.tutor = editTextTutor.getText().toString();
+        updatedEvent.location = editTextLocation.getText().toString();
+        updatedEvent.timeStart = editTextTimeStart.getText().toString();
+        updatedEvent.timeEnd = editTextTimeEnd.getText().toString();
+        updatedEvent.type = spinnerType.getSelectedItem().toString();
+        Calendar c = Calendar.getInstance();
+        try {
+            c.setTime(Constants.dateFormat.parse(editTextNewDate.getText().toString()));
+        } catch (ParseException e) {
+            Log.e(LOG_TAG, "Parsing time failed. " + e.getMessage());
+        }
+        updatedEvent.date = Constants.dateFormat.format(c.getTime());
+        boolean result;
+        if(selectedEventPosition != -1) {
+            result = dbAdapter.updateData(eventsList.get(selectedEventPosition), updatedEvent);
+            if (result)
+                Toast.makeText(getApplication(), R.string.edit_single_event_success, Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(getApplication(), R.string.edit_single_event_fail, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void changeEveryMatchingEvent(){
+
+    }
+
+    public void onRadioButtonClicked(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+
+        switch(view.getId()) {
+            case R.id.radioButtonEditSingle:
+                if (checked) {
+                    radioButtonEditMany.setChecked(false);
+                    spinnerDay.setEnabled(false);
+                    spinnerWeekType.setEnabled(false);
+                    editTextNewDate.setEnabled(true);
+                }
+                break;
+            case R.id.radioButtonEditMany:
+                if (checked) {
+                    radioButtonEditSingle.setChecked(false);
+                    spinnerDay.setEnabled(true);
+                    spinnerWeekType.setEnabled(true);
+                    editTextNewDate.setEnabled(false);
+                }
+                break;
+        }
+        isSavePossible();
     }
 }

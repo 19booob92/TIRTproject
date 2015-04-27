@@ -76,8 +76,6 @@
         <item>@string/laboratory</item>
         <item>@string/other</item>
     </string-array>
-    <string name="title_activity_add_event_correct_dates">AddEventCorrectDatesActivity</string>
-    <string name="add_new_date_change">Dodaj nową</string>
     <string name="from_date">W dniu</string>
     <string name="to_date">Jak w</string>
     <string name="event_added">Dodano</string>
@@ -86,4 +84,10 @@
     <string name="action_edit_event">Edytuj</string>
     <string name="details_date">Data</string>
     <string name="save">Zapisz</string>
+    <string name="end_before_start_warning">Czas zakończenia następuje przed czasem rozpoczęcia wydarzenia</string>
+    <string name="details_newDate">Data</string>
+    <string name="edit_many_events">Zmień wiele</string>
+    <string name="edit_single_event">Zmień jeden</string>
+    <string name="edit_single_event_success">Zmieniono</string>
+    <string name="edit_single_event_fail">Coś poszło nie tak</string>
 </resources>

@@ -213,6 +213,19 @@ public class DBAdapter {
         return event;
     }
 
+    public boolean updateData(Event toUpdate, Event newValues) {
+        String where = KEY_ID + "=" + toUpdate.id;
+        ContentValues updateValues = new ContentValues();
+        updateValues.put(KEY_TITLE, newValues.title);
+        updateValues.put(KEY_TYPE, newValues.type);
+        updateValues.put(KEY_DATE, newValues.date);
+        updateValues.put(KEY_TIME_START, newValues.timeStart);
+        updateValues.put(KEY_TIME_END, newValues.timeEnd);
+        updateValues.put(KEY_LOCATION, newValues.location);
+        updateValues.put(KEY_TUTOR, newValues.tutor);
+        return db.update(DB_TABLE_NAME, updateValues, where, null) > 0;
+    }
+
     /*public boolean deleteData(long id){
         String where = KEY_ID + "=" + id;
         return db.delete(DB_TABLE_NAME, where, null) > 0;
