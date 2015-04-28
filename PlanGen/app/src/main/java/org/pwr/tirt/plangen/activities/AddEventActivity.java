@@ -1,5 +1,6 @@
 package org.pwr.tirt.plangen.activities;
 
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import org.pwr.tirt.plangen.R;
@@ -19,13 +21,15 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class AddEventActivity extends ActionBarActivity {
+public class AddEventActivity extends ActionBarActivity implements TimePickerDialog.OnTimeSetListener {
     private static final String LOG_TAG = "Add Event Activity";
 
     private EditText editTextTitle, editTextTutor, editTextLocation, editTextTimeStart, editTextTimeEnd;
     private Spinner spinnerType, spinnerDay, spinnerWeekType;
 
     private DBAdapter dbAdapter;
+
+    private int editedTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,21 @@ public class AddEventActivity extends ActionBarActivity {
         editTextTutor = (EditText) findViewById(R.id.editTextTutor);
         editTextLocation = (EditText) findViewById(R.id.editTextlocation);
         editTextTimeStart = (EditText) findViewById(R.id.editTexttimeStart);
+        editTextTimeStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editedTime = 1;
+                changeTime(String.valueOf(editTextTimeStart.getText()));
+            }
+        });
         editTextTimeEnd = (EditText) findViewById(R.id.editTextTimeEnd);
+        editTextTimeEnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editedTime = 2;
+                changeTime(String.valueOf(editTextTimeEnd.getText()));
+            }
+        });
 
         spinnerType = (Spinner) findViewById(R.id.spinnertype);
         spinnerDay = (Spinner) findViewById(R.id.spinnerdni);
@@ -196,5 +214,29 @@ public class AddEventActivity extends ActionBarActivity {
             return Calendar.SUNDAY;
         else
             return -1;
+    }
+
+    private void changeTime(String time) {
+        Calendar c = Calendar.getInstance();
+        if(time != null) {
+            try {
+                c.setTime(Constants.timeFormat.parse(time));
+            } catch (ParseException e) {
+                Log.e(LOG_TAG, "Parsing time failed. " + e.getMessage());
+            }
+        }
+        new TimePickerDialog(this, this, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), true).show();
+    }
+
+    @Override
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        switch(editedTime){
+            case 1:
+                editTextTimeStart.setText(String.format("%02d", hourOfDay) + ":" + String.format("%02d", minute));
+                break;
+            case 2:
+                editTextTimeEnd.setText(String.format("%02d", hourOfDay) + ":" + String.format("%02d", minute));
+                break;
+        }
     }
 }

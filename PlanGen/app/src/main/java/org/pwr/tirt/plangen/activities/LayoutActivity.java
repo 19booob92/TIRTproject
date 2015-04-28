@@ -67,6 +67,7 @@ public class LayoutActivity extends ActionBarActivity {
                 }
             }
         });
+        scrollList();
     }
 
     @Override
@@ -151,6 +152,34 @@ public class LayoutActivity extends ActionBarActivity {
         dayOfWeek.setText(getDayOfWeek());
         getData();
         listView.setAdapter(new EventListAdapter(this, R.layout.listview_event_item, eventsArray));
+        scrollList();
+    }
+
+    private void scrollList() {
+        int position = 0;
+        Calendar now = Calendar.getInstance();
+        for(int i = 0; i < eventsArray.length; i++) {
+            if (!eventsArray[i].title.equals(Constants.FREE_TIME_TAG)) {
+                Calendar eventStart = Calendar.getInstance();
+                try {
+                    eventStart.setTime(Constants.timeFormat.parse(eventsArray[i].timeStart));
+                } catch (ParseException e) {
+                    Log.e(LOG_TAG, "Parsing time failed. " + e.getMessage());
+                }
+                eventStart.set(Calendar.DAY_OF_MONTH, now.get(Calendar.DAY_OF_MONTH));
+                eventStart.set(Calendar.MONTH, now.get(Calendar.MONTH));
+                eventStart.set(Calendar.YEAR, now.get(Calendar.YEAR));
+                if (now.after(eventStart)) {
+                    if (i < eventsArray.length)
+                        position = i + 1;
+                    else
+                        position = i;
+                }
+            }
+        }
+        if(position == 0 && eventsArray.length > 1)
+            position = 2;
+        listView.setSelection(position);
     }
 
     public void onClickMonday(View view) {
