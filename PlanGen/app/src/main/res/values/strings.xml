@@ -90,4 +90,6 @@
     <string name="edit_single_event">Zmień jeden</string>
     <string name="edit_single_event_success">Zmieniono</string>
     <string name="edit_single_event_fail">Coś poszło nie tak</string>
+    <string name="title_activity_week_view">WeekView</string>
+    <string name="week_view_activity">Widok tygodnia</string>
 </resources>

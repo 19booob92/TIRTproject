@@ -56,6 +56,14 @@
             android:label="@string/title_activity_edit_event"
             android:windowSoftInputMode="stateHidden" >
         </activity>
+        <activity
+            android:name=".activities.WeekViewActivity"
+            android:label="@string/title_activity_week_view"
+            android:parentActivityName=".activities.TestActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.pwr.tirt.plangen.activities.TestActivity" />
+        </activity>
     </application>
 
 </manifest>

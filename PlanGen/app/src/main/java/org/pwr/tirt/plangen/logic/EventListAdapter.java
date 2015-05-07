@@ -32,12 +32,14 @@ public class EventListAdapter extends ArrayAdapter<Event> {
     private Context context;
     private int layoutResourceId;
     private Event data[] = null;
+    private boolean isWeekView = false;
 
-    public EventListAdapter(Context context, int layoutResourceId, Event[] data) {
+    public EventListAdapter(Context context, int layoutResourceId, Event[] data, boolean isWeekView) {
         super(context, layoutResourceId, data);
         this.context = context;
         this.layoutResourceId = layoutResourceId;
         this.data = data;
+        this.isWeekView = isWeekView;
     }
 
     @Override
@@ -66,7 +68,42 @@ public class EventListAdapter extends ArrayAdapter<Event> {
         } catch (ParseException e) {
             Log.e(LOG_TAG, "Parsing time failed. " + e.getMessage());
         }
+        if(!isWeekView)
+            dayView(timeStart, timeEnd, holder, event);
+        else
+            weekView(timeStart, timeEnd, holder, event);
 
+        return row;
+    }
+
+    private void weekView(Calendar timeStart, Calendar timeEnd, EventHolder holder, Event event) {
+        /*
+        Set height
+         */
+        long durationLong = (timeEnd.getTimeInMillis() - timeStart.getTimeInMillis()) / (long) (300000);
+        int durationInt = 0;
+        if (durationLong <= 1440)
+            durationInt = (int) durationLong;
+        int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, durationInt, context.getResources().getDisplayMetrics());
+        AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) holder.layout.getLayoutParams();
+        layoutParams.height = height;
+
+        /*
+        Delete TextViews
+         */
+        holder.textViewTitle.setVisibility(View.GONE);
+        holder.textViewTime.setVisibility(View.GONE);
+        holder.textViewLocation.setVisibility(View.GONE);
+
+        /*
+        Set background color
+         */
+        int color = getColor(event.type);
+        if (color != -1)
+            holder.layout.setBackgroundColor(color);
+    }
+
+    private void dayView(Calendar timeStart, Calendar timeEnd, EventHolder holder, Event event) {
         /*
         Set height
          */
@@ -120,7 +157,6 @@ public class EventListAdapter extends ArrayAdapter<Event> {
             holder.textViewTime.setVisibility(View.GONE);
             holder.textViewLocation.setVisibility(View.GONE);
         }
-        return row;
     }
 
     private int getColor(String type) {

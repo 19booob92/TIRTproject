@@ -51,4 +51,9 @@ public class TestActivity extends ActionBarActivity {
         Intent intent = new Intent(this, AddEventActivity.class);
         startActivity(intent);
     }
+
+    public void onClickWeekView(View view) {
+        Intent intent = new Intent(this, WeekViewActivity.class);
+        startActivity(intent);
+    }
 }

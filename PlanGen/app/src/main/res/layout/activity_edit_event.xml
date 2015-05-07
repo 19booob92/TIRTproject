@@ -159,14 +159,6 @@
                     android:layout_weight="0.7" />
             </LinearLayout>
 
-            <RadioButton
-                android:id="@+id/radioButtonEditSingle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/edit_single_event"
-                android:checked="true"
-                android:onClick="onRadioButtonClicked" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -186,58 +178,6 @@
                     android:layout_height="wrap_content"
                     android:focusable="false"
                     android:inputType="date"
-                    android:layout_weight="0.7" />
-            </LinearLayout>
-
-            <RadioButton
-                android:id="@+id/radioButtonEditMany"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="@string/edit_many_events"
-                android:onClick="onRadioButtonClicked" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="15dp" >
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/details_day"
-                    android:gravity="center"
-                    android:layout_weight="0.3" />
-
-                <Spinner
-                    android:id="@+id/spinnerDay"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/weekday"
-                    android:gravity="center"
-                    android:layout_weight="0.7" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="15dp" >
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/details_week_type"
-                    android:gravity="center"
-                    android:layout_weight="0.3" />
-
-                <Spinner
-                    android:id="@+id/spinnerWeekType"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/week_repetition"
-                    android:gravity="center"
                     android:layout_weight="0.7" />
             </LinearLayout>
 

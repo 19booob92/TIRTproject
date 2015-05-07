@@ -49,7 +49,7 @@ public class LayoutActivity extends ActionBarActivity {
 
         final Activity activity = this;
 
-        final EventListAdapter adapter = new EventListAdapter(this, R.layout.listview_event_item, eventsArray);
+        final EventListAdapter adapter = new EventListAdapter(this, R.layout.listview_event_item, eventsArray, false);
         listView = (ListView) findViewById(R.id.listViewEvents);
         View header = getLayoutInflater().inflate(R.layout.listview_event_header, null);
         dayOfWeek = (TextView) header.findViewById(R.id.textViewHeader);
@@ -90,10 +90,22 @@ public class LayoutActivity extends ActionBarActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        reloadData();
+    }
+
+    @Override
     protected void onDestroy() {
         if(dbAdapter != null)
             dbAdapter.closeConnection();
         super.onDestroy();
+    }
+
+    private void reloadData() {
+        getData();
+        listView.setAdapter(new EventListAdapter(this, R.layout.listview_event_item, eventsArray, false));
+        scrollList();
     }
 
     private void initDatabase() {
@@ -150,9 +162,7 @@ public class LayoutActivity extends ActionBarActivity {
         }
         date = Constants.dateFormat.format(calendar.getTime());
         dayOfWeek.setText(getDayOfWeek());
-        getData();
-        listView.setAdapter(new EventListAdapter(this, R.layout.listview_event_item, eventsArray));
-        scrollList();
+        reloadData();
     }
 
     private void scrollList() {
