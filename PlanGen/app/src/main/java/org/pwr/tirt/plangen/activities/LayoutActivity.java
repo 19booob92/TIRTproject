@@ -16,6 +16,7 @@ import org.pwr.tirt.plangen.R;
 import org.pwr.tirt.plangen.logic.DBAdapter;
 import org.pwr.tirt.plangen.logic.Event;
 import org.pwr.tirt.plangen.logic.EventListAdapter;
+import org.pwr.tirt.plangen.logic.TimeListAdapter;
 import org.pwr.tirt.plangen.utils.Constants;
 
 import java.text.ParseException;
@@ -29,7 +30,7 @@ public class LayoutActivity extends ActionBarActivity {
     private Event[] eventsArray;
     private String date;
     private TextView dayOfWeek;
-    private ListView listView;
+    private ListView listView, listViewTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,18 @@ public class LayoutActivity extends ActionBarActivity {
                 }
             }
         });
+
+        Event[] timesArray = new Event[24];
+        for (int i = 0; i < 24; i++) {
+            Event timeEvent = new Event();
+            timeEvent.timeStart = String.format("%2d", i) + ":00";
+            timesArray[i] = timeEvent;
+        }
+
+        final TimeListAdapter adapterTime = new TimeListAdapter(this, R.layout.listview_time_item, timesArray);
+        listViewTime = (ListView) findViewById(R.id.listViewTime);
+        listViewTime.addHeaderView(getLayoutInflater().inflate(R.layout.listview_time_header, null));
+        listViewTime.setAdapter(adapterTime);
         scrollList();
     }
 
