@@ -31,6 +31,7 @@ public class AddEventActivity extends ActionBarActivity implements TimePickerDia
 
     private int editedTime = 0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

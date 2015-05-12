@@ -3,7 +3,7 @@
 
     <item android:drawable="@drawable/shadows"/>
     <item
-        android:drawable="@drawable/add_event_headings"
+        android:drawable="@drawable/corner_bottom_left"
         android:bottom="2px" />
 
 </layer-list>
