@@ -2,10 +2,21 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+             <item name="android:windowContentOverlay">@null</item>
+            <item name="actionBarStyle">@style/ActionBarStyle</item>
+        </style>
 
+        <style name="ActionBarStyle" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+            <item name="background">@color/backgroud_color_layout</item>
+            <item name="titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
+            <item name="subtitleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
+        </style>
+
+    <style name="MyTheme.ActionBar.TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:actionMenuTextColor">@color/black</item>
     </style>
-
-
 
 
 
