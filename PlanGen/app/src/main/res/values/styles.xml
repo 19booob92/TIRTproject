@@ -10,12 +10,15 @@
             <item name="background">@color/backgroud_color_layout</item>
             <item name="titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
             <item name="subtitleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
+
         </style>
 
     <style name="MyTheme.ActionBar.TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">@color/black</item>
         <item name="android:textColorPrimary">@color/black</item>
-        <item name="android:actionMenuTextColor">@color/black</item>
+       <item name="android:actionMenuTextColor">@color/black</item>
+        <item name="android:textColorSecondary">@color/black</item>
+
     </style>
 
 

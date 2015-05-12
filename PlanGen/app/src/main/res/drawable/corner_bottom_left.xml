@@ -11,7 +11,10 @@
                 </gradient>
 
                 <corners
-                    android:bottomRightRadius="10dp"
+                    android:bottomRightRadius="0dp"
+                    android:topLeftRadius="0dp"
+                    android:bottomLeftRadius="10dp"
+                    android:topRightRadius="0dp"
                     />
                 <padding
                     android:left="10dp"
@@ -19,8 +22,8 @@
                     android:right="10dp"
                     android:bottom="0dp" />
                 <stroke
-                    android:width="1px"
-                    android:color="@color/white" />
+                    android:width="2px"
+                    android:color="@color/black" />
             </shape>
         </item>
     </selector>
