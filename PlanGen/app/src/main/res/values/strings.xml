@@ -92,4 +92,5 @@
     <string name="edit_single_event_fail">Coś poszło nie tak</string>
     <string name="title_activity_week_view">WeekView</string>
     <string name="week_view_activity">Widok tygodnia</string>
+    <string name="title_activity_day_view">DayView</string>
 </resources>

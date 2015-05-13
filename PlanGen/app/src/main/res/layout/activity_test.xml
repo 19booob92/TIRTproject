@@ -48,4 +48,12 @@
         android:text="@string/week_view_activity"
         android:onClick="onClickWeekView" />
 
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="@string/layout_activity"
+        android:onClick="onClickDayView" />
+
 </LinearLayout>
