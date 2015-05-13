@@ -1,9 +1,9 @@
 <layer-list
-    xmlns:android="http://schemas.android.com/apk/res/android">
+xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:drawable="@drawable/shadows"/>
-    <item
-        android:drawable="@drawable/corner_top_right"
-        android:bottom="2px" />
+<item android:drawable="@drawable/shadow_right_top"/>
+<item
+    android:drawable="@drawable/corner_top_right"
+    android:bottom="2px" />
 
 </layer-list>
