@@ -42,11 +42,11 @@ public class ScheduleComparatorTest {
 		List<Subject> subjects = new ArrayList<>();
 		List<Subject> subjectsToCompare = new ArrayList<>();
 
-		subjects.add(TestObjectFactory.prepareDefaultSchedule("pn", "7:30"));
-		subjects.add(TestObjectFactory.prepareDefaultSchedule("wt", "8:15"));
-		subjects.add(TestObjectFactory.prepareDefaultSchedule("śr", "7:30"));
+		subjects.add(TestObjectFactory.prepareDefaultSubject("pn", "7:30"));
+		subjects.add(TestObjectFactory.prepareDefaultSubject("wt", "8:15"));
+		subjects.add(TestObjectFactory.prepareDefaultSubject("śr", "7:30"));
 
-		subjectsToCompare.add(TestObjectFactory.prepareDefaultSchedule("pn",
+		subjectsToCompare.add(TestObjectFactory.prepareDefaultSubject("pn",
 				"7:30"));
 
 //		scheduleOne.setSubjectsAsJson(gson.toJson(subjects));
