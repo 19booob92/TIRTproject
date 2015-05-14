@@ -32,11 +32,11 @@ public class DataBaseConnectionTest {
     @Test
     public void shouldSaveNewScheduleInDataBase() {
         ProcessedSchedule processedSchedule = TestObjectFactory.prepareDefaultProcessedSchedule();
-        
+
         Assert.assertTrue(em.isOpen());
-        
+
         em.persist(processedSchedule);
         em.flush();
     }
-    
+
 }

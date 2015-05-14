@@ -2,13 +2,13 @@ sudo pkill -9 -f jetty
 sudo pkill -9 -f tomcat
 
 mvn clean install -Dmaven.test.skip=true
-cd /home/mateusz/Programy/apache-tomcat-8.0.15/webapps/
+cd /home/booob/Programy/apache-tomcat-8.0.15/webapps/
 sudo rm -fr *
-cd /home/mateusz/Repos/TIRTproject/target/
+cd /home/booob/Repos/TIRTproject/target/
 sudo mv tirt-0.0.1-SNAPSHOT.war ROOT.war
-sudo cp /home/mateusz/Repos/TIRTproject/target/ROOT.war /home/mateusz/Programy/apache-tomcat-8.0.15/webapps/
+sudo cp /home/booob/Repos/TIRTproject/target/ROOT.war /home/booob/Programy/apache-tomcat-8.0.15/webapps/
 
-sudo sh /home/mateusz/Programy/apache-tomcat-8.0.15/bin/startup.sh
+sudo sh /home/booob/Programy/apache-tomcat-8.0.15/bin/startup.sh
 
 
-tail -f /home/mateusz/Programy/apache-tomcat-8.0.15/logs/catalina.out
+tail -f /home/booob/Programy/apache-tomcat-8.0.15/logs/catalina.out

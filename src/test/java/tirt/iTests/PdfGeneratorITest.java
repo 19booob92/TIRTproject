@@ -1,4 +1,4 @@
-package tirt.mods;
+package tirt.iTests;
 
 public class PdfGeneratorITest {
 

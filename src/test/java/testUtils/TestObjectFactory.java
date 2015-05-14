@@ -14,7 +14,7 @@ public class TestObjectFactory {
         Subject subject = new Subject();
 
         subject.setDetails(prepareScheduleDetails(dayOfWeek, startTime));
-
+            
         return subject;
     }
 
@@ -37,9 +37,15 @@ public class TestObjectFactory {
 
     static public ProcessedSchedule prepareDefaultProcessedSchedule() {
         ProcessedSchedule processedSchedule = new ProcessedSchedule();
+        List<Subject> subjects = prepareDefaultSubjects(5);
+        
+        for (Subject subject : subjects) {
+            subject.setProcessedSchedule(processedSchedule);
+        }
+        
 
         processedSchedule.setIndexNo(194225L);
-        processedSchedule.setSubject(prepareDefaultSubjects(5));
+        processedSchedule.setSubject(subjects);
         
         return processedSchedule;
     }
