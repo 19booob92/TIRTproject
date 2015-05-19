@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/backgroud_color_layout"
     tools:context="org.pwr.tirt.plangen.activities.AddEventActivity"
-  >
+    >
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,7 +35,7 @@
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:text="@string/details_title"
-                    android:layout_weight="1"
+                    android:layout_weight="0.3"
                     android:background="@drawable/textline_up"
                     android:gravity="center"
                     android:textStyle="bold"
@@ -49,9 +49,10 @@
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:id="@+id/editTextTitle"
-                    android:layout_weight="1"
+                    android:layout_weight="0.7"
                     android:background="@drawable/textline_right_up"
                     android:layout_marginTop="2dp"
+                    android:paddingLeft="2dp"
 
                     />
 
@@ -64,14 +65,14 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="-4dp"
-               >
+                >
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:text="@string/details_tutor"
                     android:id="@+id/textViewTutor"
-                    android:layout_weight="1"
+                    android:layout_weight="0.3"
                     android:textColor="@color/black"
                     android:background="@drawable/textlines"
                     android:gravity="center"
@@ -85,11 +86,12 @@
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:id="@+id/editTextTutor"
-                    android:layout_weight="1"
+                    android:layout_weight="0.7"
+                    android:paddingLeft="2dp"
                     android:background="@drawable/textkines_edittext"
                     android:layout_marginTop="2dp"
 
-                   />
+                    />
 
 
             </LinearLayout>
@@ -106,7 +108,7 @@
                     android:layout_height="60dp"
                     android:text="@string/details_location"
                     android:id="@+id/textViewlocation"
-                    android:layout_weight="1"
+                    android:layout_weight="0.3"
                     android:background="@drawable/textlines"
                     android:gravity="center"
                     android:textStyle="bold"
@@ -120,10 +122,11 @@
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:id="@+id/editTextlocation"
-                    android:layout_weight="1"
+                    android:layout_weight="0.7"
                     android:background="@drawable/textkines_edittext"
                     android:layout_marginTop="2dp"
-                   />
+                    android:paddingLeft="2dp"
+                    />
 
 
             </LinearLayout>
@@ -140,7 +143,7 @@
                     android:layout_height="60dp"
                     android:text="@string/details_timeStart"
                     android:id="@+id/textViewtimeStart"
-                    android:layout_weight="1"
+                    android:layout_weight="0.3"
                     android:background="@drawable/textlines"
                     android:gravity="center"
                     android:textStyle="bold"
@@ -154,9 +157,10 @@
                     android:focusable="false"
                     android:inputType="time"
                     android:ems="10"
-                    android:layout_weight="1"
+                    android:layout_weight="0.7"
                     android:background="@drawable/textkines_edittext"
                     android:layout_marginTop="2dp"
+                    android:paddingLeft="2dp"
                     />
 
 
@@ -173,7 +177,7 @@
                     android:layout_height="60dp"
                     android:text="@string/details_timeEnd"
                     android:id="@+id/textViewTimeEnd"
-                    android:layout_weight="1"
+                    android:layout_weight="0.3"
                     android:background="@drawable/textlines"
                     android:gravity="center"
                     android:textStyle="bold"
@@ -182,14 +186,15 @@
 
                 <EditText
                     android:layout_width="0dp"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:id="@+id/editTextTimeEnd"
                     android:focusable="false"
                     android:inputType="time"
                     android:ems="10"
-                    android:layout_weight="1"
+                    android:layout_weight="0.7"
                     android:background="@drawable/textkines_edittext"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="-4dp"
+                    android:paddingLeft="2dp"
                     />
 
 
@@ -206,7 +211,7 @@
                     android:layout_height="60dp"
                     android:text="@string/details_type"
                     android:id="@+id/textViewType"
-                    android:layout_weight="1"
+                    android:layout_weight="0.3"
                     android:background="@drawable/textlines"
                     android:gravity="center"
                     android:textStyle="bold"
@@ -217,7 +222,7 @@
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:entries="@array/event_type"
-                    android:layout_weight="1"
+                    android:layout_weight="0.7"
                     android:gravity="center"
                     android:background="@drawable/textkines_edittext"
                     android:layout_marginTop="1dp"
@@ -233,14 +238,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="-4dp">
+                android:layout_marginTop="-10dp">
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="60dp"
+                    android:layout_height="80dp"
                     android:text="@string/details_day"
                     android:id="@+id/textViewdzientyg"
-                    android:layout_weight="1"
+                    android:layout_weight="0.3"
                     android:background="@drawable/textlines"
                     android:gravity="center"
                     android:textStyle="bold"
@@ -250,14 +255,14 @@
                 <Spinner
                     android:id="@+id/spinnerdni"
                     android:layout_width="0dp"
-                    android:layout_height="60dp"
+                    android:layout_height="80dp"
                     android:entries="@array/weekday"
-                    android:layout_weight="1"
+                    android:layout_weight="0.7"
                     android:gravity="center"
                     android:textColor="@color/black"
                     android:background="@drawable/textkines_edittext"
-                    android:layout_marginTop="1dp"
-                  >
+                    android:layout_marginTop="9dp"
+                    >
 
                 </Spinner>
 
@@ -269,14 +274,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="-4dp">
+                android:layout_marginTop="-12dp">
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="60dp"
+                    android:layout_height="70dp"
                     android:text="@string/details_week_type"
                     android:id="@+id/textViewWeek"
-                    android:layout_weight="1"
+                    android:layout_weight="0.3"
                     android:background="@drawable/textlines"
                     android:gravity="center"
                     android:textStyle="bold"
@@ -285,13 +290,13 @@
                 <Spinner
                     android:id="@+id/spinnerjakitydzien"
                     android:layout_width="0dp"
-                    android:layout_height="60dp"
+                    android:layout_height="70dp"
                     android:gravity="center"
                     android:entries="@array/week_repetition"
-                    android:layout_weight="1"
+                    android:layout_weight="0.7"
                     android:background="@drawable/textkines_edittext"
-                    android:layout_marginTop="1dp"
-                                    >
+                    android:layout_marginTop="9dp"
+                    >
 
                 </Spinner>
             </LinearLayout>
@@ -305,7 +310,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                   android:layout_alignParentRight="true"
+                    android:layout_alignParentRight="true"
                     android:layout_marginRight="15dp"
                     android:background="@drawable/button_add"
                     android:textColor="@color/black"
