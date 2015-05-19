@@ -51,8 +51,8 @@
                     android:id="@+id/editTextTitle"
                     android:layout_weight="0.7"
                     android:background="@drawable/textline_right_up"
-                    android:layout_marginTop="2dp"
-                    android:paddingLeft="2dp"
+                    android:layout_marginTop="0dp"
+                    android:paddingLeft="4dp"
 
                     />
 
@@ -125,7 +125,7 @@
                     android:layout_weight="0.7"
                     android:background="@drawable/textkines_edittext"
                     android:layout_marginTop="2dp"
-                    android:paddingLeft="2dp"
+                    android:paddingLeft="0dp"
                     />
 
 

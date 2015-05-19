@@ -2,7 +2,7 @@
 <resources>
     <color name="orange">#ffff4b00</color>
     <color name="white">#ffffffff</color>
-    <color name="backgroud_color_layout">#faf296</color>
+    <color name="backgroud_color_layout">#f8c781</color>
     <color name="day_name">#f4541d</color>
     <color name="black">#000000</color>
     <color name="green_add_activity">#92f688</color>
