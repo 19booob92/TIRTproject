@@ -1,5 +1,6 @@
 package org.pwr.tirt.plangen.activities;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -75,13 +76,16 @@ public class DayViewActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                return true;
+            case R.id.action_edit_event:
+                Intent intent = new Intent(this, EditEventActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -160,19 +164,19 @@ public class DayViewActivity extends ActionBarActivity {
     private int getColor(String type) {
         switch (type) {
             case Constants.LECTURE:
-                return Color.BLUE;
+                return getResources().getColor(R.color.lecture);
             case Constants.EXECRISES:
-                return Color.CYAN;
+                return getResources().getColor(R.color.exercises);
             case Constants.LABORATORY:
-                return Color.RED;
+                return getResources().getColor(R.color.laboratory);
             case Constants.PROJECT:
-                return Color.GRAY;
+                return getResources().getColor(R.color.project);
             case Constants.SEMINAR:
-                return Color.GREEN;
+                return getResources().getColor(R.color.seminar);
             case Constants.OTHER:
-                return Color.YELLOW;
+                return getResources().getColor(R.color.other);
             default:
-                return -1;
+                return getResources().getColor(R.color.white);
         }
     }
 

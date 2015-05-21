@@ -1,20 +1,15 @@
 package org.pwr.tirt.plangen.activities;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 
 import org.pwr.tirt.plangen.R;
 import org.pwr.tirt.plangen.logic.DBAdapter;
 import org.pwr.tirt.plangen.logic.Event;
-import org.pwr.tirt.plangen.logic.EventListAdapter;
 import org.pwr.tirt.plangen.utils.Constants;
 
 import java.text.ParseException;
@@ -26,11 +21,15 @@ public class WeekViewActivity extends ActionBarActivity {
 
     private DBAdapter dbAdapter;
     private LinearLayout[] linearLayouts;
+    private Calendar mondayDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_week_view);
+
+        mondayDate = Calendar.getInstance();
+        mondayDate.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
 
         initDatabase();
 
@@ -46,7 +45,6 @@ public class WeekViewActivity extends ActionBarActivity {
         getData();
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_week_view, menu);
@@ -56,12 +54,7 @@ public class WeekViewActivity extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        return id == R.id.action_settings || super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -77,11 +70,11 @@ public class WeekViewActivity extends ActionBarActivity {
     }
 
     private void getData() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-
         for(int i = 0; i < 7; i++) {
-            String date = Constants.dateFormat.format(calendar.getTime());
+            if(linearLayouts[i].getChildCount() > 0)
+                linearLayouts[i].removeAllViews();
+
+            String date = Constants.dateFormat.format(mondayDate.getTime());
             ArrayList<Event> eventsList = dbAdapter.getDailyEvents(date);
             for (Event event : eventsList) {
                 Calendar timeStart = Calendar.getInstance();
@@ -105,26 +98,26 @@ public class WeekViewActivity extends ActionBarActivity {
 
                 linearLayouts[i].addView(layout);
             }
-            calendar.add(Calendar.DAY_OF_MONTH, 1);
+            mondayDate.add(Calendar.DAY_OF_MONTH, 1);
         }
     }
 
     private int getColor(String type) {
         switch (type) {
             case Constants.LECTURE:
-                return Color.BLUE;
+                return getResources().getColor(R.color.lecture);
             case Constants.EXECRISES:
-                return Color.CYAN;
+                return getResources().getColor(R.color.exercises);
             case Constants.LABORATORY:
-                return Color.RED;
+                return getResources().getColor(R.color.laboratory);
             case Constants.PROJECT:
-                return Color.GRAY;
+                return getResources().getColor(R.color.project);
             case Constants.SEMINAR:
-                return Color.GREEN;
+                return getResources().getColor(R.color.seminar);
             case Constants.OTHER:
-                return Color.YELLOW;
+                return getResources().getColor(R.color.other);
             default:
-                return -1;
+                return getResources().getColor(R.color.white);
         }
     }
 }
