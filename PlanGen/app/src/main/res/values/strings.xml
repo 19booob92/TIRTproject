@@ -80,7 +80,7 @@
     <string name="to_date">Jak w</string>
     <string name="event_added">Dodano</string>
     <string name="error">Wystąpił błąd</string>
-    <string name="title_activity_edit_event">EditEventActivity</string>
+    <string name="title_activity_edit_event">Edycja</string>
     <string name="action_edit_event">Edytuj</string>
     <string name="details_date">Data</string>
     <string name="save">Zapisz</string>
