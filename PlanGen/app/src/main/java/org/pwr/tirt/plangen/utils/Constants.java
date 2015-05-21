@@ -1,5 +1,7 @@
 package org.pwr.tirt.plangen.utils;
 
+import android.graphics.Color;
+
 import java.text.SimpleDateFormat;
 
 public class Constants {

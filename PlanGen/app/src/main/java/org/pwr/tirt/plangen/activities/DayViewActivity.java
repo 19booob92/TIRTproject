@@ -160,19 +160,19 @@ public class DayViewActivity extends ActionBarActivity {
     private int getColor(String type) {
         switch (type) {
             case Constants.LECTURE:
-                return Color.BLUE;
+                return getResources().getColor(R.color.lecture);
             case Constants.EXECRISES:
-                return Color.CYAN;
+                return getResources().getColor(R.color.exercises);
             case Constants.LABORATORY:
-                return Color.RED;
+                return getResources().getColor(R.color.laboratory);
             case Constants.PROJECT:
-                return Color.GRAY;
+                return getResources().getColor(R.color.project);
             case Constants.SEMINAR:
-                return Color.GREEN;
+                return getResources().getColor(R.color.seminar);
             case Constants.OTHER:
-                return Color.YELLOW;
+                return getResources().getColor(R.color.other);
             default:
-                return -1;
+                return getResources().getColor(R.color.white);
         }
     }
 

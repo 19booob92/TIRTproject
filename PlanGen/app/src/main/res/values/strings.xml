@@ -6,7 +6,6 @@
     <string name="add">Gotowe</string>
     <string name="load">Wczytaj dane</string>
     <string name="title_activity_logic">LogicActivity</string>
-    <string name="title_activity_layout">LayoutActivity</string>
     <string name="layout_activity">Layout</string>
     <string name="logic_activity">Logic</string>
     <string name="insert_success">Dodano wydarzenie</string>
@@ -30,7 +29,6 @@
     <string name="friday_long">Piątek</string>
     <string name="saturday_long">Sobota</string>
     <string name="sunday_long">Niedziela</string>
-    <string name="title_activity_details">DetailsActivity</string>
     <string name="details_title">Nazwa</string>
     <string name="details_time">Czas:</string>
     <string name="details_timeStart">Od</string>
@@ -90,7 +88,9 @@
     <string name="edit_single_event">Zmień jeden</string>
     <string name="edit_single_event_success">Zmieniono</string>
     <string name="edit_single_event_fail">Coś poszło nie tak</string>
-    <string name="title_activity_week_view">WeekView</string>
+    <string name="title_activity_week_view">Widok tygodnia</string>
     <string name="week_view_activity">Widok tygodnia</string>
     <string name="title_activity_day_view">DayView</string>
+    <string name="previous_week">Poprzedni tydzień</string>
+    <string name="next_week">Następny tydzień</string>
 </resources>

@@ -37,11 +37,6 @@ public class TestActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onClickLayout(View view) {
-        Intent intent = new Intent(this, LayoutActivity.class);
-        startActivity(intent);
-    }
-
     public void onClickLogic(View view) {
         Intent intent = new Intent(this, LogicActivity.class);
         startActivity(intent);
