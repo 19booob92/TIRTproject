@@ -30,6 +30,7 @@
         <activity
             android:name=".activities.AddEventActivity"
             android:label="@string/title_activity_add_event"
+            android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".activities.TestActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -38,7 +39,11 @@
         <activity
             android:name=".activities.EditEventActivity"
             android:label="@string/title_activity_edit_event"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName=".activities.DayViewActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.pwr.tirt.plangen.activities.DayViewActivity" />
         </activity>
         <activity
             android:name=".activities.WeekViewActivity"
