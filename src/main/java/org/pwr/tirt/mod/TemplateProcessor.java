@@ -19,8 +19,8 @@ public class TemplateProcessor {
 			throws IOException, DocumentException {
 		Context ctx = new Context();
 
-		ctx.setVariable(object.getClass().getSimpleName(), object);
+		ctx.setVariable("Subjects", object);
 		return templateEngine.process(templatePath, ctx);
 	}
-
+        
 }

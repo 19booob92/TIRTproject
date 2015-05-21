@@ -5,7 +5,7 @@ var urlBase = "http://localhost:8080/";
 scheduleModule.controller('ScheduleCtrl', function($scope, $http){
 
 	$scope.indexNo = "";
-	#scope.html = "";
+	$scope.html = "";
 
 	$scope.fetchSchedule = function() {
 		$http.get(urlBase + 'schedule/194225').success(function(fechedData) {

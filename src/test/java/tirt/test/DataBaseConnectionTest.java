@@ -1,4 +1,4 @@
-package tirt.iTests;
+package tirt.test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.pwr.tirt.TirTprojectApplication;
+import org.pwr.tirt.WebInitializer;
 import org.pwr.tirt.model.ProcessedSchedule;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -17,7 +18,7 @@ import testUtils.TestObjectFactory;
 
 
 @WebAppConfiguration
-@ContextConfiguration(classes = { TirTprojectApplication.class })
+@ContextConfiguration(classes = { TirTprojectApplication.class, WebInitializer.class })
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
 public class DataBaseConnectionTest {

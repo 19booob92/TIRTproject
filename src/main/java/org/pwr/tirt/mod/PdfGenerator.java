@@ -13,9 +13,6 @@ import com.sun.xml.messaging.saaj.util.ByteOutputStream;
 @Component
 public class PdfGenerator {
 
-	@Autowired
-	ScheduleRepository scheduleRepo;
-
 	public byte[] createPdf(String htmlContent) throws IOException,
 			DocumentException {
 

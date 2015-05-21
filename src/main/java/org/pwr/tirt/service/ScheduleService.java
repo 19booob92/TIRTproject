@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.lowagie.text.DocumentException;
 
 @Service
-@Transactional
 public interface ScheduleService {
 
 	void saveSchedule(ScheduleDto schedule);
