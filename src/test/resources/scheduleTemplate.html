@@ -1,72 +1,95 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <style>
-            div {
-                padding: 5px 10px 5px 10px;
-                margin-bottom: 2em;
-                margin-left: 0px;
-                margin-right: 0px;
-                font-size: small;
-                font-family: Verdana;
-            }
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+div {
+	padding: 5px 10px 5px 10px;
+	margin-bottom: 2em;
+	margin-left: 0px;
+	margin-right: 0px;
+	font-size: small;
+	font-family: Verdana;
+}
 
-            #attachment div:last-child {
-                page-break-after: avoid;
-            }
+#attachment div:last-child {
+	page-break-after: avoid;
+}
 
-            p {
-                margin-bottom: 2em;
-            }
+p {
+	margin-bottom: 2em;
+}
 
-            .center-align {
-                text-align: center;
-            }
+.center-align {
+	text-align: center;
+}
 
-            .right-align {
-                text-align: right;
-                margin-right: 5em;
-            }
+.right-align {
+	text-align: right;
+	margin-right: 5em;
+}
 
-            .left-align {
-                text-align: right;
-                margin-left: 5em;
-            }
+.left-align {
+	text-align: right;
+	margin-left: 5em;
+}
 
-            .page-break {
-                page-break-after: always;
-            }
+.page-break {
+	page-break-after: always;
+}
 
-            .signature-table {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <table class="table table-striped table-bordered table-condensed">
-            <tr name="header">
-                <td>godz.</td>
-                <td>poniedziałek</td>
-                <td>wtorek</td>
-                <td>środa</td>
-                <td>czwartek</td>
-                <td>piątek</td>
-            </tr>
-            <tr name="7:30">
-                <td>7:30</td>
-                <td name="poniedziałek"><pre th:text="${Subjects['pn07:30'] == null} ? ' ' : ${Subjects['pn07:30'].name} + ' ' + ${Subjects['pn07:30'].lector}"></pre></td>
-                <td name="wtorek"><pre th:text="${Subjects['wt07:30'] == null} ? ' ' : ${Subjects['wt07:30'].name} + ' ' + ${Subjects['wt07:30'].lector}"></pre></td>
-                <td name="środa"><pre th:text="${Subjects['sr07:30'] == null} ? ' ' : ${Subjects['sr07:30'].name} + ' ' + ${Subjects[sr07:30'].lector}"></pre></td>
-                <td name="czwartek"><pre th:text="${Subjects['cz07:30'] == null} ? ' ' : ${Subjects['cz07:30'].name} + ' ' + ${Subjects['cz07:30'].lector}"></pre></td>
-                <td name="piątek"><pre th:text="${Subjects['pt07:30'] == null} ? ' ' : ${Subjects['pt07:30'].name} + ' ' + ${Subjects['pt07:30'].lector}"></pre></td>
+table {
+	border-collapse: collapse;
+	table-layout: fixed;
+	width: 310px;
+}
 
-            </tr>
-            <!-- 
+table td {
+	border: solid 1px #fab;
+	width: 100px;
+	word-wrap: break-word;
+}
+
+.signature-table {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	align: center;
+}
+ <!-- Klasy odpowiadające za kolor typów zajęć -->
+table td.Projekt {
+	background-color: #456288;
+}
+
+<!-- Koniec klas odpowiadających za kolor typów zajęć -->
+
+</style>
+</head>
+<body>
+	<table class="table table-striped table-bordered table-condensed">
+		<tr name="header">
+			<td>godz.</td>
+			<td>poniedziałek</td>
+			<td>wtorek</td>
+			<td>środa</td>
+			<td>czwartek</td>
+			<td>piątek</td>
+		</tr>
+		<tr name="7:30">
+			<td>7:30</td>
+			<td name="poniedziałek" th:text="${Subjects['pn07:30'] == null} ? ' ' : ${Subjects['pn07:30'].name} + ' ' + ${Subjects['pn07:30'].lector}"
+					th:attr="class=${Subjects['pn07:30'] == null} ? ' ' : ${Subjects['pn07:30'].type}"></td>
+			<td name="wtorek" th:text="${Subjects['wt07:30'] == null} ? ' ' : ${Subjects['wt07:30'].name} + ' ' + ${Subjects['wt07:30'].lector}"
+					th:attr="class=${Subjects['wt07:30'] == null} ? ' ' : ${Subjects['wt07:30'].type}"></td>
+			<td name="środa" th:text="${Subjects['sr07:30'] == null} ? ' ' : ${Subjects['sr07:30'].name} + ' ' + ${Subjects[sr07:30'].lector}"
+					th:attr="class=${Subjects['sr07:30'] == null} ? ' ' : ${Subjects['sr07:30'].type}"></td>
+			<td name="czwartek" th:text="${Subjects['cz07:30'] == null} ? ' ' : ${Subjects['cz07:30'].name} + ' ' + ${Subjects['cz07:30'].lector}"
+					th:attr="class=${Subjects['cz07:30'] == null} ? ' ' : ${Subjects['cz07:30'].type}"></td>
+			<td name="piątek" th:text="${Subjects['pt07:30'] == null} ? ' ' : ${Subjects['pt07:30'].name} + ' ' + ${Subjects['pt07:30'].lector}"
+					th:attr="class=${Subjects['pt07:30'] == null} ? ' ' : ${Subjects['pt07:30'].type}"></td>
+		</tr>
+		<!-- 
                             <td name="wtorek"><pre class={{wt07_30class}}>{{wt07_30.name}} <br />{{wt07_30.lector}}
                                             </pre></td>
                             <td name="środa"><pre class={{sr07_30class}}>{{sr07_30.name}} <br />{{sr07_30.lector}}
@@ -137,7 +160,7 @@
             
             -->
 
-        </table>
+	</table>
 
-    </body>
+</body>
 </html>

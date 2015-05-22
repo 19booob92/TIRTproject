@@ -1,9 +1,10 @@
 package tirt.test;
 
-import com.lowagie.text.DocumentException;
 import java.io.File;
 import java.io.IOException;
+
 import javax.transaction.Transactional;
+
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,10 +12,11 @@ import org.pwr.tirt.TirTprojectApplication;
 import org.pwr.tirt.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
+
+import com.lowagie.text.DocumentException;
 
 @WebAppConfiguration
 @ContextConfiguration(classes = { TirTprojectApplication.class })
