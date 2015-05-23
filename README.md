@@ -3,6 +3,9 @@ Generowanie planu z html' a dla PWR
 
 <b>http://planpwr.unicloud.pl/schedule.html#</b>
 
+<b>Dokumentacja API</b>
+http://docs.tirtproject.apiary.io/#
+
 # Dostęp do repo - TortoiseGit
 
 Instalacja tak jak tutaj: http://www.mediawiki.org/wiki/Gerrit/TortoiseGit_tutorial.
