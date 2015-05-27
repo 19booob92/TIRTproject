@@ -42,9 +42,9 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="50dp"
                 android:orientation="horizontal"
-                android:layout_weight="1.5">
+                >
 
                 <TextView
                     android:layout_width="0dp"
@@ -52,81 +52,81 @@
                     android:gravity="center"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:background="@drawable/textline_up"
+                    android:background="@drawable/bacgroud"
                     android:text="@string/details_title"
-                    android:layout_weight="0.3" />
+                    android:layout_weight="0.4" />
 
                 <EditText
                     android:id="@+id/editTextTitle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.7"
+                    android:layout_weight="0.6"
                     android:inputType="text"
-                    android:background="@drawable/textline_right_up"
+                    android:background="@drawable/bacgroud"
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="50dp"
                 android:orientation="horizontal"
-                android:layout_weight="1.5" >
+               >
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="@string/details_tutor"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.4"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:background="@drawable/textlines"/>
+                    android:background="@drawable/bacgroud"/>
 
                 <EditText
                     android:id="@+id/editTextTutor"
                     android:layout_width="0dp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:background="@drawable/textkines_edittext"
+                    android:background="@drawable/bacgroud"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.7"
+                    android:layout_weight="0.6"
                     android:inputType="text"
                     />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="50dp"
                 android:orientation="horizontal"
-               android:layout_weight="1.5" >
+              >
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="@string/details_location"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.4"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:background="@drawable/textlines"/>
+                    android:background="@drawable/bacgroud"/>
 
                 <EditText
                     android:id="@+id/editTextLocation"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.7"
+                    android:layout_weight="0.6"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:background="@drawable/textkines_edittext"
+                    android:background="@drawable/bacgroud"
                     android:inputType="text" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="50dp"
                 android:orientation="horizontal"
-                android:layout_weight="1.5" >
+               >
 
                 <TextView
                     android:layout_width="0dp"
@@ -135,8 +135,8 @@
                     android:text="@string/details_timeStart"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:background="@drawable/textlines"
-                    android:layout_weight="0.3" />
+                    android:background="@drawable/bacgroud"
+                    android:layout_weight="0.4" />
 
                 <EditText
                     android:id="@+id/editTextTimeStart"
@@ -144,27 +144,27 @@
                     android:layout_height="match_parent"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:background="@drawable/textkines_edittext"
+                    android:background="@drawable/bacgroud"
                     android:focusable="false"
                     android:inputType="time"
-                    android:layout_weight="0.7" />
+                    android:layout_weight="0.6" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="50dp"
                 android:orientation="horizontal"
-                android:layout_weight="1.5" >
+               >
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="@string/details_timeEnd"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.4"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:background="@drawable/textlines"/>
+                    android:background="@drawable/bacgroud"/>
 
 
                 <EditText
@@ -174,26 +174,26 @@
                     android:focusable="false"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:background="@drawable/textkines_edittext"
+                    android:background="@drawable/bacgroud"
                     android:inputType="time"
-                    android:layout_weight="0.7" />
+                    android:layout_weight="0.6" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="50dp"
                 android:orientation="horizontal"
-                android:layout_weight="1.5">
+               >
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:text="@string/details_type"
                     android:gravity="center"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.4"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:background="@drawable/textlines"/>
+                    android:background="@drawable/bacgroud"/>
 
                 <Spinner
                     android:id="@+id/spinnerType"
@@ -201,15 +201,15 @@
                     android:layout_height="match_parent"
                     android:entries="@array/event_type"
                     android:gravity="center"
-                    android:layout_weight="0.7"
-                    android:background="@drawable/textkines_edittext"/>
+                    android:layout_weight="0.6"
+                    android:background="@drawable/bacgroud"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="60dp"
                 android:orientation="horizontal"
-                android:layout_weight="1.5" >
+                 >
 
                 <TextView
                     android:layout_width="0dp"
@@ -218,8 +218,8 @@
                     android:text="@string/details_newDate"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:background="@drawable/textlines"
-                    android:layout_weight="0.3" />
+                    android:background="@drawable/bacgroud"
+                    android:layout_weight="0.4" />
 
                 <EditText
                     android:id="@+id/editTextNewDate"
@@ -227,10 +227,10 @@
                     android:layout_height="match_parent"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:background="@drawable/textkines_edittext"
+                    android:background="@drawable/bacgroud"
                     android:focusable="false"
                     android:inputType="date"
-                    android:layout_weight="0.7" />
+                    android:layout_weight="0.6" />
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"

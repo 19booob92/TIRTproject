@@ -27,17 +27,17 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="1.5"
+
                 >
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:text="@string/details_title"
-                    android:layout_weight="0.3"
-                    android:background="@drawable/textline_up"
+                    android:layout_weight="0.4"
+                    android:background="@drawable/bacgroud"
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -50,8 +50,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:id="@+id/editTextTitle"
-                    android:layout_weight="0.7"
-                    android:background="@drawable/textline_right_up"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/bacgroud"
                     android:layout_marginTop="0dp"
                     android:paddingLeft="4dp"
 
@@ -63,9 +63,9 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="1.5"
+
 
                 >
 
@@ -74,9 +74,9 @@
                     android:layout_height="match_parent"
                     android:text="@string/details_tutor"
                     android:id="@+id/textViewTutor"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.4"
                     android:textColor="@color/black"
-                    android:background="@drawable/textlines"
+                    android:background="@drawable/bacgroud"
                     android:gravity="center"
                     android:textStyle="bold"
 
@@ -88,9 +88,9 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:id="@+id/editTextTutor"
-                    android:layout_weight="0.7"
+                    android:layout_weight="0.6"
                     android:paddingLeft="2dp"
-                    android:background="@drawable/textkines_edittext"
+                    android:background="@drawable/bacgroud"
 
 
                     />
@@ -100,9 +100,9 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="1.5"
+
 
                 >
 
@@ -111,8 +111,8 @@
                     android:layout_height="match_parent"
                     android:text="@string/details_location"
                     android:id="@+id/textViewlocation"
-                    android:layout_weight="0.3"
-                    android:background="@drawable/textlines"
+                    android:layout_weight="0.4"
+                    android:background="@drawable/bacgroud"
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -125,8 +125,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:id="@+id/editTextlocation"
-                    android:layout_weight="0.7"
-                    android:background="@drawable/textkines_edittext"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/bacgroud"
                     android:paddingLeft="2dp"
                     />
 
@@ -135,9 +135,9 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="1.5">
+                >
 
 
                 <TextView
@@ -145,8 +145,8 @@
                     android:layout_height="match_parent"
                     android:text="@string/details_timeStart"
                     android:id="@+id/textViewtimeStart"
-                    android:layout_weight="0.3"
-                    android:background="@drawable/textlines"
+                    android:layout_weight="0.4"
+                    android:background="@drawable/bacgroud"
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -159,8 +159,8 @@
                     android:focusable="false"
                     android:inputType="time"
                     android:ems="10"
-                    android:layout_weight="0.7"
-                    android:background="@drawable/textkines_edittext"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/bacgroud"
                     android:paddingLeft="2dp"
                     />
 
@@ -169,17 +169,17 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="1.5">
+                >
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:text="@string/details_timeEnd"
                     android:id="@+id/textViewTimeEnd"
-                    android:layout_weight="0.3"
-                    android:background="@drawable/textlines"
+                    android:layout_weight="0.4"
+                    android:background="@drawable/bacgroud"
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -192,8 +192,8 @@
                     android:focusable="false"
                     android:inputType="time"
                     android:ems="10"
-                    android:layout_weight="0.7"
-                    android:background="@drawable/textkines_edittext"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/bacgroud"
                     android:paddingLeft="2dp"
                     />
 
@@ -202,17 +202,17 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="1.5">
+               >
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:text="@string/details_type"
                     android:id="@+id/textViewType"
-                    android:layout_weight="0.3"
-                    android:background="@drawable/textlines"
+                    android:layout_weight="0.4"
+                    android:background="@drawable/bacgroud"
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -222,9 +222,9 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:entries="@array/event_type"
-                    android:layout_weight="0.7"
+                    android:layout_weight="0.6"
                     android:gravity="center"
-                    android:background="@drawable/textkines_edittext"
+                    android:background="@drawable/bacgroud"
 
                     >
 
@@ -236,17 +236,17 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="1.5">
+                >
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:text="@string/details_day"
                     android:id="@+id/textViewdzientyg"
-                    android:layout_weight="0.3"
-                    android:background="@drawable/textlines"
+                    android:layout_weight="0.4"
+                    android:background="@drawable/bacgroud"
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -257,10 +257,10 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:entries="@array/weekday"
-                    android:layout_weight="0.7"
+                    android:layout_weight="0.6"
                     android:gravity="center"
                     android:textColor="@color/black"
-                    android:background="@drawable/textkines_edittext"
+                    android:background="@drawable/bacgroud"
 
                     >
 
@@ -272,17 +272,17 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="1.5" >
+                 >
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:text="@string/details_week_type"
                     android:id="@+id/textViewWeek"
-                    android:layout_weight="0.3"
-                    android:background="@drawable/textlines"
+                    android:layout_weight="0.4"
+                    android:background="@drawable/bacgroud"
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -293,8 +293,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:entries="@array/week_repetition"
-                    android:layout_weight="0.7"
-                    android:background="@drawable/textkines_edittext"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/bacgroud"
 
                     >
 
@@ -303,10 +303,10 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="20dp"
-                android:layout_weight="1.5">
+                >
 
                 <Button
                     android:layout_width="wrap_content"
