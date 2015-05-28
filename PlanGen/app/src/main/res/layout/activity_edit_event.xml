@@ -10,7 +10,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/bacgroud">
@@ -19,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+
             >
 
             <EditText
@@ -44,6 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal"
+
                 >
 
                 <TextView
@@ -66,11 +67,22 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
             </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:orientation="horizontal"
+            android:background="@color/black"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+
+            >
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal"
+
                >
 
                 <TextView
@@ -94,11 +106,22 @@
                     android:inputType="text"
                     />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:orientation="horizontal"
+                android:background="@color/black"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+
+                >
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal"
+
               >
 
                 <TextView
@@ -121,11 +144,22 @@
                     android:background="@drawable/bacgroud"
                     android:inputType="text" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:orientation="horizontal"
+                android:background="@color/black"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+
+                >
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal"
+
                >
 
                 <TextView
@@ -149,11 +183,22 @@
                     android:inputType="time"
                     android:layout_weight="0.6" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:orientation="horizontal"
+                android:background="@color/black"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+
+                >
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal"
+
                >
 
                 <TextView
@@ -178,11 +223,22 @@
                     android:inputType="time"
                     android:layout_weight="0.6" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:orientation="horizontal"
+                android:background="@color/black"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+
+                >
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal"
+
                >
 
                 <TextView
@@ -204,11 +260,22 @@
                     android:layout_weight="0.6"
                     android:background="@drawable/bacgroud"/>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:orientation="horizontal"
+                android:background="@color/black"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+
+                >
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:orientation="horizontal"
+
                  >
 
                 <TextView
@@ -234,10 +301,10 @@
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="20dp"
-                android:layout_weight="1.5">
+                >
             <Button
                 android:id="@+id/buttonSaveEvent"
                 android:layout_width="wrap_content"
