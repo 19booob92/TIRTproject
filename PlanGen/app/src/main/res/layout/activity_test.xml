@@ -25,22 +25,6 @@
                 android:onClick="onClickLogic"/>
 
             <Button
-                android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:text="@string/add_event_activity"
-                android:onClick="onClickAddEvent"/>
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:text="@string/week_view_activity"
-                android:onClick="onClickWeekView" />
-
-            <Button
                 android:id="@+id/button4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

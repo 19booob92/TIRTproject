@@ -46,6 +46,12 @@
     <string name="seminar">Seminarium</string>
     <string name="laboratory">Zajęcia laboratoryjne</string>
     <string name="other">Inne</string>
+    <string name="lecture_short">W</string>
+    <string name="exercises_short">C</string>
+    <string name="project_short">P</string>
+    <string name="seminar_short">S</string>
+    <string name="laboratory_short">L</string>
+    <string name="other_short">I</string>
     <string name="every_week">Co tydzień</string>
     <string name="even_week">Tydzień parzysty</string>
     <string name="odd_week">Tydzień nieparzysty</string>
@@ -90,7 +96,13 @@
     <string name="edit_single_event_fail">Coś poszło nie tak</string>
     <string name="title_activity_week_view">Widok tygodnia</string>
     <string name="week_view_activity">Widok tygodnia</string>
-    <string name="title_activity_day_view">DayView</string>
-    <string name="previous_week">Poprzedni tydzień</string>
-    <string name="next_week">Następny tydzień</string>
+    <string name="title_activity_day_view">Widok dnia</string>
+    <string name="time_label">Czas:</string>
+    <string name="location_label">Miejsce:</string>
+    <string name="type_label">Typ:</string>
+    <string name="title_label">Kurs:</string>
+    <string name="tutor_label">Prowadzący:</string>
+    <string name="action_add_event">Dodaj zajęcia</string>
+    <string name="confirm_change_semester_dates">Zmień</string>
+    <string name="cancel">Zamknij</string>
 </resources>

@@ -1,7 +1,5 @@
 package org.pwr.tirt.plangen.utils;
 
-import android.graphics.Color;
-
 import java.text.SimpleDateFormat;
 
 public class Constants {
@@ -16,8 +14,8 @@ public class Constants {
     public static final String LABORATORY = "Zajęcia laboratoryjne";
     public static final String OTHER = "Inne";
 
-    public static final String SEMESTER_START_DATE = "2015-02-25";
-    public static final String SEMESTER_END_DATE = "2015-06-17";
+    public static String SEMESTER_START_DATE = "2015-02-25";
+    public static String SEMESTER_END_DATE = "2015-06-17";
 
     public static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     public static final SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");

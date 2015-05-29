@@ -8,10 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import org.pwr.tirt.plangen.utils.Constants;
-
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class DBAdapter {
     private static final String LOG_TAG = "DBAdapter";
@@ -201,18 +198,6 @@ public class DBAdapter {
         return finalList;
     }
 
-    public Event getData(long id) {
-        String[] columns = {KEY_ID, KEY_TITLE, KEY_TYPE, KEY_DATE, KEY_TIME_START, KEY_TIME_END, KEY_LOCATION, KEY_TUTOR};
-        String where = KEY_ID + "=" + id;
-        Cursor cursor = db.query(DB_TABLE_NAME, columns, where, null, null, null, null);
-        Event event = null;
-        if(cursor != null && cursor.moveToFirst()) {
-            event = createEvent(cursor);
-            cursor.close();
-        }
-        return event;
-    }
-
     public boolean updateData(Event toUpdate, Event newValues) {
         String where = KEY_ID + "=" + toUpdate.id;
         ContentValues updateValues = new ContentValues();
@@ -225,9 +210,4 @@ public class DBAdapter {
         updateValues.put(KEY_TUTOR, newValues.tutor);
         return db.update(DB_TABLE_NAME, updateValues, where, null) > 0;
     }
-
-    /*public boolean deleteData(long id){
-        String where = KEY_ID + "=" + id;
-        return db.delete(DB_TABLE_NAME, where, null) > 0;
-    }*/
 }
