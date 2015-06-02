@@ -188,7 +188,7 @@ public class AddEventActivity extends ActionBarActivity implements TimePickerDia
     private String getType(){
         String type = spinnerType.getSelectedItem().toString();
         if(type.equals(Constants.LECTURE)
-                || type.equals(Constants.EXECRISES)
+                || type.equals(Constants.EXERCISES)
                 || type.equals(Constants.PROJECT)
                 || type.equals(Constants.SEMINAR)
                 || type.equals(Constants.LABORATORY)

@@ -6,10 +6,10 @@ import org.json.JSONObject;
 import org.pwr.tirt.plangen.utils.Constants;
 
 import java.util.ArrayList;
-
+/**
+Class represents single event from schedule
+ */
 public class Event {
-    private static final String LOG_TAG = "Event";
-
     public int id;
     public String title;
     public String type;
@@ -34,6 +34,12 @@ public class Event {
         deserializeFromObj(obj);
     }
 
+    /**
+     * Method that deserializes {@link Event} object from JSON
+     *
+     * @param obj JSONObject to deserialize
+     * @throws org.json.JSONException
+     */
     private void deserializeFromObj(JSONObject obj) throws JSONException {
         this.title = obj.getString("name");
         this.type = obj.getString("type");
@@ -45,6 +51,13 @@ public class Event {
         this.location = details.getString("building") + " " + details.getString("room");
     }
 
+    /**
+     * Method that deserializes {@link Event}s ArrayList object from String
+     *
+     * @param serialized String to deserialize
+     * @return {@link Event}s ArrayList from schedule
+     * @throws org.json.JSONException
+     */
     public static ArrayList<Event> deserializeArray(String serialized) throws JSONException {
         JSONArray jsonObjs = new JSONArray(serialized);
         ArrayList<Event> events = new ArrayList<>();
@@ -54,5 +67,4 @@ public class Event {
         }
         return events;
     }
-
 }

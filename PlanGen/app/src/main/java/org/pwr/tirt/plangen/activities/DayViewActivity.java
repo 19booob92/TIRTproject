@@ -188,7 +188,7 @@ public class DayViewActivity extends ActionBarActivity {
         switch (type) {
             case Constants.LECTURE:
                 return getResources().getColor(R.color.lecture);
-            case Constants.EXECRISES:
+            case Constants.EXERCISES:
                 return getResources().getColor(R.color.exercises);
             case Constants.LABORATORY:
                 return getResources().getColor(R.color.laboratory);
@@ -209,7 +209,7 @@ public class DayViewActivity extends ActionBarActivity {
             case Constants.LECTURE:
                 result += getString(R.string.lecture_short);
                 break;
-            case Constants.EXECRISES:
+            case Constants.EXERCISES:
                 result += getString(R.string.exercises_short);
                 break;
             case Constants.LABORATORY:

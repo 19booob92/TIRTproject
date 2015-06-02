@@ -106,7 +106,7 @@ public class WeekViewActivity extends ActionBarActivity {
         switch (type) {
             case Constants.LECTURE:
                 return getResources().getColor(R.color.lecture);
-            case Constants.EXECRISES:
+            case Constants.EXERCISES:
                 return getResources().getColor(R.color.exercises);
             case Constants.LABORATORY:
                 return getResources().getColor(R.color.laboratory);
