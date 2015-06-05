@@ -1,20 +1,5 @@
 <resources>
     <string name="app_name">PlanGen</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="test">To jest testowy tekst</string>
-    <string name="add">Gotowe</string>
-    <string name="load">Wczytaj dane</string>
-    <string name="title_activity_logic">LogicActivity</string>
-    <string name="layout_activity">Layout</string>
-    <string name="logic_activity">Logic</string>
-    <string name="insert_success">Dodano wydarzenie</string>
-    <string name="insert_failure">Nie dodano wydarzenia</string>
-    <string name="download">Pobierz</string>
-    <string name="download_success">Pobrano</string>
-    <string name="download_failed">Coś poszło nie tak</string>
-    <string name="title_activity_add_event">Dodaj</string>
-    <string name="add_event_activity">Dodaj</string>
     <string name="monday_short">Pn</string>
     <string name="tuesday_short">Wt</string>
     <string name="wednesday_short">Śr</string>
@@ -29,17 +14,16 @@
     <string name="friday_long">Piątek</string>
     <string name="saturday_long">Sobota</string>
     <string name="sunday_long">Niedziela</string>
-    <string name="details_title">Nazwa</string>
-    <string name="details_time">Czas:</string>
-    <string name="details_timeStart">Od</string>
-    <string name="details_timeEnd">Do</string>
-    <string name="details_location">Miejsce</string>
-    <string name="details_tutor">Prowadzący</string>
-    <string name="details_day">Dzień tygodnia</string>
-    <string name="details_week_type">Typ tygodnia</string>
-    <string name="campus_map">Mapa kampusu</string>
-    <string name="details_type">Typ</string>
-    <string name="header_add">    Dodaj</string>
+    <string-array name="weekday">
+        <item>@string/monday_long</item>
+        <item>@string/tuesday_long</item>
+        <item>@string/wednesday_long</item>
+        <item>@string/thursday_long</item>
+        <item>@string/friday_long</item>
+        <item>@string/saturday_long</item>
+        <item>@string/sunday_long</item>
+    </string-array>
+
     <string name="lecture">Wykład</string>
     <string name="exercises">Ćwiczenia</string>
     <string name="project">Projekt</string>
@@ -52,26 +36,6 @@
     <string name="seminar_short">S</string>
     <string name="laboratory_short">L</string>
     <string name="other_short">I</string>
-    <string name="every_week">Co tydzień</string>
-    <string name="even_week">Tydzień parzysty</string>
-    <string name="odd_week">Tydzień nieparzysty</string>
-    <string name="one_time">Jednorazowo</string>
-
-    <string-array name="weekday">
-        <item>@string/monday_long</item>
-        <item>@string/tuesday_long</item>
-        <item>@string/wednesday_long</item>
-        <item>@string/thursday_long</item>
-        <item>@string/friday_long</item>
-        <item>@string/saturday_long</item>
-        <item>@string/sunday_long</item>
-    </string-array>
-    <string-array name="week_repetition">
-        <item>@string/every_week</item>
-        <item>@string/even_week</item>
-        <item>@string/odd_week</item>
-        <item>@string/one_time</item>
-    </string-array>
     <string-array name="event_type">
         <item>@string/lecture</item>
         <item>@string/exercises</item>
@@ -80,29 +44,53 @@
         <item>@string/laboratory</item>
         <item>@string/other</item>
     </string-array>
-    <string name="from_date">W dniu</string>
-    <string name="to_date">Jak w</string>
+
+    <string name="every_week">Co tydzień</string>
+    <string name="even_week">Tydzień parzysty</string>
+    <string name="odd_week">Tydzień nieparzysty</string>
+    <string name="one_time">Jednorazowo</string>
+    <string-array name="week_repetition">
+        <item>@string/every_week</item>
+        <item>@string/even_week</item>
+        <item>@string/odd_week</item>
+        <item>@string/one_time</item>
+    </string-array>
+
+    <string name="action_settings">Ustawienia</string>
+    <string name="add">Gotowe</string>
+    <string name="download">Pobierz</string>
+    <string name="download_success">Pobrano</string>
+    <string name="add_event_activity">Dodaj</string>
+    <string name="action_add_event">Dodaj zajęcia</string>
     <string name="event_added">Dodano</string>
-    <string name="error">Wystąpił błąd</string>
     <string name="title_activity_edit_event">Edycja</string>
     <string name="action_edit_event">Edytuj</string>
-    <string name="details_date">Data</string>
+    <string name="edit_single_event_success">Zmieniono</string>
+    <string name="campus_map">Mapa kampusu</string>
     <string name="save">Zapisz</string>
     <string name="end_before_start_warning">Czas zakończenia następuje przed czasem rozpoczęcia wydarzenia</string>
-    <string name="details_newDate">Data</string>
-    <string name="edit_many_events">Zmień wiele</string>
-    <string name="edit_single_event">Zmień jeden</string>
-    <string name="edit_single_event_success">Zmieniono</string>
-    <string name="edit_single_event_fail">Coś poszło nie tak</string>
-    <string name="title_activity_week_view">Widok tygodnia</string>
+    <string name="failed_message">Coś poszło nie tak</string>
     <string name="week_view_activity">Widok tygodnia</string>
-    <string name="title_activity_day_view">Widok dnia</string>
+
+    <string name="details_title">Nazwa</string>
+    <string name="details_timeStart">Od</string>
+    <string name="details_timeEnd">Do</string>
+    <string name="details_location">Miejsce</string>
+    <string name="details_tutor">Prowadzący</string>
+    <string name="details_day">Dzień tygodnia</string>
+    <string name="details_week_type">Typ tygodnia</string>
+    <string name="details_type">Typ</string>
+    <string name="details_date">Data</string>
     <string name="time_label">Czas:</string>
     <string name="location_label">Miejsce:</string>
     <string name="type_label">Typ:</string>
     <string name="title_label">Kurs:</string>
     <string name="tutor_label">Prowadzący:</string>
-    <string name="action_add_event">Dodaj zajęcia</string>
-    <string name="confirm_change_semester_dates">Zmień</string>
-    <string name="cancel">Zamknij</string>
+    <string name="details_newDate">Data</string>
+    <string name="index_number">Numer indeksu</string>
+    <string name="semester_settings">Semestr</string>
+    <string name="semester_start_date">Początek</string>
+    <string name="semester_end_date">Koniec</string>
+    <string name="change">Zmień</string>
+    <string name="semester_settings_changed">Zmieniono</string>
 </resources>

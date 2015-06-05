@@ -51,7 +51,10 @@ public class Constants {
      Semester end date
      */
     public static String SEMESTER_END_DATE = "2015-06-17";
-
+    /**
+     * Student's index number
+     */
+    public static String INDEX_NUMBER = "";
     /**
      Date format - yyyy-MM-dd
      */
@@ -60,4 +63,20 @@ public class Constants {
      Time format - HH:mm
      */
     public static final SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+    /**
+     * Shared preferences name
+     */
+    public static final String SHARED_PREFERENCES_NAME = "PlanGenSettingsFile";
+    /**
+     * Shared preferences semester start field name
+     */
+    public static final String SHARED_PREFERENCES_SEMESTER_START_KEY = "SemesterStart";
+    /**
+     * Shared preferences semester end field name
+     */
+    public static final String SHARED_PREFERENCES_SEMESTER_END_KEY = "SemesterEnd";
+    /**
+     * Shared preferences index number field name
+     */
+    public static final String SHARED_PREFERENCES_INDEX_NUMBER_KEY = "IndexNumber";
 }

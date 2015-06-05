@@ -18,6 +18,8 @@
         app:showAsAction="never"
         android:title="@string/week_view_activity" />
 
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="400" app:showAsAction="never" />
+    <item android:id="@+id/action_settings"
+        android:orderInCategory="400"
+        app:showAsAction="never"
+        android:title="@string/action_settings" />
 </menu>

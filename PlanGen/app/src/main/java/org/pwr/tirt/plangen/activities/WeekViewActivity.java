@@ -15,7 +15,9 @@ import org.pwr.tirt.plangen.utils.Constants;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
-
+/**
+ * Activity shows weekly events
+ */
 public class WeekViewActivity extends ActionBarActivity {
     private static final String LOG_TAG = "Week View Activity";
 
@@ -64,11 +66,18 @@ public class WeekViewActivity extends ActionBarActivity {
         super.onDestroy();
     }
 
+    /**
+     * Method that initiates database
+     */
     private void initDatabase() {
         dbAdapter = new DBAdapter(getApplicationContext());
         dbAdapter.openConnection();
     }
 
+    /**
+     * Method that gets {@link Event}s from database for week
+     * and creates layouts for displaying them
+     */
     private void getData() {
         for(int i = 0; i < 7; i++) {
             if(linearLayouts[i].getChildCount() > 0)
@@ -102,6 +111,12 @@ public class WeekViewActivity extends ActionBarActivity {
         }
     }
 
+    /**
+     * Method that returns {@link Event} background color for its type
+     *
+     * @param type Event type
+     * @return Color number
+     */
     private int getColor(String type) {
         switch (type) {
             case Constants.LECTURE:

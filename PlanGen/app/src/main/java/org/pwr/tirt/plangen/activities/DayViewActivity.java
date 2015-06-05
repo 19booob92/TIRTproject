@@ -20,7 +20,9 @@ import org.pwr.tirt.plangen.utils.Constants;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
-
+/**
+ * Activity that displays daily {@link Event}s
+ */
 public class DayViewActivity extends ActionBarActivity {
     private static final String LOG_TAG = "Day View Activity";
 
@@ -39,9 +41,6 @@ public class DayViewActivity extends ActionBarActivity {
         setContentView(R.layout.activity_day_view);
 
         Calendar c = Calendar.getInstance();
-        c.set(Calendar.YEAR, 2015); //TODO: delete
-        c.set(Calendar.MONTH, 2);
-        c.set(Calendar.DAY_OF_MONTH, 27);
         date = Constants.dateFormat.format(c.getTime());
 
         dayButtons[0] = (Button) findViewById(R.id.buttonSunday);
@@ -77,7 +76,8 @@ public class DayViewActivity extends ActionBarActivity {
 
         initDatabase();
         populateBar();
-        getEventData(0);
+        seekBarDayProgress.setProgress(getActualTimeSeekBarPosition(c));
+        //getEventData(0);
         textViewWeekdayName.setText(getWeekdayName());
         setDayButtonsSelection();
     }
@@ -93,6 +93,8 @@ public class DayViewActivity extends ActionBarActivity {
         Intent intent;
         switch (item.getItemId()) {
             case R.id.action_settings:
+                intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.action_add_event:
                 intent = new Intent(this, AddEventActivity.class);
@@ -118,11 +120,17 @@ public class DayViewActivity extends ActionBarActivity {
         super.onDestroy();
     }
 
+    /**
+     * Method that initiates database
+     */
     private void initDatabase() {
         dbAdapter = new DBAdapter(getApplicationContext());
         dbAdapter.openConnection();
     }
 
+    /**
+     * Method that populates horizontal bar with daily {@link Event}s
+     */
     private void populateBar() {
         eventsList = dbAdapter.getDailyEvents(date);
 
@@ -155,6 +163,11 @@ public class DayViewActivity extends ActionBarActivity {
         }
     }
 
+    /**
+     * Method that returns weekday name
+     *
+     * @return Weekday name
+     */
     private String getWeekdayName() {
         Calendar c = Calendar.getInstance();
         if(date != null) {
@@ -184,6 +197,12 @@ public class DayViewActivity extends ActionBarActivity {
         }
     }
 
+    /**
+     * Method that returns {@link Event}s background color
+     *
+     * @param type Event type
+     * @return Color number
+     */
     private int getColor(String type) {
         switch (type) {
             case Constants.LECTURE:
@@ -203,6 +222,12 @@ public class DayViewActivity extends ActionBarActivity {
         }
     }
 
+    /**
+     * Method that returns {@link Event}s type letter to show
+     *
+     * @param type Event type
+     * @return Letter surrounded with spaces
+     */
     private String getTypeLetter(String type) {
         String result = " ";
         switch (type) {
@@ -229,26 +254,29 @@ public class DayViewActivity extends ActionBarActivity {
         return result;
     }
 
+    /**
+     * Method that changes activity view after date selection
+     *
+     * @param dayNumber String to deserialize
+     */
     private void setDate(int dayNumber) {
         Calendar calendar = Calendar.getInstance();
         int diff = dayNumber - calendar.get(Calendar.DAY_OF_WEEK);
-        if (!(diff > 0))
+        if (diff < 0)
             diff += 7;
         calendar.add(Calendar.DAY_OF_MONTH, diff);
         date = Constants.dateFormat.format(calendar.getTime());
-        if (dayNumber == Calendar.FRIDAY) { //TODO: delete
-            calendar.set(Calendar.YEAR, 2015);
-            calendar.set(Calendar.MONTH, 2);
-            calendar.set(Calendar.DAY_OF_MONTH, 27);
-        }
-        date = Constants.dateFormat.format(calendar.getTime());
         textViewWeekdayName.setText(getWeekdayName());
         populateBar();
-        seekBarDayProgress.setProgress(0);
-        getEventData(0);
+        getActualTimeSeekBarPosition(calendar);
         setDayButtonsSelection();
     }
 
+    /**
+     * Method that sets selected on horizontal bar {@link Event}
+     *
+     * @param position Bar thumb position
+     */
     private void getEventData(int position) {
         float weightSelectedPosition = (float)position / 10000f;
         float weightSum = 0f;
@@ -266,6 +294,11 @@ public class DayViewActivity extends ActionBarActivity {
             showEmptyEvent();
     }
 
+    /**
+     * Method that populates TextViews with selected {@link Event} data
+     *
+     * @param event Selected Event
+     */
     private void showEventData(Event event) {
         textViewEventTitle.setText(event.title);
         textViewEventTime.setText(event.timeStart + " - " + event.timeEnd);
@@ -275,6 +308,9 @@ public class DayViewActivity extends ActionBarActivity {
         textViewEventTutor.setText(event.tutor);
     }
 
+    /**
+     * Method that shows empty {@link Event}
+     */
     private void showEmptyEvent() {
         textViewEventTitle.setText("");
         textViewEventTime.setText("");
@@ -284,6 +320,9 @@ public class DayViewActivity extends ActionBarActivity {
         textViewEventTutor.setText("");
     }
 
+    /**
+     * Method that changes weekdays button states
+     */
     private void setDayButtonsSelection() {
         Calendar c = Calendar.getInstance();
         if(date != null) {
@@ -299,6 +338,16 @@ public class DayViewActivity extends ActionBarActivity {
             else
                 dayButtons[i].setSelected(false);
         }
+    }
+
+    /**
+     * Method that calculates horizontal bar thum position based on actual time
+     */
+    private int getActualTimeSeekBarPosition(Calendar c) {
+        int position = ((c.get(Calendar.HOUR_OF_DAY) * 60) + c.get(Calendar.MINUTE))*7;
+        if(position > 10000)
+            position = 10000;
+        return position;
     }
 
     public void onClickMonday(View view) {
