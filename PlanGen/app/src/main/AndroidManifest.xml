@@ -13,9 +13,9 @@
         <activity
             android:name=".activities.SettingsActivity"
             android:label="@string/action_settings"
+            android:parentActivityName=".activities.DayViewActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"
-            android:parentActivityName=".activities.DayViewActivity" >
+            android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.pwr.tirt.plangen.activities.DayViewActivity" />
@@ -23,9 +23,9 @@
         <activity
             android:name=".activities.AddEventActivity"
             android:label="@string/add_event_activity"
+            android:parentActivityName=".activities.DayViewActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"
-            android:parentActivityName=".activities.DayViewActivity" >
+            android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.pwr.tirt.plangen.activities.DayViewActivity" />
@@ -33,9 +33,9 @@
         <activity
             android:name=".activities.EditEventActivity"
             android:label="@string/title_activity_edit_event"
+            android:parentActivityName=".activities.DayViewActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"
-            android:parentActivityName=".activities.DayViewActivity" >
+            android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.pwr.tirt.plangen.activities.DayViewActivity" />
@@ -43,8 +43,8 @@
         <activity
             android:name=".activities.WeekViewActivity"
             android:label="@string/week_view_activity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".activities.DayViewActivity" >
+            android:parentActivityName=".activities.DayViewActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.pwr.tirt.plangen.activities.DayViewActivity" />
@@ -58,6 +58,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.Mapa"
+            android:label="@string/title_activity_mapa" >
         </activity>
     </application>
 

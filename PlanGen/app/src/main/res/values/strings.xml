@@ -93,4 +93,7 @@
     <string name="semester_end_date">Koniec</string>
     <string name="change">Zmień</string>
     <string name="semester_settings_changed">Zmieniono</string>
+    <string name="title_activity_mapa">Mapa</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

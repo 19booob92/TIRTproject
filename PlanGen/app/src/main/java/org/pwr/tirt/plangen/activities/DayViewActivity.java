@@ -108,6 +108,11 @@ public class DayViewActivity extends ActionBarActivity {
                 intent = new Intent(this, WeekViewActivity.class);
                 startActivity(intent);
                 return true;
+            case R.id.campus_map:
+                intent = new Intent(this, Mapa.class);
+                startActivity(intent);
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
