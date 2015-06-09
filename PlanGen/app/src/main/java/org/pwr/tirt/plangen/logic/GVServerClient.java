@@ -11,11 +11,23 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
-
+/**
+ Class used for getting data from server
+ */
 public class GVServerClient {
     //private static final String SERVER_URL = "http://planpwr.unicloud.pl/schedule/";
+    /**
+     Server URL
+     */
     private static final String SERVER_URL = "https://google.com";
 
+    /**
+     * Method that gets schedule from server
+     *
+     * @param context Application context
+     * @param listener Task termination listener
+     * @param indexNumber Student's index number
+     */
     public static void connectToServer(Context context, final ITaskListener listener, String indexNumber) {
         RequestQueue queue = Volley.newRequestQueue(context);
 

@@ -3,12 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="org.pwr.tirt.plangen.activities.AddEventActivity"
     >
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/action_embiventory_stats"
+    <item android:id="@+id/action_campus_map"
         android:icon="@drawable/ic_action_map"
         app:showAsAction="ifRoom"
         android:title="@string/campus_map" />
-      />
 
 </menu>

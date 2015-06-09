@@ -8,11 +8,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import org.pwr.tirt.plangen.utils.Constants;
-
 import java.util.ArrayList;
-import java.util.Calendar;
-
+/**
+ * Class for managing local database
+ */
 public class DBAdapter {
     private static final String LOG_TAG = "DBAdapter";
 
@@ -52,6 +51,9 @@ public class DBAdapter {
     public static final String TUTOR_OPTIONS = "TEXT";
     public static final int TUTOR_COLUMN = 7;
 
+    /**
+     * Query for creating table
+     */
     private static final String DB_CREATE_TABLE =
             "CREATE TABLE " + DB_TABLE_NAME + "( " +
                     KEY_ID + " " + ID_OPTIONS + ", " +
@@ -63,6 +65,9 @@ public class DBAdapter {
                     KEY_LOCATION + " " + LOCATION_OPTIONS + ", " +
                     KEY_TUTOR + " " + TUTOR_OPTIONS +
                     ");";
+    /**
+     * Query for dropping table
+     */
     private static final String DROP_TABLE =
             "DROP TABLE IF EXISTS " + DB_TABLE_NAME;
 
@@ -70,6 +75,9 @@ public class DBAdapter {
     private Context context;
     private DatabaseHelper dbHelper;
 
+    /**
+     * Helps in creating and modifying database
+     */
     private static class DatabaseHelper extends SQLiteOpenHelper {
         public DatabaseHelper(Context context, String name,
                               SQLiteDatabase.CursorFactory factory, int version) {
@@ -94,6 +102,11 @@ public class DBAdapter {
         this.context = context;
     }
 
+    /**
+     * Method that opens database connection
+     *
+     * @return database object
+     */
     public DBAdapter openConnection(){
         dbHelper = new DatabaseHelper(context, DB_NAME, null, DB_VERSION);
         try {
@@ -104,10 +117,19 @@ public class DBAdapter {
         return this;
     }
 
+    /**
+     * Method that closes database connection
+     */
     public void closeConnection() {
         dbHelper.close();
     }
 
+    /**
+     * Method that inserts given {@link Event}
+     *
+     * @param event Event to insert
+     * @return Insertion result
+     */
     public boolean insertData(Event event) {
         boolean result = false;
 
@@ -125,11 +147,20 @@ public class DBAdapter {
         return result;
     }
 
+    /**
+     * Method that clears database
+     */
     public void deleteAllData(){
         db.execSQL(DROP_TABLE);
         db.execSQL(DB_CREATE_TABLE);
     }
 
+    /**
+     * Method that returns {@link Event}s ArrayList with daily events
+     *
+     * @param date String with date to search
+     * @return {@link Event}s ArrayList from database
+     */
     public ArrayList<Event> getDailyEvents (String date) {
         ArrayList<Event> events = new ArrayList<>();
         String[] columns = {KEY_ID, KEY_TITLE, KEY_TYPE, KEY_DATE, KEY_TIME_START, KEY_TIME_END, KEY_LOCATION, KEY_TUTOR};
@@ -155,6 +186,12 @@ public class DBAdapter {
         return events;
     }
 
+    /**
+     * Method that creates {@link Event} for selected item of database response
+     *
+     * @param cursor Selected item
+     * @return Created {@link Event}
+     */
     private Event createEvent(Cursor cursor) {
         Event event = new Event();
         event.id = cursor.getInt(ID_COLUMN);
@@ -168,6 +205,12 @@ public class DBAdapter {
         return event;
     }
 
+    /**
+     * Method that fulfills {@link Event}s ArrayList with free time events
+     *
+     * @param eventsList List to fulfill
+     * @return Fulfilled list
+     */
     private ArrayList<Event> fillToFullDay(ArrayList<Event> eventsList) {
         ArrayList<Event> finalList = new ArrayList<>();
 
@@ -201,18 +244,13 @@ public class DBAdapter {
         return finalList;
     }
 
-    public Event getData(long id) {
-        String[] columns = {KEY_ID, KEY_TITLE, KEY_TYPE, KEY_DATE, KEY_TIME_START, KEY_TIME_END, KEY_LOCATION, KEY_TUTOR};
-        String where = KEY_ID + "=" + id;
-        Cursor cursor = db.query(DB_TABLE_NAME, columns, where, null, null, null, null);
-        Event event = null;
-        if(cursor != null && cursor.moveToFirst()) {
-            event = createEvent(cursor);
-            cursor.close();
-        }
-        return event;
-    }
-
+    /**
+     * Method that updates {@link Event} in database
+     *
+     * @param toUpdate Event to update
+     * @param newValues Event with updated values
+     * @return Result of updating Event
+     */
     public boolean updateData(Event toUpdate, Event newValues) {
         String where = KEY_ID + "=" + toUpdate.id;
         ContentValues updateValues = new ContentValues();
@@ -225,9 +263,4 @@ public class DBAdapter {
         updateValues.put(KEY_TUTOR, newValues.tutor);
         return db.update(DB_TABLE_NAME, updateValues, where, null) > 0;
     }
-
-    /*public boolean deleteData(long id){
-        String where = KEY_ID + "=" + id;
-        return db.delete(DB_TABLE_NAME, where, null) > 0;
-    }*/
 }

@@ -20,7 +20,9 @@ import org.pwr.tirt.plangen.utils.Constants;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
-
+/**
+ * Activity for adding {@link Event}
+ */
 public class AddEventActivity extends ActionBarActivity implements TimePickerDialog.OnTimeSetListener {
     private static final String LOG_TAG = "Add Event Activity";
 
@@ -88,18 +90,32 @@ public class AddEventActivity extends ActionBarActivity implements TimePickerDia
         super.onDestroy();
     }
 
+    /**
+     * Method that is called when dave button is selected
+     * Shows result of adding Events
+     *
+     * @param view tapped button
+     */
     public void OnClickAddEvent(View view) {
         if(!addEvents())
-            Toast.makeText(getApplication(), R.string.error, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplication(), R.string.failed_message, Toast.LENGTH_SHORT).show();
         else
             Toast.makeText(getApplication(), R.string.event_added, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Method that initiates database
+     */
     private void initDatabase() {
         dbAdapter = new DBAdapter(getApplicationContext());
         dbAdapter.openConnection();
     }
 
+    /**
+     * Method that adds {@link Event}s with given data
+     *
+     * @return result of adding operation
+     */
     private boolean addEvents() {
         ArrayList<String> dates = new ArrayList<>();
 
@@ -151,6 +167,13 @@ public class AddEventActivity extends ActionBarActivity implements TimePickerDia
         return true;
     }
 
+    /**
+     * Method that generates dates from semester start to end
+     * for selected weekday and week type
+     *
+     * @param weekType Week type (odd/even/usual)
+     * @return List of generated dates
+     */
     private ArrayList<String> getDates(int weekType) {
         ArrayList<String> dates = new ArrayList<>();
         int daysToAdd = 7;
@@ -185,10 +208,15 @@ public class AddEventActivity extends ActionBarActivity implements TimePickerDia
         return dates;
     }
 
+    /**
+     * Method that returns {@link Event} type based on Spinner selection
+     *
+     * @return {@link Event} type
+     */
     private String getType(){
         String type = spinnerType.getSelectedItem().toString();
         if(type.equals(Constants.LECTURE)
-                || type.equals(Constants.EXECRISES)
+                || type.equals(Constants.EXERCISES)
                 || type.equals(Constants.PROJECT)
                 || type.equals(Constants.SEMINAR)
                 || type.equals(Constants.LABORATORY)
@@ -198,6 +226,11 @@ public class AddEventActivity extends ActionBarActivity implements TimePickerDia
             return Constants.OTHER;
     }
 
+    /**
+     * Method that returns weekday number based on Spinner selection
+     *
+     * @return Weekday number
+     */
     private int getWeekdayNumber(){
         if(spinnerDay.getSelectedItem().toString().equals(getString(R.string.monday_long)))
             return Calendar.MONDAY;
@@ -217,6 +250,11 @@ public class AddEventActivity extends ActionBarActivity implements TimePickerDia
             return -1;
     }
 
+    /**
+     * Method that creates TimePicker view with selected time
+     *
+     * @param time Time to set in TimePicker
+     */
     private void changeTime(String time) {
         Calendar c = Calendar.getInstance();
         if(time != null) {
@@ -229,6 +267,14 @@ public class AddEventActivity extends ActionBarActivity implements TimePickerDia
         new TimePickerDialog(this, this, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), true).show();
     }
 
+    /**
+     * Method that fulfills selected EditText with selected time
+     * in TimePicker view
+     *
+     * @param view Used DatePicker
+     * @param hourOfDay Selected hour
+     * @param minute Selected minutes
+     */
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         switch(editedTime){

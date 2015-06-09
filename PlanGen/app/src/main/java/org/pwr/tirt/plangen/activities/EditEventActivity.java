@@ -27,7 +27,9 @@ import org.pwr.tirt.plangen.utils.Constants;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
-
+/**
+ * Activity for editing {@link Event}
+ */
 public class EditEventActivity extends ActionBarActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     private static final String LOG_TAG = "Edit Event Activity";
 
@@ -132,6 +134,15 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
         super.onDestroy();
     }
 
+    /**
+     * Method that fulfills selected EditText with selected date
+     * in DatePicker view
+     *
+     * @param view Used DatePicker
+     * @param year Selected year
+     * @param monthOfYear Selected month
+     * @param dayOfMonth Selected day
+     */
     @Override
     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
         if(editedDate == 1) {
@@ -142,14 +153,22 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
             clear();
             loadEvents(Constants.dateFormat.format(c.getTime()));
             monthOfYear++;
-            editTextDate.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+            editTextDate.setText(year + "-" + String.format("%02d", monthOfYear) + "-" + String.format("%02d", dayOfMonth));
         } else {
             monthOfYear++;
-            editTextNewDate.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+            editTextNewDate.setText(year + "-" + String.format("%02d", monthOfYear) + "-" + String.format("%02d", dayOfMonth));
         }
         isSavePossible();
     }
 
+    /**
+     * Method that fulfills selected EditText with selected time
+     * in TimePicker view
+     *
+     * @param view Used DatePicker
+     * @param hourOfDay Selected hour
+     * @param minute Selected minutes
+     */
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         switch(editedTime){
@@ -163,11 +182,19 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
         isSavePossible();
     }
 
+    /**
+     * Method that initiates database
+     */
     private void initDatabase() {
         dbAdapter = new DBAdapter(getApplicationContext());
         dbAdapter.openConnection();
     }
 
+    /**
+     * Method that creates DatePicker view with date
+     *
+     * @param date Date to set in DatePicker
+     */
     private void changeDate(String date){
         Calendar c = Calendar.getInstance();
         if(date != null) {
@@ -180,6 +207,11 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
         new DatePickerDialog(this, this, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH)).show();
     }
 
+    /**
+     * Method that creates TimePicker view with time
+     *
+     * @param time Time to set in TimePicker
+     */
     private void changeTime(String time) {
         Calendar c = Calendar.getInstance();
         if(time != null) {
@@ -192,6 +224,11 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
         new TimePickerDialog(this, this, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), true).show();
     }
 
+    /**
+     * Method that loades {@link Event}s for date
+     *
+     * @param date Date to search for
+     */
     private void loadEvents(String date){
         ArrayList<Event> tempEventsList = dbAdapter.getDailyEvents(date);
         for(Event event : tempEventsList)
@@ -205,6 +242,11 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
         spinnerEvents.setAdapter(adapter);
     }
 
+    /**
+     * Method that loades and shows data of single {@link Event}
+     *
+     * @param event Event to load
+     */
     private void loadSingleEvent(Event event) {
         editTextTitle.setText(event.title);
         editTextTutor.setText(event.tutor);
@@ -217,6 +259,13 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
         isSavePossible();
     }
 
+    /**
+     * Method that returns index of selected Spinner item
+     *
+     * @param spinner Selected Spinner
+     * @param value Selected Spinner item
+     * @return Number od selected item
+     */
     private int getSpinnerIndex(Spinner spinner, String value){
         int index = 0;
         for (int i=0;i<spinner.getCount();i++)
@@ -224,6 +273,9 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
         return index;
     }
 
+    /**
+     * Method that cleares view
+     */
     private void clear() {
         eventsList.clear();
         editTextTitle.setText("");
@@ -241,6 +293,10 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
         spinnerType.setSelection(getSpinnerIndex(spinnerType, Constants.LECTURE));
     }
 
+    /**
+     * Method that testes if there are all necessary data
+     * and enables Save button if yes
+     */
     private void isSavePossible(){
         buttonSave.setEnabled(true);
         if(editTextDate.getText().length() <= 0)
@@ -269,6 +325,11 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
         }
     }
 
+    /**
+     * Method that saves {@link Event} modifications in database after button is clicked
+     *
+     * @param view Clicked button
+     */
     public void onClickSaveEvent(View view) {
         Event updatedEvent = new Event();
         updatedEvent.title = editTextTitle.getText().toString();
@@ -299,7 +360,7 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
             if (result)
                 Toast.makeText(getApplication(), R.string.edit_single_event_success, Toast.LENGTH_SHORT).show();
             else
-                Toast.makeText(getApplication(), R.string.edit_single_event_fail, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplication(), R.string.failed_message, Toast.LENGTH_SHORT).show();
         }
     }
 }
