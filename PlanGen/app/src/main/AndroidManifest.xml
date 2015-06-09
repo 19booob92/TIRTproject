@@ -61,7 +61,12 @@
         </activity>
         <activity
             android:name=".activities.Mapa"
-            android:label="@string/title_activity_mapa" >
+            android:label="@string/title_activity_mapa"
+            android:parentActivityName=".activities.DayViewActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.pwr.tirt.plangen.activities.DayViewActivity" />
         </activity>
     </application>
 

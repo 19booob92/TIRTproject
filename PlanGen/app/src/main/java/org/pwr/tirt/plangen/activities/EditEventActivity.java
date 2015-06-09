@@ -2,6 +2,7 @@ package org.pwr.tirt.plangen.activities;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
@@ -120,7 +121,10 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
+        Intent intent;
+        if(id==R.id.action_campus_map){
+            intent = new Intent(this, Mapa.class);
+            startActivity(intent);
             return true;
         }
 

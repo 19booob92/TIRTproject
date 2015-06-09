@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="org.pwr.tirt.plangen.activities.DayViewActivity">
 
-    <item android:id="@+id/campus_map"
+    <item android:id="@+id/action_campus_map"
         android:icon="@drawable/ic_action_map"
         app:showAsAction="ifRoom"
         android:title="@string/campus_map" />

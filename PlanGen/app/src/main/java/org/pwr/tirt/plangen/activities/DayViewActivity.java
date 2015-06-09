@@ -108,7 +108,7 @@ public class DayViewActivity extends ActionBarActivity {
                 intent = new Intent(this, WeekViewActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.campus_map:
+            case R.id.action_campus_map:
                 intent = new Intent(this, Mapa.class);
                 startActivity(intent);
                 return true;

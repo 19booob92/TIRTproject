@@ -1,6 +1,7 @@
 package org.pwr.tirt.plangen.activities;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -87,9 +88,16 @@ public class SettingsActivity extends ActionBarActivity implements ITaskListener
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+       // if (id == R.id.action_settings) {
+            //return true;
+      //  }
+        Intent intent;
+        if(id==R.id.action_campus_map){
+            intent = new Intent(this, Mapa.class);
+            startActivity(intent);
             return true;
         }
+
 
         return super.onOptionsItemSelected(item);
     }
