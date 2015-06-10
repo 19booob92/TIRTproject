@@ -1,12 +1,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="org.pwr.tirt.plangen.activities.DayViewActivity">
+    tools:context="org.pwr.tirt.plangen.activities.DayViewActivity"
+
+
+
+>
+
 
     <item android:id="@+id/action_campus_map"
         android:icon="@drawable/ic_action_map"
         app:showAsAction="ifRoom"
-        android:title="@string/campus_map" />
+        android:title="@string/campus_map"
+
+        />
 
     <item android:id="@+id/action_add_event"
         android:orderInCategory="100"

@@ -13,7 +13,8 @@ import android.os.Bundle;
 import android.util.FloatMath;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
+
+
 
 
 
@@ -31,6 +32,7 @@ public class Mapa extends ActionBarActivity {
     static final int DRAG = 1;
     static final int ZOOM = 2;
     int mode = NONE;
+
 
     /** Called when the activity is first created. */
     @Override public void onCreate(Bundle savedInstanceState)
