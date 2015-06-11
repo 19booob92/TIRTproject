@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
-Class represents single event from schedule
+ * Class represents single event from schedule
  */
 public class Event {
     private static final String LOG_TAG = "Event";
-    private static final boolean serverOn = false;
+    private static final boolean serverOn = true;
 
     public int id;
     public String title;
@@ -122,10 +122,10 @@ public class Event {
             case "wt":
                 weekdayNumber = Calendar.TUESDAY;
                 break;
-            case "sr":
+            case "śr":
                 weekdayNumber = Calendar.WEDNESDAY;
                 break;
-            case "cw":
+            case "cz":
                 weekdayNumber = Calendar.THURSDAY;
                 break;
             case "pt":

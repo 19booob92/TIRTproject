@@ -25,10 +25,10 @@
     </string-array>
 
     <string name="lecture">Wykład</string>
-    <string name="exercises">Ćwiczenia</string>
+    <string name="exercises">Cwiczenia</string>
     <string name="project">Projekt</string>
     <string name="seminar">Seminarium</string>
-    <string name="laboratory">Zajęcia laboratoryjne</string>
+    <string name="laboratory">Zajecialaboratoryjne</string>
     <string name="other">Inne</string>
     <string name="lecture_short">W</string>
     <string name="exercises_short">C</string>
@@ -90,10 +90,8 @@
     <string name="index_number">Numer indeksu</string>
     <string name="semester_settings">Semestr</string>
     <string name="semester_start_date">Początek</string>
-    <string name="semester_end_date">Koniec</string>
+    <string name="semester_end_date">Pierwszy dzień sesji</string>
     <string name="change">Zmień</string>
     <string name="semester_settings_changed">Zmieniono</string>
     <string name="title_activity_mapa">Mapa</string>
-
-    <string name="hello_world">Hello world!</string>
 </resources>

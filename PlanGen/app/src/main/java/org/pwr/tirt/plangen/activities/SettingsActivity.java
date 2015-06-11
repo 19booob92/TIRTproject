@@ -35,7 +35,7 @@ public class SettingsActivity extends ActionBarActivity implements ITaskListener
     private Button buttonDownload;
 
     private DBAdapter dbAdapter;
-    private boolean serverOn = false;
+    private boolean serverOn = true;
     private int editedDate = 0;
 
     @Override

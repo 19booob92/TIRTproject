@@ -76,8 +76,9 @@ public class DayViewActivity extends ActionBarActivity {
 
         initDatabase();
         populateBar();
-        seekBarDayProgress.setProgress(getActualTimeSeekBarPosition(c));
-        //getEventData(0);
+        int seekBarPosition = getActualTimeSeekBarPosition(c);
+        seekBarDayProgress.setProgress(seekBarPosition);
+        getEventData(seekBarPosition);
         textViewWeekdayName.setText(getWeekdayName());
         setDayButtonsSelection();
     }
@@ -273,7 +274,10 @@ public class DayViewActivity extends ActionBarActivity {
         date = Constants.dateFormat.format(calendar.getTime());
         textViewWeekdayName.setText(getWeekdayName());
         populateBar();
-        getActualTimeSeekBarPosition(calendar);
+        showEmptyEvent();
+        int seekBarPosition = getActualTimeSeekBarPosition(calendar);
+        seekBarDayProgress.setProgress(seekBarPosition);
+        getEventData(seekBarPosition);
         setDayButtonsSelection();
     }
 

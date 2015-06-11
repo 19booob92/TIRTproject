@@ -25,7 +25,7 @@ public class Constants {
     /**
      Exercises in Polish
      */
-    public static final String EXERCISES = "Ćwiczenia";
+    public static final String EXERCISES = "Cwiczenia";
     /**
      Project in Polish
      */
@@ -37,7 +37,7 @@ public class Constants {
     /**
      Lecture in Polish
      */
-    public static final String LABORATORY = "Zajęcia laboratoryjne";
+    public static final String LABORATORY = "Zajecialaboratoryjne";
     /**
      Other in Polish
      */

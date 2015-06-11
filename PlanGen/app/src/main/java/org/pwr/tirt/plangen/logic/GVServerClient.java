@@ -19,7 +19,7 @@ public class GVServerClient {
     /**
      Server URL
      */
-    private static final String SERVER_URL = "https://google.com";
+    private static final String SERVER_URL = "http://172.16.64.142:8080/schedule/";
 
     /**
      * Method that gets schedule from server
@@ -32,18 +32,6 @@ public class GVServerClient {
         RequestQueue queue = Volley.newRequestQueue(context);
 
         String link = SERVER_URL + indexNumber;
-        /*JsonArrayRequest getRequest = new JsonArrayRequest(link,
-                new Response.Listener<JSONArray>() {
-                    @Override public void onResponse(JSONArray response) {
-                        listener.dataDownloaded(response);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override public void onErrorResponse(VolleyError error) {
-                        listener.downloadingFailed();
-                    }
-                }
-        );*/
         StringRequest getRequest = new StringRequest(Request.Method.GET, link,
                 new Response.Listener<String>() {
                     @Override

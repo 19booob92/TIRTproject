@@ -24,15 +24,15 @@ public class WeekViewActivity extends ActionBarActivity {
 
     private DBAdapter dbAdapter;
     private LinearLayout[] linearLayouts;
-    private Calendar mondayDate;
+    private Calendar dayDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_week_view);
 
-        mondayDate = Calendar.getInstance();
-        mondayDate.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+        dayDate = Calendar.getInstance();
+        dayDate.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
 
         initDatabase();
 
@@ -91,7 +91,7 @@ public class WeekViewActivity extends ActionBarActivity {
             if(linearLayouts[i].getChildCount() > 0)
                 linearLayouts[i].removeAllViews();
 
-            String date = Constants.dateFormat.format(mondayDate.getTime());
+            String date = Constants.dateFormat.format(dayDate.getTime());
             ArrayList<Event> eventsList = dbAdapter.getDailyEvents(date);
             for (Event event : eventsList) {
                 Calendar timeStart = Calendar.getInstance();
@@ -115,7 +115,7 @@ public class WeekViewActivity extends ActionBarActivity {
 
                 linearLayouts[i].addView(layout);
             }
-            mondayDate.add(Calendar.DAY_OF_MONTH, 1);
+            dayDate.add(Calendar.DAY_OF_MONTH, 1);
         }
     }
 
