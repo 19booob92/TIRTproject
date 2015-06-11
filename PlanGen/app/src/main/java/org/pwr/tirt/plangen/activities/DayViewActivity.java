@@ -109,7 +109,7 @@ public class DayViewActivity extends ActionBarActivity {
                 startActivity(intent);
                 return true;
             case R.id.action_campus_map:
-                intent = new Intent(this, Mapa.class);
+                intent = new Intent(this, MapActivity.class);
                 startActivity(intent);
                 return true;
 

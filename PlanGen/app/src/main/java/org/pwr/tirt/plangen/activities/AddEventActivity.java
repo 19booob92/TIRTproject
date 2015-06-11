@@ -78,7 +78,7 @@ public class AddEventActivity extends ActionBarActivity implements TimePickerDia
         int id = item.getItemId();
         Intent intent;
         if(id==R.id.action_campus_map){
-            intent = new Intent(this, Mapa.class);
+            intent = new Intent(this, MapActivity.class);
             startActivity(intent);
             return true;
         }

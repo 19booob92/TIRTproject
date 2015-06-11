@@ -123,7 +123,7 @@ public class EditEventActivity extends ActionBarActivity implements DatePickerDi
 
         Intent intent;
         if(id==R.id.action_campus_map){
-            intent = new Intent(this, Mapa.class);
+            intent = new Intent(this, MapActivity.class);
             startActivity(intent);
             return true;
         }

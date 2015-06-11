@@ -60,7 +60,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.Mapa"
+            android:name=".activities.MapActivity"
             android:label="@string/title_activity_mapa"
             android:parentActivityName=".activities.DayViewActivity"
             android:screenOrientation="portrait">

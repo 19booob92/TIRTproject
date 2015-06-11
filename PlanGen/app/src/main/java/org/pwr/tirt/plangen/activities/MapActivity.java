@@ -2,14 +2,10 @@ package org.pwr.tirt.plangen.activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ImageView;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.graphics.Matrix;
 import android.graphics.PointF;
-import android.os.Bundle;
 import android.util.FloatMath;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,9 +15,10 @@ import android.view.View;
 
 
 import org.pwr.tirt.plangen.R;
-
-
-public class Mapa extends ActionBarActivity {
+/**
+ * Activity for displaying campus map
+ */
+public class MapActivity extends ActionBarActivity {
     ImageView imageDetail;
     Matrix matrix = new Matrix();
     Matrix savedMatrix = new Matrix();
@@ -33,13 +30,13 @@ public class Mapa extends ActionBarActivity {
     static final int ZOOM = 2;
     int mode = NONE;
 
-
-    /** Called when the activity is first created. */
+    /**
+     * Method that creates activity and manages map scaling
+     */
     @Override public void onCreate(Bundle savedInstanceState)
     { super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mapa);
+        setContentView(R.layout.activity_map);
         imageDetail = (ImageView) findViewById(R.id.imageViewmapa);
-        /** * set on touch listner on image */
         imageDetail.setOnTouchListener(new View.OnTouchListener()
         {
             @Override public boolean onTouch(View v, MotionEvent event)
